@@ -45,8 +45,8 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#141414] mb-5">&lt;queris.db /&gt;</div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-[#141414]">
+          <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;queris.db /&gt;</div>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-[#eef0f6]">
             FREQUENTLY <span className="text-gradient">ASKED</span>
           </h2>
         </motion.div>
@@ -62,18 +62,18 @@ export default function FAQ() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
                 className="comic-card group overflow-hidden rounded-md transition-colors duration-300"
-                style={isOpen ? { borderColor: '#e3352d' } : undefined}
+                style={isOpen ? { borderColor: '#ff4646' } : undefined}
               >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-[#e03131]">0{i + 1}</span>
-                    <span className="font-mono text-sm tracking-wide text-[#141414]">{f.q}</span>
+                    <span className="font-mono text-xs text-[#ff4646]">0{i + 1}</span>
+                    <span className="font-mono text-sm tracking-wide text-[#eef0f6]">{f.q}</span>
                   </span>
                   <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#e03131]/60 text-[#e03131]' : 'border-[#141414] text-[#322c22] group-hover:border-[#e03131]/40 group-hover:text-[#e03131]'}`}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#ff4646]/60 text-[#ff4646]' : 'border-[#4a4e60] text-[#c9cbd8] group-hover:border-[#ff4646]/40 group-hover:text-[#ff4646]'}`}
                   >
                     +
                   </span>
@@ -86,7 +86,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="px-5 pb-5 pl-12 text-sm leading-relaxed text-[#322c22]">{f.a}</p>
+                      <p className="px-5 pb-5 pl-12 text-sm leading-relaxed text-[#c9cbd8]">{f.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

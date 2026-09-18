@@ -8,7 +8,7 @@ const STATS = [
   { value: 5, suffix: ' min', label: 'Showcase / Pod', note: 'explain what you did' },
 ];
 
-function Counter({ value, suffix }) {
+function Counter({ value, suffix, dark }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   const [n, setN] = useState(0);
@@ -29,7 +29,7 @@ function Counter({ value, suffix }) {
   }, [inView, value]);
 
   return (
-    <span ref={ref} className="font-display text-5xl md:text-6xl text-[#fffdf6]" style={{ textShadow: '3px 3px 0 rgba(20,20,20,0.9)' }}>
+    <span ref={ref} className={`font-display text-5xl md:text-6xl ${dark ? 'text-[#17181f]' : 'text-[#fffdf6]'}`} style={{ textShadow: dark ? '2px 2px 0 rgba(0,0,0,0.15)' : '3px 3px 0 rgba(0,0,0,0.9)' }}>
       {n}
       {suffix}
     </span>
@@ -50,13 +50,13 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`comic-card flex flex-col items-center justify-center gap-1 px-4 py-9 text-center ${
                 i % 2 ? 'rotate-[2deg]' : 'rotate-[-2deg]'
-              } ${['bg-[#e3352d]', 'bg-[#1e63d8]', 'bg-[#ffd34d]', 'bg-[#e3352d]'][i]}`}
+              } ${['bg-[#ff4646]', 'bg-[#4f8cff]', 'bg-[#ffd34d]', 'bg-[#ff4646]'][i]}`}
             >
-              <Counter value={s.value} suffix={s.suffix} accent={s.accent} />
-              <div className="mt-2 font-display text-lg tracking-wide text-[#fffdf6]" style={{ textShadow: '2px 2px 0 rgba(20,20,20,0.85)' }}>
+              <Counter value={s.value} suffix={s.suffix} dark={i === 2} />
+              <div className={`mt-2 font-display text-lg tracking-wide ${i === 2 ? 'text-[#17181f]' : 'text-[#fffdf6]'}`} style={i === 2 ? { textShadow: '1px 1px 0 rgba(0,0,0,0.12)' } : { textShadow: '2px 2px 0 rgba(0,0,0,0.85)' }}>
                 {s.label}
               </div>
-              <div className="font-mono text-[10px] tracking-[0.25em] text-[#efe9d9]">// {s.note}</div>
+              <div className={`font-mono text-[10px] tracking-[0.25em] ${i === 2 ? 'text-[#57511f]' : 'text-[#efe9d9]'}`}>// {s.note}</div>
             </motion.div>
           ))}
         </div>

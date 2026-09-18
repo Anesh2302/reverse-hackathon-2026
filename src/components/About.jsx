@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 
 const PILLARS = [
-  { code: '01', icon: '🔍', title: 'Reverse', desc: 'Decompile, decrypt, deconstruct. Understand what machines really do behind the screen.', grad: 'linear-gradient(135deg, #e03131 0%, #1e63d8 100%)' },
-  { code: '02', icon: '💥', title: 'Exploit', desc: 'Chain the vulnerabilities you found into real, working attacks against our live targets.', grad: 'linear-gradient(135deg, #f8b800 0%, #ff5c52 100%)' },
-  { code: '03', icon: '🛡️', title: 'Defend', desc: 'Flip perspectives — patch, harden and defend a live infrastructure from a team of attackers.', grad: 'linear-gradient(135deg, #ffd500 0%, #ff5c52 100%)' },
+  { code: '01', icon: '🔍', title: 'Reverse', desc: 'Decompile, decrypt, deconstruct. Understand what machines really do behind the screen.', grad: 'linear-gradient(135deg, #ff4646 0%, #4f8cff 100%)' },
+  { code: '02', icon: '💥', title: 'Exploit', desc: 'Chain the vulnerabilities you found into real, working attacks against our live targets.', grad: 'linear-gradient(135deg, #ffc53d 0%, #ff7a70 100%)' },
+  { code: '03', icon: '🛡️', title: 'Defend', desc: 'Flip perspectives — patch, harden and defend a live infrastructure from a team of attackers.', grad: 'linear-gradient(135deg, #ffc53d 0%, #ff7a70 100%)' },
 ];
 
 const ELIGIBLE = [
-  { year: 'I', label: 'First Year', note: 'Fresh recruits. Bring curiosity.', grad: 'linear-gradient(135deg, #e03131 0%, #1e63d8 100%)' },
-  { year: 'II', label: 'Second Year', note: 'Sharpening. Bring skills.', grad: 'linear-gradient(135deg, #1e63d8 0%, #f8b800 100%)' },
-  { year: 'III', label: 'Third Year', note: 'The vanguard. Bring dominance.', grad: 'linear-gradient(135deg, #f8b800 0%, #ff5c52 100%)' },
+  { year: 'I', label: 'First Year', note: 'Fresh recruits. Bring curiosity.', grad: 'linear-gradient(135deg, #ff4646 0%, #4f8cff 100%)' },
+  { year: 'II', label: 'Second Year', note: 'Sharpening. Bring skills.', grad: 'linear-gradient(135deg, #4f8cff 0%, #ffc53d 100%)' },
+  { year: 'III', label: 'Third Year', note: 'The vanguard. Bring dominance.', grad: 'linear-gradient(135deg, #ffc53d 0%, #ff7a70 100%)' },
 ];
 
 export default function About() {
@@ -25,13 +25,13 @@ export default function About() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-16 md:mb-20"
         >
           <div>
-            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#141414] mb-5">&lt;ABOUT.EXE /&gt;</div>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#141414] leading-tight">
+            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;ABOUT.EXE /&gt;</div>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#eef0f6] leading-tight">
               A HACKATHON<br />
               <span className="text-gradient">THAT FLIPS THE SCRIPT</span>
             </h2>
           </div>
-          <p className="text-base md:text-lg text-[#322c22] md:pb-1.5 md:text-right">
+          <p className="text-base md:text-lg text-[#c9cbd8] md:pb-1.5 md:text-right">
             Most hackathons make you build apps. This one makes you break them — then rebuild them stronger.
             For 3 hours you'll live on the front line of cybersecurity.
           </p>
@@ -70,8 +70,8 @@ export default function About() {
                   {p.code}
                 </span>
               </div>
-              <h3 className="font-display text-xl font-bold text-[#141414] tracking-wide mb-2">{p.title}</h3>
-              <p className="text-sm leading-relaxed text-[#322c22]">{p.desc}</p>
+              <h3 className="font-display text-xl font-bold text-[#eef0f6] tracking-wide mb-2">{p.title}</h3>
+              <p className="text-sm leading-relaxed text-[#c9cbd8]">{p.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -82,16 +82,16 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-xl border border-[#cfc6a9] bg-[#fffdf6]"
+          className="relative overflow-hidden rounded-xl border border-[#3a3d4d] bg-[#1c1d27]"
         >
           <div className="grid lg:grid-cols-[auto_1fr] items-stretch">
-            <div className="relative flex flex-col justify-center gap-3 border-b border-[#cfc6a9] p-7 lg:border-b-0 lg:border-r">
-              <div className="font-mono text-xs tracking-[0.4em] text-[#1e63d8]">// ELIGIBILITY CHECK</div>
-              <h3 className="font-display text-2xl font-bold text-[#141414] leading-snug">
+            <div className="relative flex flex-col justify-center gap-3 border-b border-[#3a3d4d] p-7 lg:border-b-0 lg:border-r">
+              <div className="font-mono text-xs tracking-[0.4em] text-[#4f8cff]">// ELIGIBILITY CHECK</div>
+              <h3 className="font-display text-2xl font-bold text-[#eef0f6] leading-snug">
                 STRICTLY FOR<br />
                 <span className="text-gradient">DEP-CYS</span>
               </h3>
-              <p className="text-sm text-[#322c22]">
+              <p className="text-sm text-[#c9cbd8]">
                 Reserved for Cybersecurity students. All three years — your time to prove yourselves.
               </p>
             </div>
@@ -104,13 +104,13 @@ export default function About() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.1 }}
-                  className={`flex flex-col items-center justify-center gap-2 px-6 py-10 text-center ${i > 0 ? 'sm:border-l sm:border-[#cfc6a9]' : ''} ${i === 2 ? '' : 'border-b border-[#cfc6a9] sm:border-b-0'}`}
+                  className={`flex flex-col items-center justify-center gap-2 px-6 py-10 text-center ${i > 0 ? 'sm:border-l sm:border-[#3a3d4d]' : ''} ${i === 2 ? '' : 'border-b border-[#3a3d4d] sm:border-b-0'}`}
                 >
                   <div className="font-display text-6xl font-black" style={{ WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', backgroundImage: e.grad }}>
                     {e.year}
                   </div>
-                  <div className="font-mono text-sm tracking-widest text-[#141414]">{e.label}</div>
-                  <div className="text-xs text-[#6d6455]">{e.note}</div>
+                  <div className="font-mono text-sm tracking-widest text-[#eef0f6]">{e.label}</div>
+                  <div className="text-xs text-[#8d90a3]">{e.note}</div>
                 </motion.div>
               ))}
             </div>

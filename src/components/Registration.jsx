@@ -80,12 +80,12 @@ export default function Registration() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-12"
         >
           <div>
-            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#141414] mb-5">&lt;ENLIST.NOW /&gt;</div>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#141414]">
+            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;ENLIST.NOW /&gt;</div>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#eef0f6]">
               REGISTER YOUR <span className="text-gradient">STAND</span>
             </h2>
           </div>
-          <p className="text-base md:text-lg text-[#322c22] md:text-right md:pb-1.5">
+          <p className="text-base md:text-lg text-[#c9cbd8] md:text-right md:pb-1.5">
             DEP-CYS Year I, II &amp; III only. Go solo or pair up with one partner — your registration
             ID is your key to the arena.
           </p>
@@ -103,19 +103,19 @@ export default function Registration() {
                 exit={{ opacity: 0 }}
                 className="relative z-10 text-center py-8"
               >
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#e3352d] [box-shadow:5px_5px_0_0_#141414]">
-                  <span className="font-display text-3xl font-black text-[#e03131]">✓</span>
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#ff4646] [box-shadow:5px_5px_0_0_rgba(0,0,0,0.7)]">
+                  <span className="font-display text-3xl font-black text-[#ff4646]">✓</span>
                 </div>
-                <div className="font-mono text-xs tracking-[0.4em] text-[#e03131] mb-2">// SIGNAL RECEIVED</div>
-                <h3 className="font-display text-2xl md:text-4xl font-bold text-[#141414] mb-2">REGISTRATION CONFIRMED</h3>
-                <p className="text-[#322c22]">You're locked in, soldier.</p>
+                <div className="font-mono text-xs tracking-[0.4em] text-[#ff4646] mb-2">// SIGNAL RECEIVED</div>
+                <h3 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6] mb-2">REGISTRATION CONFIRMED</h3>
+                <p className="text-[#c9cbd8]">You're locked in, soldier.</p>
                 <div className="mx-auto mt-6 inline-block glass rounded-lg px-8 py-4">
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] mb-1">YOUR REGISTRATION ID</div>
-                  <div className="font-display text-xl md:text-2xl font-bold text-[#e03131] neon-text tracking-[0.2em]">
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] mb-1">YOUR REGISTRATION ID</div>
+                  <div className="font-display text-xl md:text-2xl font-bold text-[#ff4646] neon-text tracking-[0.2em]">
                     {result?.registrationId || 'REV26-?????'}
                   </div>
                 </div>
-                <p className="mt-5 font-mono text-xs text-[#7c7263]">
+                <p className="mt-5 font-mono text-xs text-[#989bb0]">
                   Save this ID — you'll verify with it at the check-in gate.
                 </p>
                 <button onClick={reset} className="btn-ghost mt-8 text-xs">Register Another</button>
@@ -141,8 +141,8 @@ export default function Registration() {
                       onClick={() => setMode(m.id)}
                       className={`font-mono text-xs md:text-sm tracking-[0.2em] px-6 py-3 transition-all ${
                         mode === m.id
-                          ? 'bg-[#e3352d] text-[#fffdf6] font-bold border-[3px] border-[#141414] [box-shadow:4px_4px_0_0_#141414]'
-                          : 'bg-[#fffdf6] border-[2px] border-[#141414] text-[#322c22] hover:bg-[#ffd34d]'
+                          ? 'bg-[#ff4646] text-[#fffdf6] font-bold border-[3px] border-[#4a4e60] [box-shadow:4px_4px_0_0_rgba(0,0,0,0.7)]'
+                          : 'bg-[#1c1d27] border-[2px] border-[#4a4e60] text-[#c9cbd8] hover:bg-[#ffd34d]'
                       }`}
                     >
                       {m.label}
@@ -153,25 +153,25 @@ export default function Registration() {
                 {/* Leader / solo fields */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] block mb-1.5">
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">
                       {mode === 'solo' ? 'FULL NAME' : 'LEADER NAME'}
                     </label>
                     <input className={inputClass} value={form.name} onChange={set('name')} placeholder="Alex Carter" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] block mb-1.5">EMAIL</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">EMAIL</label>
                     <input className={inputClass} type="email" value={form.email} onChange={set('email')} placeholder="you@depcys.edu" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] block mb-1.5">PHONE</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">PHONE</label>
                     <input className={inputClass} type="tel" value={form.phone} onChange={set('phone')} placeholder="+91 98765 43210" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] block mb-1.5">ROLL NO.</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">ROLL NO.</label>
                     <input className={inputClass} value={form.rollNo} onChange={set('rollNo')} placeholder="CYS-202X-XXXX" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] block mb-1.5">YEAR</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">YEAR</label>
                     <select className={inputClass} value={form.year} onChange={set('year')} required>
                       <option value="">Select year…</option>
                       {YEARS.map((y) => (
@@ -180,7 +180,7 @@ export default function Registration() {
                     </select>
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] block mb-1.5">FOCUS DOMAIN</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">FOCUS DOMAIN</label>
                     <select className={inputClass} value={form.domain} onChange={set('domain')} required>
                       <option value="">Pick a battleground…</option>
                       {domainOptions.map((d) => (
@@ -200,16 +200,16 @@ export default function Registration() {
                       className="overflow-hidden space-y-6"
                     >
                       <div>
-                        <label className="font-mono text-[10px] tracking-[0.3em] text-[#1e63d8] block mb-1.5">// TEAM NAME</label>
+                        <label className="font-mono text-[10px] tracking-[0.3em] text-[#4f8cff] block mb-1.5">// TEAM NAME</label>
                         <input className={inputClass} value={teamName} onChange={(e) => setTeamName(e.target.value)} placeholder="ShellShocked" required />
                       </div>
 
                       <div>
                         <div className="mb-3 flex items-center gap-2">
-                          <label className="font-mono text-[10px] tracking-[0.3em] text-[#1e63d8]">
-                            // PARTNER <span className="text-[#7c7263] normal-case">(your duo)</span>
+                          <label className="font-mono text-[10px] tracking-[0.3em] text-[#4f8cff]">
+                            // PARTNER <span className="text-[#989bb0] normal-case">(your duo)</span>
                           </label>
-                          <span className="comic-chip bg-[#ffd34d] px-2 py-0.5 text-[9px] text-[#141414]">MAX 1 · TEAM OF 2</span>
+                          <span className="comic-chip bg-[#ffd34d] px-2 py-0.5 text-[9px] text-[#17181f]">MAX 1 · TEAM OF 2</span>
                         </div>
                         <div className="grid gap-3 sm:grid-cols-[1fr_0.45fr_0.3fr]">
                           <input
@@ -243,18 +243,18 @@ export default function Registration() {
                     type="checkbox"
                     checked={form.agree}
                     onChange={(e) => setForm((f) => ({ ...f, agree: e.target.checked }))}
-                    className="mt-0.5 h-4 w-4 accent-[#e03131]"
+                    className="mt-0.5 h-4 w-4 accent-[#ff4646]"
                     required
                   />
-                  <span className="text-xs tracking-wide text-[#322c22]">
-                    I confirm I am a <b className="text-[#141414]">DEP-CYS</b> student in Year <b className="text-[#e03131]">{form.year || 'I/II/III'}</b>,
+                  <span className="text-xs tracking-wide text-[#c9cbd8]">
+                    I confirm I am a <b className="text-[#eef0f6]">DEP-CYS</b> student in Year <b className="text-[#ff4646]">{form.year || 'I/II/III'}</b>,
                     and I agree to the event rules, ethical-hacking constraints and code of conduct.
                   </span>
                 </label>
 
                 {error && (
-                  <div className="border border-[#d92636]/50 bg-[#d92636]/10 px-4 py-3 font-mono text-xs text-[#d92636]">
-                    <span className="text-[#e3352d]">✕</span> {error}
+                  <div className="border border-[#ff4d4d]/50 bg-[#ff4d4d]/10 px-4 py-3 font-mono text-xs text-[#ff4d4d]">
+                    <span className="text-[#ff4646]">✕</span> {error}
                   </div>
                 )}
 
@@ -266,7 +266,7 @@ export default function Registration() {
                   {status === 'submitting' ? 'TRANSMITTING SIGNAL…' : mode === 'solo' ? '// Deploy Solo' : '// Deploy Duo'}
                 </button>
 
-                <div className="text-center font-mono text-[10px] tracking-[0.3em] text-[#7c7263]">
+                <div className="text-center font-mono text-[10px] tracking-[0.3em] text-[#989bb0]">
                   SLOTS ARE LIMITED TO DEP-CYS I · II · III — FIRST COME, FIRST SERVED
                 </div>
               </motion.form>

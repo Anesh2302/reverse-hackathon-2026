@@ -20,7 +20,7 @@ export const DOMAINS = [
     icon: '🛡️',
     title: 'Ethical Hacking',
     desc: 'Think like the attacker. Recon, exploit, and responsibly break into intentionally vulnerable targets to expose weaknesses before real criminals do.',
-    color: '#e03131',
+    color: '#ff4646',
     sites: [
       { name: 'TryHackMe', url: 'https://tryhackme.com', tag: 'Hands-on labs' },
       { name: 'Hack The Box', url: 'https://www.hackthebox.com', tag: 'Real-world boxes' },
@@ -32,7 +32,7 @@ export const DOMAINS = [
     icon: '🔍',
     title: 'Penetration Testing',
     desc: 'Plan, scope, attack and report. Master the pentest lifecycle across web, network and wireless with structured methodology.',
-    color: '#1e63d8',
+    color: '#4f8cff',
     sites: [
       { name: 'PortSwigger Academy', url: 'https://portswigger.net/web-security', tag: 'Web pentest' },
       { name: 'PentesterLab', url: 'https://pentesterlab.com', tag: 'Pro labs' },
@@ -44,7 +44,7 @@ export const DOMAINS = [
     icon: '🏴',
     title: 'CTF & Capture The Flag',
     desc: 'Compete in jeopardy-style and attack-defence CTFs. Grab flags, earn points, and climb leaderboards around the globe.',
-    color: '#f8b800',
+    color: '#ffc53d',
     sites: [
       { name: 'picoCTF', url: 'https://picoctf.org', tag: 'Beginner friendly' },
       { name: 'CTFtime', url: 'https://ctftime.org', tag: 'Upcoming CTFs' },
@@ -56,7 +56,7 @@ export const DOMAINS = [
     icon: '🕵️',
     title: 'Digital Forensics',
     desc: 'Acquire, preserve and analyse digital evidence. Recover deleted files, carve artifacts and reconstruct incidents from disk and memory.',
-    color: '#ffd500',
+    color: '#ffc53d',
     sites: [
       { name: 'CyberDefenders', url: 'https://cyberdefenders.org', tag: 'Forensics blue team' },
       { name: 'Autopsy', url: 'https://www.autopsy.com', tag: 'Open-source forensic tool' },
@@ -68,7 +68,7 @@ export const DOMAINS = [
     icon: '🔧',
     title: 'Reverse Engineering',
     desc: 'Dismantle binaries to understand their logic. Break encryption, crack keygens, and unravel malware — the heart of this hackathon.',
-    color: '#ff5c52',
+    color: '#ff7a70',
     sites: [
       { name: 'Ghidra', url: 'https://ghidra-sre.org', tag: 'NSA reverse suite' },
       { name: 'Crackmes.one', url: 'https://crackmes.one', tag: 'Practice binaries' },
@@ -92,7 +92,7 @@ export const DOMAINS = [
     icon: '🌐',
     title: 'Web Application Security',
     desc: 'Hunt vulnerabilities in modern web apps — SQLi, XSS, SSRF, IDOR and more. Understand how the browser betrays the server.',
-    color: '#e03131',
+    color: '#ff4646',
     sites: [
       { name: 'OWASP Juice Shop', url: 'https://owasp.org/www-project-juice-shop/', tag: 'Vulnerable web app' },
       { name: 'PortSwigger', url: 'https://portswigger.net/web-security', tag: 'Web security academy' },
