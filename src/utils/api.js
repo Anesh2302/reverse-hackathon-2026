@@ -15,11 +15,9 @@ export async function registerParticipant(payload) {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    // Server rejected — throw the human-readable error
     throw new Error(data.error || `Registration failed (${response.status}).`);
   }
 
-  // Success — mirror to local storage as a safety net
   storeLocal(payload, data);
   return data;
 }
@@ -40,4 +38,64 @@ export function getLocalRegistrations() {
   } catch {
     return [];
   }
+}
+
+async function handle(resp) {
+  const data = await resp.json().catch(() => ({}));
+  if (!resp.ok) throw new Error(data.error || `Request failed (${resp.status}).`);
+  return data;
+}
+
+// --- Admin session (httpOnly HMAC cookie — no URL tokens) ---
+export async function adminLogin(email, password) {
+  return handle(
+    await fetch(`${API_BASE}/admin/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    })
+  );
+}
+
+export async function adminLogout() {
+  return handle(await fetch(`${API_BASE}/admin/logout`, { method: 'POST' }));
+}
+
+export async function adminMe() {
+  return handle(await fetch(`${API_BASE}/admin/me`));
+}
+
+export async function fetchRegistrations() {
+  return handle(await fetch(`${API_BASE}/registrations`));
+}
+
+// --- Admin: 30-mark score sheet (Communication 10 · Live Show 10 · Domains 10) ---
+export async function fetchScores() {
+  return handle(await fetch(`${API_BASE}/admin/scores`));
+}
+
+export async function saveScore(registrationId, { communication, liveShow, domains }) {
+  return handle(
+    await fetch(`${API_BASE}/admin/scores/${encodeURIComponent(registrationId)}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ communication, liveShow, domains }),
+    })
+  );
+}
+
+// --- Admin: per-team 5:00 live-show timer (server-authoritative) ---
+export async function fetchTimer() {
+  return handle(await fetch(`${API_BASE}/admin/timer`));
+}
+
+export async function timerAction(registrationId, action) {
+  return handle(
+    await fetch(`${API_BASE}/admin/timer/${encodeURIComponent(registrationId)}/${action}`, { method: 'POST' })
+  );
+}
+
+// --- Admin: access a participant's submitted file ---
+export async function uploadUrl(uploadId) {
+  return `${API_BASE}/admin/uploads/${encodeURIComponent(uploadId)}`;
 }
