@@ -32,7 +32,7 @@ export const DOMAINS = [
     icon: '🔍',
     title: 'Penetration Testing',
     desc: 'Plan, scope, attack and report. Master the pentest lifecycle across web, network and wireless with structured methodology.',
-    color: '#3b82f6',
+    color: '#1e63d8',
     sites: [
       { name: 'PortSwigger Academy', url: 'https://portswigger.net/web-security', tag: 'Web pentest' },
       { name: 'PentesterLab', url: 'https://pentesterlab.com', tag: 'Pro labs' },
@@ -44,7 +44,7 @@ export const DOMAINS = [
     icon: '🏴',
     title: 'CTF & Capture The Flag',
     desc: 'Compete in jeopardy-style and attack-defence CTFs. Grab flags, earn points, and climb leaderboards around the globe.',
-    color: '#e09c08',
+    color: '#f8b800',
     sites: [
       { name: 'picoCTF', url: 'https://picoctf.org', tag: 'Beginner friendly' },
       { name: 'CTFtime', url: 'https://ctftime.org', tag: 'Upcoming CTFs' },
@@ -56,7 +56,7 @@ export const DOMAINS = [
     icon: '🕵️',
     title: 'Digital Forensics',
     desc: 'Acquire, preserve and analyse digital evidence. Recover deleted files, carve artifacts and reconstruct incidents from disk and memory.',
-    color: '#ffb020',
+    color: '#ffd500',
     sites: [
       { name: 'CyberDefenders', url: 'https://cyberdefenders.org', tag: 'Forensics blue team' },
       { name: 'Autopsy', url: 'https://www.autopsy.com', tag: 'Open-source forensic tool' },

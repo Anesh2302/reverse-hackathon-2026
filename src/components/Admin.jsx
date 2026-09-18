@@ -59,17 +59,17 @@ export default function Admin() {
   const localRows = getLocalRegistrations();
 
   return (
-    <div className="min-h-screen bg-[#f1f5fc] px-5 py-20">
+    <div className="min-h-screen bg-[#f7f3e8] px-5 py-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8">
-          <div className="font-mono text-xs tracking-[0.4em] text-[#e03131] mb-2">&lt;ADMIN.CONSOLE /&gt;</div>
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-[#0c1a33]">REGISTRATION <span className="text-gradient">CONSOLE</span></h1>
-          <a href="#top" className="font-mono text-xs text-[#3b82f6] hover:text-[#e03131]">← back to site</a>
+          <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#141414] mb-4">&lt;ADMIN.CONSOLE /&gt;</div>
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-[#141414]">REGISTRATION <span className="text-gradient">CONSOLE</span></h1>
+          <a href="#top" className="font-mono text-xs text-[#1e63d8] hover:text-[#e03131]">← back to site</a>
         </div>
 
         {!rows && (
           <div className="glass rounded-xl p-8 mb-8">
-            <label className="font-mono text-[10px] tracking-[0.3em] text-[#5b6b87] block mb-1.5">ADMIN TOKEN</label>
+            <label className="font-mono text-[10px] tracking-[0.3em] text-[#6d6455] block mb-1.5">ADMIN TOKEN</label>
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 className="field flex-1"
@@ -93,14 +93,14 @@ export default function Admin() {
               </div>
               <div className="flex gap-3">
                 <button onClick={downloadCSV} className="btn-ghost text-xs px-5 py-2">EXPORT CSV</button>
-                <button onClick={() => setRows(null)} className="font-mono text-xs text-[#5b6b87] hover:text-[#e03131] transition-colors px-2">LOG OUT</button>
+                <button onClick={() => setRows(null)} className="font-mono text-xs text-[#6d6455] hover:text-[#e03131] transition-colors px-2">LOG OUT</button>
               </div>
             </div>
 
             <div className="glass-card rounded-xl overflow-x-auto">
               <table className="w-full text-left text-sm border-collapse min-w-[900px]">
                 <thead>
-                  <tr className="font-mono text-[10px] tracking-[0.25em] text-[#5b6b87] border-b border-[#cfd9ea]">
+                  <tr className="font-mono text-[10px] tracking-[0.25em] text-[#6d6455] border-b border-[#141414]">
                     <th className="px-4 py-3">ID</th>
                     <th className="px-4 py-3">MODE</th>
                     <th className="px-4 py-3">NAME</th>
@@ -114,27 +114,27 @@ export default function Admin() {
                 </thead>
                 <tbody>
                   {rows.map((r) => (
-                    <tr key={r.id || r.registrationId} className="border-b border-[#e3e9f4] hover:bg-[#e03131]/5 transition-colors align-top">
+                    <tr key={r.id || r.registrationId} className="border-b border-[#ddd4b8] hover:bg-[#e03131]/5 transition-colors align-top">
                       <td className="px-4 py-3 font-mono text-xs text-[#e03131]">{r.registrationId}</td>
                       <td className="px-4 py-3 font-mono text-xs">
-                        <span className={`px-2 py-1 rounded ${r.mode === 'team' ? 'bg-[#e09c08]/15 text-[#b97506]' : 'bg-[#e03131]/10 text-[#e03131]'}`}>
+                        <span className={`px-2 py-1 rounded ${r.mode === 'team' ? 'bg-[#f8b800]/15 text-[#b97506]' : 'bg-[#e03131]/10 text-[#e03131]'}`}>
                           {r.mode.toUpperCase()}
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-[#0c1a33]">{r.name}</td>
-                      <td className="px-4 py-3 text-xs text-[#43536e]">
+                      <td className="px-4 py-3 text-[#141414]">{r.name}</td>
+                      <td className="px-4 py-3 text-xs text-[#322c22]">
                         <div>{r.email}</div>
-                        <div className="text-[#5b6b87]">{r.phone}</div>
+                        <div className="text-[#6d6455]">{r.phone}</div>
                       </td>
                       <td className="px-4 py-3 text-[#e03131]">{r.year}</td>
                       <td className="px-4 py-3 font-mono text-xs">{r.rollNo}</td>
-                      <td className="px-4 py-3 text-xs text-[#3b82f6]">{r.domain}</td>
-                      <td className="px-4 py-3 text-xs text-[#43536e]">
+                      <td className="px-4 py-3 text-xs text-[#1e63d8]">{r.domain}</td>
+                      <td className="px-4 py-3 text-xs text-[#322c22]">
                         {r.mode === 'team' ? (
                           <>
-                            <div className="text-[#0c1a33]">{r.teamName}</div>
+                            <div className="text-[#141414]">{r.teamName}</div>
                             {(r.members || []).map((m, idx) => (
-                              <div key={idx} className="text-[#5b6b87]">
+                              <div key={idx} className="text-[#6d6455]">
                                 {m.name} · {m.year} · {m.rollNo}
                               </div>
                             ))}
@@ -143,7 +143,7 @@ export default function Admin() {
                           '—'
                         )}
                       </td>
-                      <td className="px-4 py-3 font-mono text-[10px] text-[#5b6b87]">
+                      <td className="px-4 py-3 font-mono text-[10px] text-[#6d6455]">
                         {new Date(r.submittedAt).toLocaleString()}
                       </td>
                     </tr>
@@ -151,12 +151,12 @@ export default function Admin() {
                 </tbody>
               </table>
               {rows.length === 0 && (
-                <div className="px-5 py-10 text-center font-mono text-sm text-[#64748c]">No registrations yet. The feed is empty.</div>
+                <div className="px-5 py-10 text-center font-mono text-sm text-[#7c7263]">No registrations yet. The feed is empty.</div>
               )}
             </div>
 
             {localRows.length > 0 && (
-              <div className="glass rounded-lg px-5 py-4 font-mono text-xs text-[#5b6b87]">
+              <div className="glass rounded-lg px-5 py-4 font-mono text-xs text-[#6d6455]">
                 <span className="text-[#e03131]">NOTE:</span> {localRows.length} local browser-registration{localRows.length === 1 ? '' : 's'} saved as offline fallback (visible only on the device where they were submitted).
               </div>
             )}
