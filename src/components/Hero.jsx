@@ -90,11 +90,8 @@ export default function Hero() {
               <span className="block text-[clamp(1.6rem,4vw,3rem)] text-[#eef0f6] tracking-[0.1em]">
                 {EVENT.dateLabel}
               </span>
-              <span className="mt-1 block text-[clamp(3.4rem,10vw,7.5rem)] text-[#ff4646] [text-shadow:4px_4px_0_rgba(0,0,0,0.7)]">
-                REVERSE<span className="text-[#ffc53d]">HACK</span>
-              </span>
-              <span className="block text-[clamp(3rem,8vw,6rem)]">
-                <span className="text-gradient [text-shadow:none]">ATHLON</span>
+              <span className="mt-1 block whitespace-nowrap text-[clamp(2rem,6vw,5rem)] text-[#ff4646] [text-shadow:4px_4px_0_rgba(0,0,0,0.7)]">
+                REVERSE<span className="text-[#ffc53d]">HACK</span><span className="text-gradient [text-shadow:none]">ATHLON</span>
               </span>
             </motion.h1>
             {/* burst star behind */}
