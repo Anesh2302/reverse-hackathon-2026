@@ -6,7 +6,7 @@ const FEATURES = [
     tag: 'CONSENSUS',
     title: 'Every flag, one defensible answer.',
     desc: 'No single view is trusted alone. Judges challenge, refine and cryptographically sign every flag before your pod advances.',
-    accent: '#bd7a00',
+    accent: '#FFD600',
     icon: '⚖',
   },
   {
@@ -14,7 +14,7 @@ const FEATURES = [
     tag: 'EDGE',
     title: 'Fast where the targets are.',
     desc: 'Workloads route automatically to the nearest healthy domain bus — reversing, forensics, web, pwn — no hand-offs, no lag.',
-    accent: '#3f6376',
+    accent: '#4FC3F7',
     icon: '◎',
   },
   {
@@ -22,7 +22,7 @@ const FEATURES = [
     tag: 'DEVELOPER FIRST',
     title: 'Three lines from intent to runtime.',
     desc: 'Pick a domain, pick a pod, deploy. The gate signs you in and the chamber opens on the countdown.',
-    accent: '#5b8f6f',
+    accent: '#4FC3F7',
     icon: '⧉',
     code: true,
   },
@@ -31,7 +31,7 @@ const FEATURES = [
     tag: 'ENCLAVES',
     title: 'Your panel never leaves the hub.',
     desc: 'Roll number and registration ID are hardware-isolated. Zero retention between scores — per-pod proof, nothing else.',
-    accent: '#a35c00',
+    accent: '#FF6B35',
     icon: '⬢',
   },
 ];
@@ -45,7 +45,7 @@ pod.note // "signed at the gate"`;
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="relative py-24 md:py-32 px-5 bg-[#f5f1e6]">
+    <section id="how" className="relative py-24 md:py-32 px-5 bg-[#0F0F0F]">
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-[0.06]" />
       <div className="mx-auto max-w-7xl relative z-10">
         <motion.div
@@ -56,12 +56,12 @@ export default function HowItWorks() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-16 md:mb-20"
         >
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-[#e0d5b4] bg-[#fbf7ee] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#a35c00] shadow-sm mb-5">&lt;RUNTIME.CORE /&gt;</div>
-            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#16171c] leading-tight">
-              BUILT FOR THE GAP BETWEEN <span className="text-[#a35c00]">DEMO AND PRODUCTION.</span>
+            <div className="inline-flex items-center gap-2 rounded-none border border-[#262626] bg-[#111111] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.3em] text-[#FFD600] shadow-sm mb-5">[03] // HOW IT WORKS</div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold uppercase text-[#F5F5F0] leading-tight">
+              BUILT FOR THE GAP BETWEEN <span className="text-[#FFD600]">DEMO AND PRODUCTION.</span>
             </h2>
           </div>
-          <p className="font-mono text-sm md:text-base text-[#bdb091] md:pb-1.5 md:text-right">
+          <p className="font-mono text-sm md:text-base text-[#6E6E6E] md:pb-1.5 md:text-right">
             from intention to a signed leaderboard entry in three lines. no crafts, no stories — a runtime.
           </p>
         </motion.div>
@@ -74,31 +74,31 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="relative rounded-lg border border-[#e0d5b4] bg-[#fbf7ee] p-7"
-              style={{ boxShadow: '0 8px 22px rgba(90,60,0,0.08), inset 0 0 22px rgba(179,113,0,0.05)' }}
+              className="relative rounded-none border border-[#262626] bg-[#161616] p-7"
+              style={{ boxShadow: '0 8px 22px rgba(0,0,0,0.45), inset 0 0 22px rgba(0,0,0,0.25)' }}
             >
               <span className="absolute left-0 top-0 h-full w-[2px]" style={{ background: f.accent }} />
               <div className="mb-6 flex items-center justify-between">
                 <span className="font-mono text-xs tracking-[0.3em]" style={{ color: f.accent }}>
-                  {f.n} <span className="text-[#8a7a4a]">/</span> {f.tag}
+                  {f.n} <span className="text-[#6E6E6E]">/</span> {f.tag}
                 </span>
                 <span className="text-xl" style={{ color: f.accent }}>{f.icon}</span>
               </div>
-              <h3 className="mb-3 font-display text-lg md:text-xl font-bold text-[#16171c] leading-snug">{f.title}</h3>
+              <h3 className="mb-3 font-display text-lg md:text-xl font-bold uppercase text-[#F5F5F0] leading-snug">{f.title}</h3>
 
               {f.code ? (
-                <pre className="mt-4 overflow-x-auto rounded-md border border-[#e0d5b4] bg-[#efe9d8] p-4 font-mono text-[12px] leading-6 text-[#4a4639]">
+                <pre className="mt-4 overflow-x-auto rounded-none border border-[#262626] bg-[#0F0F0F] p-4 font-mono text-[12px] leading-6 text-[#F5F5F0]">
                   <code>
                     {SNIPPET.split('\n').map((ln, j) => (
                       <span key={j} className="block whitespace-pre">
-                        <span className="select-none text-[#8a7a4a]">{String(i + 1).padStart(2, '0')}</span>{' '}
-                        <span className={ln.includes('//') ? 'text-[#8a7a4a]' : ln.startsWith('  pod') ? 'text-[#5b8f6f]' : ''}>{ln}</span>
+                        <span className="select-none text-[#555555]">{String(i + 1).padStart(2, '0')}</span>{' '}
+                        <span className={ln.startsWith('  pod') ? 'text-[#4FC3F7]' : ln.includes('//') ? 'text-[#FFD600]' : ''}>{ln}</span>
                       </span>
                     ))}
                   </code>
                 </pre>
               ) : (
-                <p className="text-sm leading-relaxed text-[#4a4639]">{f.desc}</p>
+                <p className="text-sm leading-relaxed text-[#6E6E6E]">{f.desc}</p>
               )}
             </motion.div>
           ))}
@@ -109,12 +109,12 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
-          className="mt-10 rounded-lg border border-[#e0d5b4] bg-[#fbf7ee] px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_6px_18px_rgba(90,60,0,0.08)]"
+          className="mt-10 rounded-none border border-[#262626] bg-[#161616] px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_6px_18px_rgba(0,0,0,0.45)]"
         >
-          <div className="font-mono text-xs tracking-[0.18em] text-[#8a7a4a]">
-            <span className="text-[#5b8f6f]">07:00</span>&nbsp;· NIGHT OVER — LEDGER CLOSED, BOARD VERIFIED, DEP-CYS TAKES THE MORNING.
+          <div className="font-mono text-xs tracking-[0.18em] text-[#6E6E6E]">
+            <span className="text-[#FFD600]">07:00</span>&nbsp;· NIGHT OVER — LEDGER CLOSED, BOARD VERIFIED, DEP-CYS TAKES THE MORNING.
           </div>
-          <a href="#register" className="inline-flex items-center justify-center rounded-md bg-[#16171c] px-5 py-2.5 font-mono text-xs font-bold tracking-wide text-[#f5f1e6] transition-colors hover:bg-[#2a2b30] shrink-0">Deploy Your Stand</a>
+          <a href="#register" className="inline-flex items-center justify-center rounded-none bg-[#FFD600] px-5 py-2.5 font-mono text-xs font-bold tracking-wide uppercase text-[#0F0F0F] transition-colors hover:bg-[#FFC200] shrink-0">Deploy Your Stand</a>
         </motion.div>
       </div>
     </section>
