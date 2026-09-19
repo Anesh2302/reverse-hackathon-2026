@@ -5,7 +5,7 @@ const PADS = (i) => String(i + 1).padStart(2, '0');
 
 export default function Domains() {
   return (
-    <section id="domains" className="relative py-24 md:py-32 px-5 bg-[#17181f]/60">
+    <section id="domains" className="relative py-24 md:py-32 px-5 bg-[#0d0e11]">
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-30" />
       <div className="mx-auto max-w-7xl relative z-10">
         <motion.div
@@ -16,8 +16,8 @@ export default function Domains() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-16 md:mb-20"
         >
           <div>
-            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;CATALOG.CY /&gt;</div>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#eef0f6]">
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;CATALOG.CY /&gt;</div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
               <span className="text-gradient">15 DOMAINS</span> OF CYBER
             </h2>
           </div>

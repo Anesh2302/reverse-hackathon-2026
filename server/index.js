@@ -59,6 +59,25 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true, db: isMongo() ? 'mongodb' : 'json-file', time: new Date().toISOString() });
 });
 
+app.get('/api/stats', async (_req, res) => {
+  try {
+    const regs = await getRegistrations();
+    const solos = regs.filter((r) => r.mode === 'solo').length;
+    const teams = regs.filter((r) => r.mode === 'team').length;
+    const count = regs.length;
+    res.json(
+      {
+        ok: true,
+        date: new Date().toISOString(),
+        registrations: { total: count, solo: solos, teams },
+        nightShift: { start: '21:00', end: '07:00' },
+      }
+    );
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String((err && err.message) || err) });
+  }
+});
+
 // --- Admin auth ---
 app.post('/api/admin/login', (req, res) => {
   const email = String(req.body?.email || '').trim().toLowerCase();

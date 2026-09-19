@@ -80,8 +80,8 @@ export default function Registration() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-12"
         >
           <div>
-            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;ENLIST.NOW /&gt;</div>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#eef0f6]">
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;ENLIST.NOW /&gt;</div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
               REGISTER YOUR <span className="text-gradient">STAND</span>
             </h2>
           </div>
@@ -209,7 +209,7 @@ export default function Registration() {
                           <label className="font-mono text-[10px] tracking-[0.3em] text-[#4f8cff]">
                             // PARTNER <span className="text-[#989bb0] normal-case">(your duo)</span>
                           </label>
-                          <span className="comic-chip bg-[#ffd34d] px-2 py-0.5 text-[9px] text-[#17181f]">MAX 1 · TEAM OF 2</span>
+                          <span className="comic-chip border border-[#ffc53d]/60 px-2 py-0.5 text-[9px] text-[#ffd34d]">MAX 1 · TEAM OF 2</span>
                         </div>
                         <div className="grid gap-3 sm:grid-cols-[1fr_0.45fr_0.3fr]">
                           <input

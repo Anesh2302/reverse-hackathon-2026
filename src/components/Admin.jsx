@@ -186,7 +186,7 @@ export default function Admin() {
           )}
           <form onSubmit={doLogin} className="glass rounded-2xl p-8 space-y-5">
             <div>
-              <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-4">&lt;ADMIN.GATE /&gt;</div>
+              <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-4">&lt;ADMIN.GATE /&gt;</div>
               <h2 className="font-display text-2xl font-bold text-[#eef0f6]">ADMIN <span className="text-gradient">GATE</span></h2>
             </div>
             <div>
@@ -209,11 +209,11 @@ export default function Admin() {
     );
   }
   return (
-    <div className="min-h-screen bg-[#101116] px-5 py-20">
+    <div className="min-h-screen bg-[#0b0b0d] px-5 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-4">&lt;ADMIN.CONSOLE /&gt;</div>
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-4">&lt;ADMIN.CONSOLE /&gt;</div>
             <h1 className="font-display text-3xl md:text-4xl font-bold text-[#eef0f6]">
               JUDGE'S <span className="text-gradient">CONSOLE</span>
             </h1>

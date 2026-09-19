@@ -39,7 +39,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        scrolled ? 'bg-[#101116]/90 border-b-[3px] border-[#4a4e60] backdrop-blur-md' : 'bg-transparent border-b-[3px] border-transparent'
+        scrolled ? 'bg-[#0b0b0d]/92 border-b border-[#26272e] backdrop-blur-md' : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="absolute bottom-[-3px] left-0 h-[3px] bg-gradient-to-r from-[#ffd34d] via-[#ff8a3d] to-[#ffd34d] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
@@ -73,7 +73,7 @@ export default function Navbar() {
 
         <div className="hidden lg:block">
           <a href="#register" className="btn-neon text-base px-6 py-2.5 flex items-center gap-2">
-            <span className="burst h-4 w-4 shrink-0 bg-[#ffd34d]" />
+            <span className="inline-block h-2 w-2 border border-current bg-[#ffd34d]" />
             Register
           </a>
         </div>
@@ -87,7 +87,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="lg:hidden border-b-[3px] border-[#4a4e60] bg-[#101116] px-6 py-6 flex flex-col gap-3">
+        <div className="lg:hidden border-b border-[#26272e] bg-[#0b0b0d] px-6 py-6 flex flex-col gap-3">
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="comic-chip bg-[#1c1d27] px-4 py-2.5 text-xs text-[#c9cbd8]">
               <span className="mr-2 text-[#ff4646]">{l.code}</span>

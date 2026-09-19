@@ -45,8 +45,8 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;queris.db /&gt;</div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-[#eef0f6]">
+          <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;queris.db /&gt;</div>
+          <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
             FREQUENTLY <span className="text-gradient">ASKED</span>
           </h2>
         </motion.div>

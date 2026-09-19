@@ -33,26 +33,28 @@ export default function BootLoader({ onDone }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#101116] px-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0b0b0d] px-6"
       exit={{ opacity: 0, scale: 1.04, filter: 'blur(6px)' }}
       transition={{ duration: 0.5 }}
     >
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-70" />
-      <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 burst rotate-12 bg-[#ffc53d]/10" />
-      <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 burst -rotate-6 bg-[#4f8cff]/10" />
+      <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 border border-[#ffc53d]/15" />
+      <div className="pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 border border-[#4f8cff]/10" />
 
       <div className="relative z-10 w-full max-w-2xl">
         <div className="mb-8 text-center">
           <div className="relative inline-block">
-            <span className="burst block h-36 w-36 mx-auto bg-[#ffd34d] border-[3px] border-[#4a4e60] flex items-center justify-center [box-shadow:6px_6px_0_0_rgba(0,0,0,0.7)]" style={{ animation: 'burst-pulse 1.2s ease-in-out infinite' }}>
-              <span className="dc-bullet h-14 w-24 text-3xl">DC</span>
+            <span className="relative block h-32 w-56 mx-auto border-[3px] border-[#ffc53d]/40 bg-[#0e0e11] flex items-center justify-center [box-shadow:0_0_50px_rgba(255,197,61,0.15),inset_0_0_40px_rgba(0,0,0,0.8)]">
+              <span className="dc-bullet h-16 w-28 text-4xl">DC</span>
+              <span className="pointer-events-none absolute inset-0 scanline" />
+              <span className="absolute -top-2 -left-2 h-3 w-3 bg-[#ffd34d]" />
+              <span className="absolute -bottom-2 -right-2 h-3 w-3 bg-[#4f8cff]" />
             </span>
-            <span className="font-display absolute -right-16 top-0 text-3xl rotate-12 text-[#4f8cff] wiggle">✦</span>
           </div>
-          <h1 className="mt-6 font-display text-5xl md:text-7xl leading-none text-[#ffd34d] [text-shadow:4px_4px_0_rgba(0,0,0,0.7)]">
+          <h1 className="mt-6 font-display text-4xl md:text-6xl leading-none text-[#ffd34d] [text-shadow:0_0_30px_rgba(255,211,77,0.4)]">
             REVERSE<span className="text-[#4f8cff]">HACK</span><span className="text-[#ffc53d] cursor-blink">!</span>
           </h1>
-          <p className="mt-2 font-mono text-[11px] tracking-[0.4em] text-[#8d90a3]">DEP-CYS · 2026 · OCT 08</p>
+          <p className="mt-2 font-mono text-[11px] tracking-[0.4em] text-[#8d90a3]">DEP-CYS · 2026 · LIGHTS OUT</p>
         </div>
 
         <div className="comic-card rounded-sm p-6 md:p-8">

@@ -4,7 +4,7 @@ const SOCIALS = ['Discord', 'Instagram', 'LinkedIn'];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[#ffc53d]/20 bg-[#101116] py-16 px-5">
+    <footer className="relative border-t border-[#ffc53d]/20 bg-[#0b0b0d] py-16 px-5">
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-20" />
       <div className="mx-auto max-w-6xl relative z-10 text-center">
         <div className="mb-2 font-display text-3xl font-black">

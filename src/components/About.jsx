@@ -25,8 +25,8 @@ export default function About() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-16 md:mb-20"
         >
           <div>
-            <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;ABOUT.EXE /&gt;</div>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#eef0f6] leading-tight">
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;ABOUT.EXE /&gt;</div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6] leading-tight">
               A HACKATHON<br />
               <span className="text-gradient">THAT FLIPS THE SCRIPT</span>
             </h2>

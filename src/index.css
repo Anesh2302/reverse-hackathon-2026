@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #101116;
-  --bg-deep: #17181f;
-  --paper: #1c1d27;
-  --ink: #363a4a;
-  --ink-line: #4a4e60;
+  --bg: #0b0b0d;
+  --bg-deep: #101013;
+  --paper: #16161a;
+  --ink: #22242c;
+  --ink-line: #3a3d4d;
   --text: #eef0f6;
   --red: #ff4646;
   --blue: #4f8cff;
@@ -15,12 +15,12 @@
   --danger: #ff4d4d;
   --muted: #8d90a3;
   --muted-2: #989bb0;
-  --line: #3a3d4d;
+  --line: #26272e;
   --grad-pop: linear-gradient(90deg, var(--yellow-deep) 0%, var(--yellow) 45%, #ff8a3d 100%);
   --glow-red: 0 0 26px rgba(255, 70, 70, 0.3);
   --glow-blue: 0 0 26px rgba(79, 140, 255, 0.3);
   --glow-green: 0 0 26px rgba(82, 224, 164, 0.4);
-  --font-display: 'Bangers', system-ui, sans-serif;
+  --font-display: 'Silkscreen', system-ui, sans-serif;
   --font-mono: 'Share Tech Mono', monospace;
   --font-body: 'Archivo', system-ui, sans-serif;
 }
@@ -135,25 +135,25 @@ body {
 @layer components {
   .comic-card,
   .glass-card {
-    background: var(--paper);
-    border: 2px solid var(--ink-line);
-    box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.6);
+    background: rgba(13, 14, 17, 0.85);
+    border: 1px solid var(--ink-line);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .comic-card:hover,
   .glass-card:hover {
     transform: translate(-1px, -1px);
-    border-color: var(--blue);
-    box-shadow: 7px 7px 0 0 rgba(0, 0, 0, 0.6), var(--glow-blue);
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 197, 61, 0.18);
   }
 
-  /* Filled chip */
+  /* Filled chip — terminal tag */
   .comic-chip {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 2px solid var(--ink-line);
-    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--ink-line);
     font-family: var(--font-mono);
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -161,11 +161,10 @@ body {
 
   .glass {
     background: var(--paper);
-    border: 2px solid var(--ink-line);
-    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--ink-line);
   }
 
-  .neon-text { text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.28); }
+  .neon-text { text-shadow: 2px 2px 0 rgba(255, 211, 77, 0.22); }
   .cyber-text { text-shadow: 2px 2px 0 rgba(79, 140, 255, 0.55); }
 
   /* Buttons */
@@ -175,43 +174,46 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--yellow-deep);
-    background: linear-gradient(135deg, #1b1d27 0%, #0b0c10 100%);
+    background: #0b0b0d;
     border: 2px solid var(--yellow-deep);
-    box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 197, 61, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 1px rgba(255, 197, 61, 0.12), 0 0 26px rgba(255, 197, 61, 0.12), inset 0 0 14px rgba(255, 197, 61, 0.05);
     padding: 12px 30px;
     cursor: pointer;
     transition: all 0.15s ease;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
   }
   .btn-neon:hover {
     transform: translate(-1px, -1px);
-    color: #17181f;
-    background: linear-gradient(135deg, var(--yellow-deep) 0%, var(--yellow) 100%);
-    box-shadow: 7px 7px 0 0 rgba(0, 0, 0, 0.65), 0 0 40px rgba(255, 197, 61, 0.5);
+    color: #0b0b0d;
+    background: var(--yellow-deep);
+    border-color: var(--yellow);
+    box-shadow: 0 0 34px rgba(255, 197, 61, 0.45), 0 0 0 1px rgba(255, 197, 61, 0.35);
   }
-  .btn-neon:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.7); }
+  .btn-neon:active { transform: translate(1px, 1px); box-shadow: 0 0 12px rgba(255, 197, 61, 0.2); }
 
   .btn-ghost {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--yellow-deep);
-    background: rgba(255, 197, 61, 0.06);
-    border: 2px solid var(--yellow-deep);
-    box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.5);
+    background: transparent;
+    border: 1px solid var(--ink-line);
+    box-shadow: inset 0 0 0 0 transparent;
     padding: 12px 30px;
     cursor: pointer;
     transition: all 0.15s ease;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
   }
-  .btn-ghost:hover { color: var(--ink-line); border-color: var(--yellow); background: rgba(255, 197, 61, 0.9); box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.55), 0 0 30px rgba(255, 197, 61, 0.35); transform: translate(-1px, -1px); }
+  .btn-ghost:hover { color: #0b0b0d; border-color: var(--yellow); background: var(--yellow-deep); box-shadow: 0 0 30px rgba(255, 197, 61, 0.35); transform: translate(-1px, -1px); }
   .btn-ghost:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.6); }
 
   /* DC "bullet" brand mark — black/white oval, matte, Gotham finish */
