@@ -29,12 +29,12 @@ const units = [
 
 // Comic onomatopoeia sprinkles
 const EFFECTS = [
-  { text: 'PWN!', x: '8%', y: '14%', rot: -8, accent: '#ff4646' },
-  { text: 'BOOM!', x: '74%', y: '12%', rot: 6, accent: '#4f8cff' },
-  { text: 'SNIFF', x: '6%', y: '58%', rot: -5, accent: '#ffc53d' },
-  { text: 'ZAP!', x: '88%', y: '46%', rot: 10, accent: '#ff4646' },
-  { text: 'CRACK', x: '68%', y: '74%', rot: -10, accent: '#4f8cff' },
-  { text: 'EXPLOIT', x: '12%', y: '84%', rot: 4, accent: '#ff4646' },
+  { text: 'BAM!', x: '8%', y: '14%', rot: -8, accent: '#ffc53d' },
+  { text: 'POW!', x: '74%', y: '12%', rot: 6, accent: '#4f8cff' },
+  { text: 'BZZT', x: '6%', y: '58%', rot: -5, accent: '#ff4646' },
+  { text: 'ZAP!', x: '88%', y: '46%', rot: 10, accent: '#4f8cff' },
+  { text: 'KRAAK!', x: '68%', y: '74%', rot: -10, accent: '#ffc53d' },
+  { text: 'WHAM!', x: '12%', y: '84%', rot: 4, accent: '#ff4646' },
 ];
 
 const HERO_DOMAINS = DOMAINS.slice(0, 5);
