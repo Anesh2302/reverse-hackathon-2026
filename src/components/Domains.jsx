@@ -3,10 +3,28 @@ import { DOMAINS, DOMAIN_PHASES } from '../data/domains';
 
 const PADS = (i) => String(i + 1).padStart(2, '0');
 
+const WARM = {
+  '#ff4646': '#a35c00',
+  '#ff8a3d': '#a35c00',
+  '#ff8c42': '#a35c00',
+  '#ff7a70': '#a35c00',
+  '#f43f5e': '#a35c00',
+  '#fb7185': '#a35c00',
+  '#ffc53d': '#bd7a00',
+  '#4f8cff': '#3f6376',
+  '#93c5fd': '#7f9db5',
+  '#22d3ee': '#4c7c8f',
+  '#00e5ff': '#3f6376',
+  '#7dd3fc': '#7f9db5',
+  '#5eead4': '#5b8f8a',
+  '#52e0a4': '#5b8f6f',
+  '#c084fc': '#9a7b9f',
+};
+
 export default function Domains() {
   return (
-    <section id="domains" className="relative py-24 md:py-32 px-5 bg-[#0d0e11]">
-      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-30" />
+    <section id="domains" className="relative py-24 md:py-32 px-5 bg-[#f5f1e6]">
+      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-[0.06]" />
       <div className="mx-auto max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -16,12 +34,12 @@ export default function Domains() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-16 md:mb-20"
         >
           <div>
-            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;EDGE.CATALOG /&gt;</div>
-            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
-              <span className="text-gradient">15 DOMAINS</span> OF CYBER
+            <div className="inline-flex items-center gap-2 rounded-md border border-[#e0d5b4] bg-[#fbf7ee] px-3 py-1 font-mono text-[10px] tracking-[0.18em] uppercase text-[#8a7a4a] mb-5">&lt;EDGE.CATALOG /&gt;</div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#16171c]">
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #a35c00 0%, #bd7a00 50%, #a35c00 100%)' }}>15 DOMAINS</span> OF CYBER
             </h2>
           </div>
-          <p className="font-mono text-sm md:text-base text-[#989bb0] md:text-right md:pb-1.5">
+          <p className="font-mono text-sm md:text-base text-[#bdb091] md:text-right md:pb-1.5">
             pick a workload at deploy time. every domain routes to the live platform where the pros train —
             start sharpening before the chamber opens.
           </p>
@@ -35,42 +53,42 @@ export default function Domains() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.45, delay: (i % 3) * 0.1 }}
-              className="glass-card group relative flex flex-col overflow-hidden rounded-md"
+              className="group relative flex flex-col overflow-hidden rounded-md border border-[#e0d5b4] bg-[#fbf7ee] shadow-[0_10px_30px_rgba(90,60,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-[#bd7a00] hover:shadow-[0_16px_40px_rgba(90,60,0,0.14)]"
             >
               {/* Steam-style cover */}
-              <div className="relative h-28 overflow-hidden" style={{ background: `linear-gradient(135deg, ${d.color}3d 0%, ${d.color}14 55%, rgba(255,255,255,0) 100%)` }}>
+              <div className="relative h-28 overflow-hidden" style={{ background: `linear-gradient(135deg, ${WARM[d.color]}3d 0%, ${WARM[d.color]}14 55%, transparent 100%)` }}>
                 <div
                   className="absolute inset-0 opacity-[0.12] transition-opacity duration-300 group-hover:opacity-30"
-                  style={{ backgroundImage: `linear-gradient(135deg, ${d.color} 0%, transparent 70%)` }}
+                  style={{ backgroundImage: `linear-gradient(135deg, ${WARM[d.color]} 0%, transparent 70%)` }}
                 />
                 <div className="pointer-events-none absolute inset-0 -translate-x-[130%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[130%]" />
                 <div
                   className="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full opacity-30 blur-3xl transition-opacity group-hover:opacity-70"
-                  style={{ background: d.color }}
+                  style={{ background: WARM[d.color] }}
                 />
-                <span className="absolute left-6 top-1/2 -translate-y-1/2 text-5xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                <span className="absolute left-6 top-1/2 -translate-y-1/2 text-5xl drop-shadow-[0_4px_10px_rgba(90,60,0,0.25)] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   {d.icon}
                 </span>
-                <span className="absolute right-5 top-5 font-display text-[64px] font-black leading-none text-[#eef0f6]/10 transition-colors group-hover:text-[#ffd34d]/25">
+                <span className="absolute right-5 top-5 font-display text-[64px] font-black leading-none text-[#16171c]/10 transition-colors group-hover:text-[#bd7a00]/25">
                   {PADS(i)}
                 </span>
-                <span className="absolute bottom-3.5 right-5 font-mono text-[9px] tracking-[0.3em] text-[#eef0f6]/60">{PADS(i)} // 15</span>
+                <span className="absolute bottom-3.5 right-5 font-mono text-[9px] tracking-[0.3em] text-[#16171c]/60">{PADS(i)} // 15</span>
               </div>
 
               {/* body */}
               <div className="flex flex-1 flex-col p-6 pt-4">
                 <div className="mb-2 flex items-center justify-between gap-3">
-                  <h3 className="font-display text-lg font-bold tracking-wide text-[#eef0f6] transition-colors group-hover:text-[#ffd34d]">
+                  <h3 className="font-display text-lg font-bold tracking-wide text-[#16171c] transition-colors group-hover:text-[#a35c00]">
                     {d.title}
                   </h3>
-                  <span className="shrink-0 rounded-full border border-[#4a4e60] bg-[#2a2412] px-2.5 py-1 font-mono text-[9px] tracking-wider text-[#c9cbd8]">
+                  <span className="shrink-0 rounded-full border border-[#e5dbbe] bg-[#efe9d8] px-2.5 py-1 font-mono text-[9px] tracking-wider text-[#8a7a4a]">
                     {DOMAIN_PHASES[d.id]}
                   </span>
                 </div>
-                <p className="mb-5 flex-1 text-sm leading-relaxed text-[#c9cbd8]">{d.desc}</p>
+                <p className="mb-5 flex-1 text-sm leading-relaxed text-[#4a4639]">{d.desc}</p>
 
-                <div className="border-t border-[#383b4a] pt-4">
-                  <div className="mb-2.5 font-mono text-[10px] tracking-[0.3em] text-[#8d90a3]">// TRAIN LIVE AT</div>
+                <div className="border-t border-[#e0d5b4] pt-4">
+                  <div className="mb-2.5 font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a]">// TRAIN LIVE AT</div>
                   <ul className="space-y-2">
                     {d.sites.map((s) => (
                       <li key={s.url}>
@@ -78,14 +96,14 @@ export default function Domains() {
                           href={s.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/site flex items-center justify-between gap-2 font-mono text-xs text-[#4f8cff] hover:text-[#ffd34d] transition-colors"
+                          className="group/site flex items-center justify-between gap-2 font-mono text-xs text-[#3f6376] hover:text-[#a35c00] transition-colors"
                         >
                           <span className="flex items-center gap-2">
-                            <span className="text-[#ffd34d]">▸</span>
+                            <span className="text-[#a35c00]">▸</span>
                             {s.name}
-                            <span className="hidden sm:inline font-mono text-[9px] tracking-wider text-[#989bb0]">{s.tag}</span>
+                            <span className="hidden sm:inline font-mono text-[9px] tracking-wider text-[#bdb091]">{s.tag}</span>
                           </span>
-                          <span className="opacity-0 group-hover/site:opacity-100 transition-opacity text-[#ffd34d]">↗</span>
+                          <span className="opacity-0 group-hover/site:opacity-100 transition-opacity text-[#a35c00]">↗</span>
                         </a>
                       </li>
                     ))}

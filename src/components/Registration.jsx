@@ -6,7 +6,8 @@ import { registerParticipant } from '../utils/api';
 const YEARS = ['I', 'II', 'III'];
 const PARTNER = { name: '', rollNo: '', year: 'I' };
 
-const inputClass = 'field';
+const inputClass =
+  'field rounded-md border-[#e0d5b4] bg-[#fbf7ee] text-[#16171c] placeholder:text-[#bdb091] transition-all focus:border-[#a35c00] focus:shadow-[0_0_0_1px_rgba(163,92,0,0.22)] focus:ring-0';
 
 export default function Registration() {
   const [mode, setMode] = useState('solo');
@@ -69,8 +70,8 @@ export default function Registration() {
   const domainOptions = useMemo(() => DOMAINS.map((d) => d.title), []);
 
   return (
-    <section id="register" className="relative py-24 md:py-32 px-5">
-      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-30" />
+    <section id="register" className="relative py-24 md:py-32 px-5 bg-[#f5f1e6]">
+      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-[0.06]" />
       <div className="mx-auto max-w-4xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -80,19 +81,19 @@ export default function Registration() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-12"
         >
           <div>
-            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;DEPLOY.STAND /&gt;</div>
-            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
-              REGISTER YOUR <span className="text-gradient">STAND</span>
+            <div className="inline-flex items-center gap-2 rounded-md border border-[#e0d5b4] bg-[#fbf7ee] px-3 py-1 font-mono text-[10px] tracking-[0.18em] uppercase text-[#8a7a4a] mb-5">&lt;DEPLOY.STAND /&gt;</div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#16171c]">
+              REGISTER YOUR <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #a35c00 0%, #bd7a00 50%, #a35c00 100%)' }}>STAND</span>
             </h2>
           </div>
-          <p className="text-base md:text-lg text-[#c9cbd8] md:text-right md:pb-1.5">
+          <p className="text-base md:text-lg text-[#4a4639] md:text-right md:pb-1.5">
             DEP-CYS Year I, II &amp; III only. Go solo or pair up with one partner — your registration
             ID is your key to the arena.
           </p>
         </motion.div>
 
-        <div className="glass rounded-2xl p-6 md:p-10 relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 scanline" />
+        <div className="relative overflow-hidden rounded-lg border border-[#e0d5b4] bg-[#fbf7ee] p-6 md:p-10 shadow-[0_24px_70px_rgba(90,60,0,0.12)]">
+          <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(circle at 20% 0%, rgba(163,92,0,0.05) 0%, transparent 60%)' }} />
 
           <AnimatePresence mode="wait">
             {status === 'success' ? (
@@ -103,22 +104,22 @@ export default function Registration() {
                 exit={{ opacity: 0 }}
                 className="relative z-10 text-center py-8"
               >
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#ffd34d] [box-shadow:5px_5px_0_0_rgba(0,0,0,0.7)]">
-                  <span className="font-display text-3xl font-black text-[#ffd34d]">✓</span>
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#bd7a00] shadow-[0_10px_30px_rgba(90,60,0,0.15)]">
+                  <span className="font-display text-3xl font-black text-[#a35c00]">✓</span>
                 </div>
-                <div className="font-mono text-xs tracking-[0.4em] text-[#ffd34d] mb-2">// SIGNAL RECEIVED</div>
-                <h3 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6] mb-2">REGISTRATION CONFIRMED</h3>
-                <p className="text-[#c9cbd8]">Stand signed. Deploy at the gate.</p>
-                <div className="mx-auto mt-6 inline-block glass rounded-lg px-8 py-4">
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] mb-1">YOUR REGISTRATION ID</div>
-                  <div className="font-display text-xl md:text-2xl font-bold text-[#ffd34d] neon-text tracking-[0.2em]">
+                <div className="font-mono text-xs tracking-[0.4em] text-[#bd7a00] mb-2">// SIGNAL RECEIVED</div>
+                <h3 className="font-display text-2xl md:text-4xl font-bold text-[#16171c] mb-2">REGISTRATION CONFIRMED</h3>
+                <p className="text-[#4a4639]">Stand signed. Deploy at the gate.</p>
+                <div className="mx-auto mt-6 inline-block rounded-lg border border-[#e0d5b4] bg-[#fbf7ee] px-8 py-4 shadow-[0_8px_24px_rgba(90,60,0,0.08)]">
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a] mb-1">YOUR REGISTRATION ID</div>
+                  <div className="font-display text-xl md:text-2xl font-bold text-[#a35c00] tracking-[0.2em]">
                     {result?.registrationId || 'REV26-?????'}
                   </div>
                 </div>
-                <p className="mt-5 font-mono text-xs text-[#989bb0]">
+                <p className="mt-5 font-mono text-xs text-[#bdb091]">
                   Save this ID — your signed proof for the check-in gate.
                 </p>
-                <button onClick={reset} className="btn-ghost mt-8 text-xs">Register Another</button>
+                <button onClick={reset} className="mt-8 rounded-md border border-[#e0d5b4] bg-[#fbf7ee] px-8 py-3 font-mono text-xs tracking-[0.14em] uppercase text-[#a35c00] transition-colors hover:border-[#a35c00] hover:bg-[#efe9d8]">Register Another</button>
               </motion.div>
             ) : (
               <motion.form
@@ -139,10 +140,10 @@ export default function Registration() {
                       key={m.id}
                       type="button"
                       onClick={() => setMode(m.id)}
-                      className={`font-mono text-xs md:text-sm tracking-[0.2em] px-6 py-3 transition-all ${
+                      className={`font-mono text-xs md:text-sm tracking-[0.2em] px-6 py-3 transition-all rounded-md ${
                         mode === m.id
-                          ? 'bg-[#ffd34d] text-[#17181f] font-bold border-[3px] border-[#4a4e60] [box-shadow:4px_4px_0_0_rgba(0,0,0,0.7)]'
-                          : 'bg-[#1c1d27] border-[2px] border-[#4a4e60] text-[#c9cbd8] hover:bg-[#ffd34d]'
+                          ? 'bg-[#bd7a00] text-[#fbf7ee] font-bold border border-[#a35c00] shadow-[0_6px_16px_rgba(163,92,0,0.25)]'
+                          : 'bg-[#fbf7ee] border border-[#e0d5b4] text-[#4a4639] hover:bg-[#efe9d8]'
                       }`}
                     >
                       {m.label}
@@ -153,25 +154,25 @@ export default function Registration() {
                 {/* Leader / solo fields */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a] block mb-1.5">
                       {mode === 'solo' ? 'FULL NAME' : 'LEADER NAME'}
                     </label>
                     <input className={inputClass} value={form.name} onChange={set('name')} placeholder="Alex Carter" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">EMAIL</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a] block mb-1.5">EMAIL</label>
                     <input className={inputClass} type="email" value={form.email} onChange={set('email')} placeholder="you@depcys.edu" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">PHONE</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a] block mb-1.5">PHONE</label>
                     <input className={inputClass} type="tel" value={form.phone} onChange={set('phone')} placeholder="+91 98765 43210" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">ROLL NO.</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a] block mb-1.5">ROLL NO.</label>
                     <input className={inputClass} value={form.rollNo} onChange={set('rollNo')} placeholder="CYS-202X-XXXX" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">YEAR</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a] block mb-1.5">YEAR</label>
                     <select className={inputClass} value={form.year} onChange={set('year')} required>
                       <option value="">Select year…</option>
                       {YEARS.map((y) => (
@@ -180,7 +181,7 @@ export default function Registration() {
                     </select>
                   </div>
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">FOCUS DOMAIN</label>
+                    <label className="font-mono text-[10px] tracking-[0.3em] text-[#8a7a4a] block mb-1.5">FOCUS DOMAIN</label>
                     <select className={inputClass} value={form.domain} onChange={set('domain')} required>
                       <option value="">Pick a battleground…</option>
                       {domainOptions.map((d) => (
@@ -200,16 +201,16 @@ export default function Registration() {
                       className="overflow-hidden space-y-6"
                     >
                       <div>
-                        <label className="font-mono text-[10px] tracking-[0.3em] text-[#4f8cff] block mb-1.5">// TEAM NAME</label>
+                        <label className="font-mono text-[10px] tracking-[0.3em] text-[#3f6376] block mb-1.5">// TEAM NAME</label>
                         <input className={inputClass} value={teamName} onChange={(e) => setTeamName(e.target.value)} placeholder="ShellShocked" required />
                       </div>
 
                       <div>
                         <div className="mb-3 flex items-center gap-2">
-                          <label className="font-mono text-[10px] tracking-[0.3em] text-[#4f8cff]">
-                            // PARTNER <span className="text-[#989bb0] normal-case">(your duo)</span>
+                          <label className="font-mono text-[10px] tracking-[0.3em] text-[#3f6376]">
+                            // PARTNER <span className="text-[#bdb091] normal-case">(your duo)</span>
                           </label>
-                          <span className="comic-chip border border-[#ffc53d]/60 px-2 py-0.5 text-[9px] text-[#ffd34d]">MAX 1 · TEAM OF 2</span>
+                          <span className="inline-flex items-center gap-2 rounded-md border border-[#e0d5b4] bg-[#fbf7ee] px-2 py-0.5 font-mono text-[9px] tracking-[0.18em] uppercase text-[#8a7a4a]">MAX 1 · TEAM OF 2</span>
                         </div>
                         <div className="grid gap-3 sm:grid-cols-[1fr_0.45fr_0.3fr]">
                           <input
@@ -243,30 +244,30 @@ export default function Registration() {
                     type="checkbox"
                     checked={form.agree}
                     onChange={(e) => setForm((f) => ({ ...f, agree: e.target.checked }))}
-                    className="mt-0.5 h-4 w-4 accent-[#ffd34d]"
+                    className="mt-0.5 h-4 w-4 accent-[#a35c00]"
                     required
                   />
-                  <span className="text-xs tracking-wide text-[#c9cbd8]">
-                    I confirm I am a <b className="text-[#eef0f6]">DEP-CYS</b> student in Year <b className="text-[#ffd34d]">{form.year || 'I/II/III'}</b>,
+                  <span className="text-xs tracking-wide text-[#4a4639]">
+                    I confirm I am a <b className="text-[#16171c]">DEP-CYS</b> student in Year <b className="text-[#a35c00]">{form.year || 'I/II/III'}</b>,
                     and I agree to the event rules, ethical-hacking constraints and code of conduct.
                   </span>
                 </label>
 
                 {error && (
-                  <div className="border border-[#ff4d4d]/50 bg-[#ff4d4d]/10 px-4 py-3 font-mono text-xs text-[#ff4d4d]">
-                    <span className="text-[#ff4646]">✕</span> {error}
+                  <div className="border border-[#a35c00]/40 bg-[#a35c00]/10 px-4 py-3 font-mono text-xs text-[#a35c00] rounded-md">
+                    <span className="text-[#a35c00]">✕</span> {error}
                   </div>
                 )}
 
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="btn-neon w-full text-center disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full rounded-md bg-[#16171c] px-8 py-3.5 text-center font-mono text-sm tracking-[0.14em] uppercase text-[#f5f1e6] transition-colors hover:bg-[#2a2b30] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {status === 'submitting' ? 'TRANSMITTING SIGNAL…' : mode === 'solo' ? '// Deploy Solo' : '// Deploy Duo'}
                 </button>
 
-                <div className="text-center font-mono text-[10px] tracking-[0.3em] text-[#989bb0]">
+                <div className="text-center font-mono text-[10px] tracking-[0.3em] text-[#bdb091]">
                   SLOTS ARE LIMITED TO DEP-CYS I · II · III — FIRST COME, FIRST SERVED
                 </div>
               </motion.form>

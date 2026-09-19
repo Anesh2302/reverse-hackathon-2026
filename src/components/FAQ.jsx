@@ -36,7 +36,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="faq" className="relative py-24 md:py-32 px-5">
+    <section id="faq" className="relative py-24 md:py-32 px-5 bg-[#f5f1e6]">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -45,9 +45,9 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;HANDBOOK.DB /&gt;</div>
-          <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
-            FREQUENTLY <span className="text-gradient">ASKED</span>
+          <div className="inline-flex items-center gap-2 rounded-md border border-[#e0d5b4] bg-[#fbf7ee] px-3 py-1 font-mono text-[10px] tracking-[0.18em] uppercase text-[#8a7a4a] mb-5">&lt;HANDBOOK.DB /&gt;</div>
+          <h2 className="font-display text-2xl md:text-4xl font-bold text-[#16171c]">
+            FREQUENTLY <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #a35c00 0%, #bd7a00 50%, #a35c00 100%)' }}>ASKED</span>
           </h2>
         </motion.div>
 
@@ -61,19 +61,19 @@ export default function FAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="comic-card group overflow-hidden rounded-md transition-colors duration-300"
-                style={isOpen ? { borderColor: '#ffd34d' } : undefined}
+                className="group overflow-hidden rounded-md border border-[#e0d5b4] bg-[#fbf7ee] shadow-[0_8px_24px_rgba(90,60,0,0.07)] transition-colors duration-300"
+                style={isOpen ? { borderColor: '#bd7a00' } : undefined}
               >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-[#ffd34d]">0{i + 1}</span>
-                    <span className="font-mono text-sm tracking-wide text-[#eef0f6]">{f.q}</span>
+                    <span className="font-mono text-xs text-[#a35c00]">0{i + 1}</span>
+                    <span className="font-mono text-sm tracking-wide text-[#16171c]">{f.q}</span>
                   </span>
                   <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#ffd34d]/60 text-[#ffd34d]' : 'border-[#4a4e60] text-[#c9cbd8] group-hover:border-[#ffd34d]/40 group-hover:text-[#ffd34d]'}`}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#bd7a00]/60 text-[#a35c00]' : 'border-[#e0d5b4] text-[#8a7a4a] group-hover:border-[#bd7a00]/50 group-hover:text-[#a35c00]'}`}
                   >
                     +
                   </span>
@@ -86,7 +86,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="px-5 pb-5 pl-12 text-sm leading-relaxed text-[#c9cbd8]">{f.a}</p>
+                      <p className="px-5 pb-5 pl-12 text-sm leading-relaxed text-[#4a4639]">{f.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

@@ -33,31 +33,31 @@ export default function BootLoader({ onDone }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0b0b0d] px-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f5f1e6] px-6"
       exit={{ opacity: 0, scale: 1.04, filter: 'blur(6px)' }}
       transition={{ duration: 0.5 }}
     >
-      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-70" />
-      <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 border border-[#ffc53d]/15" />
-      <div className="pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 border border-[#4f8cff]/10" />
+      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-[0.06]" />
+      <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 border border-[#bd7a00]/20" />
+      <div className="pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 border border-[#3f6376]/15" />
 
       <div className="relative z-10 w-full max-w-2xl">
         <div className="mb-8 text-center">
           <div className="relative inline-block">
-            <span className="relative block h-32 w-56 mx-auto border-[3px] border-[#ffc53d]/40 bg-[#0e0e11] flex items-center justify-center [box-shadow:0_0_50px_rgba(255,197,61,0.15),inset_0_0_40px_rgba(0,0,0,0.8)]">
+            <span className="relative block h-32 w-56 mx-auto border-[3px] border-[#c8b98a] bg-[#fbf7ee] flex items-center justify-center [box-shadow:inset_0_0_18px_rgba(179,113,0,0.06)]">
               <span className="dc-bullet h-16 w-28 text-4xl">DC</span>
               <span className="pointer-events-none absolute inset-0 scanline" />
-              <span className="absolute -top-2 -left-2 h-3 w-3 bg-[#ffd34d]" />
-              <span className="absolute -bottom-2 -right-2 h-3 w-3 bg-[#4f8cff]" />
+              <span className="absolute -top-2 -left-2 h-3 w-3 bg-[#bd7a00]" />
+              <span className="absolute -bottom-2 -right-2 h-3 w-3 bg-[#3f6376]" />
             </span>
           </div>
-          <h1 className="mt-6 font-display text-4xl md:text-6xl leading-none text-[#ffd34d] [text-shadow:0_0_30px_rgba(255,211,77,0.4)]">
-            REVERSE<span className="text-[#4f8cff]">HACK</span><span className="text-[#ffc53d] cursor-blink">!</span>
+          <h1 className="mt-6 font-display text-4xl md:text-6xl leading-none text-[#16171c] [text-shadow:0_0_30px_rgba(163,92,0,0.15)]">
+            REVERSE<span className="text-[#3f6376]">HACK</span><span className="text-[#bd7a00] cursor-blink">!</span>
           </h1>
-          <p className="mt-2 font-mono text-[11px] tracking-[0.4em] text-[#8d90a3]">DEP-CYS · NIGHT OPS · v2026.0</p>
+          <p className="mt-2 font-mono text-[11px] tracking-[0.4em] text-[#8a7a4a]">DEP-CYS · NIGHT OPS · v2026.0</p>
         </div>
 
-        <div className="comic-card rounded-sm p-6 md:p-8">
+        <div className="border border-[#c8b98a] bg-[#fbf7ee] p-6 md:p-8">
           <AnimatePresence>
             {visibleLines.map((line, i) => (
               <motion.div
@@ -65,7 +65,7 @@ export default function BootLoader({ onDone }) {
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.25 }}
-                className={i === 0 ? 'font-mono text-sm leading-relaxed text-[#ffd34d]' : i === LINES.length - 1 ? 'font-mono text-sm leading-relaxed text-[#4f8cff]' : 'font-mono text-sm leading-relaxed text-[#8d90a3]'}
+                className={i === 0 ? 'font-mono text-sm leading-relaxed text-[#a35c00]' : i === LINES.length - 1 ? 'font-mono text-sm leading-relaxed text-[#3f6376]' : 'font-mono text-sm leading-relaxed text-[#8a7a4a]'}
               >
                 {line}
               </motion.div>
