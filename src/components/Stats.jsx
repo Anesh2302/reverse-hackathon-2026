@@ -50,7 +50,7 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`comic-card flex flex-col items-center justify-center gap-1 px-4 py-9 text-center ${
                 i % 2 ? 'rotate-[2deg]' : 'rotate-[-2deg]'
-              } ${['bg-[#ff4646]', 'bg-[#4f8cff]', 'bg-[#ffd34d]', 'bg-[#ff4646]'][i]}`}
+              } ${['bg-[#ffd34d]', 'bg-[#4f8cff]', 'bg-[#ff8a3d]', 'bg-[#ffd34d]'][i]}`}
             >
               <Counter value={s.value} suffix={s.suffix} dark={i === 2} />
               <div className={`mt-2 font-display text-lg tracking-wide ${i === 2 ? 'text-[#17181f]' : 'text-[#fffdf6]'}`} style={i === 2 ? { textShadow: '1px 1px 0 rgba(0,0,0,0.12)' } : { textShadow: '2px 2px 0 rgba(0,0,0,0.85)' }}>

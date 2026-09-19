@@ -42,14 +42,12 @@ export default function Navbar() {
         scrolled ? 'bg-[#101116]/90 border-b-[3px] border-[#4a4e60] backdrop-blur-md' : 'bg-transparent border-b-[3px] border-transparent'
       }`}
     >
-      <div className="absolute bottom-[-3px] left-0 h-[3px] bg-gradient-to-r from-[#ff4646] via-[#ffc53d] to-[#4f8cff] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
+      <div className="absolute bottom-[-3px] left-0 h-[3px] bg-gradient-to-r from-[#ffd34d] via-[#ff8a3d] to-[#ffd34d] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
         <a href="#top" className="flex items-center gap-3 group">
-          <div className="emblem-dc h-11 w-11 shrink-0 transition-transform duration-300 group-hover:rotate-12">
-            <span className="font-display text-xl leading-none text-[#ffd34d] [text-shadow:1px_1px_0_rgba(0,0,0,0.9)]">⚡</span>
-          </div>
+          <div className="dc-bullet h-10 w-16 shrink-0 text-2xl transition-transform duration-300 group-hover:-rotate-6">DC</div>
           <div className="hidden sm:block">
-            <div className="font-display text-2xl leading-none tracking-wide text-[#ff4646] [text-shadow:2px_2px_0_rgba(0,0,0,0.7)]">
+            <div className="font-display text-2xl leading-none tracking-wide text-[#ffd34d] [text-shadow:2px_2px_0_rgba(0,0,0,0.7)]">
               REVERSE<span className="text-[#4f8cff]">HACK</span>
             </div>
             <div className="font-mono text-[10px] tracking-[0.35em] text-[#8d90a3]">DEP-CYS · 2026</div>
@@ -67,7 +65,7 @@ export default function Navbar() {
                   : 'bg-[#1c1d27] text-[#c9cbd8] hover:bg-[#ffd34d] hover:text-[#17181f]'
               }`}
             >
-              <span className="text-[#ff4646]">{l.code}</span>
+              <span className="text-[#ffd34d]">{l.code}</span>
               {l.label}
             </a>
           ))}
@@ -75,7 +73,7 @@ export default function Navbar() {
 
         <div className="hidden lg:block">
           <a href="#register" className="btn-neon text-base px-6 py-2.5 flex items-center gap-2">
-            <span className="burst h-4 w-4 shrink-0 bg-[#ff4646]" />
+            <span className="burst h-4 w-4 shrink-0 bg-[#ffd34d]" />
             Register
           </a>
         </div>

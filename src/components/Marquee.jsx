@@ -18,7 +18,7 @@ const BRANDS = [
 
 export default function Marquee() {
   return (
-    <div className="relative border-y border-[#ff4646]/20 bg-[#17181f] py-5 overflow-hidden">
+    <div className="relative border-y border-[#ffc53d]/20 bg-[#17181f] py-5 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-20" />
       <div className="relative z-10 flex overflow-hidden">
         <div className="marquee-track flex shrink-0 items-center whitespace-nowrap font-mono text-sm tracking-[0.3em]">
@@ -27,7 +27,7 @@ export default function Marquee() {
               {BRANDS.map((b) => (
                 <span key={b} className="mx-8 flex items-center gap-8 text-[#8d90a3]">
                   {b}
-                  <span className="text-[#ff4646]">✦</span>
+                  <span className="text-[#ffd34d]">✦</span>
                 </span>
               ))}
             </span>

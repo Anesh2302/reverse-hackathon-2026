@@ -103,15 +103,15 @@ export default function Registration() {
                 exit={{ opacity: 0 }}
                 className="relative z-10 text-center py-8"
               >
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#ff4646] [box-shadow:5px_5px_0_0_rgba(0,0,0,0.7)]">
-                  <span className="font-display text-3xl font-black text-[#ff4646]">✓</span>
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#ffd34d] [box-shadow:5px_5px_0_0_rgba(0,0,0,0.7)]">
+                  <span className="font-display text-3xl font-black text-[#ffd34d]">✓</span>
                 </div>
-                <div className="font-mono text-xs tracking-[0.4em] text-[#ff4646] mb-2">// SIGNAL RECEIVED</div>
+                <div className="font-mono text-xs tracking-[0.4em] text-[#ffd34d] mb-2">// SIGNAL RECEIVED</div>
                 <h3 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6] mb-2">REGISTRATION CONFIRMED</h3>
                 <p className="text-[#c9cbd8]">You're locked in, soldier.</p>
                 <div className="mx-auto mt-6 inline-block glass rounded-lg px-8 py-4">
                   <div className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] mb-1">YOUR REGISTRATION ID</div>
-                  <div className="font-display text-xl md:text-2xl font-bold text-[#ff4646] neon-text tracking-[0.2em]">
+                  <div className="font-display text-xl md:text-2xl font-bold text-[#ffd34d] neon-text tracking-[0.2em]">
                     {result?.registrationId || 'REV26-?????'}
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export default function Registration() {
                       onClick={() => setMode(m.id)}
                       className={`font-mono text-xs md:text-sm tracking-[0.2em] px-6 py-3 transition-all ${
                         mode === m.id
-                          ? 'bg-[#ff4646] text-[#fffdf6] font-bold border-[3px] border-[#4a4e60] [box-shadow:4px_4px_0_0_rgba(0,0,0,0.7)]'
+                          ? 'bg-[#ffd34d] text-[#17181f] font-bold border-[3px] border-[#4a4e60] [box-shadow:4px_4px_0_0_rgba(0,0,0,0.7)]'
                           : 'bg-[#1c1d27] border-[2px] border-[#4a4e60] text-[#c9cbd8] hover:bg-[#ffd34d]'
                       }`}
                     >
@@ -243,11 +243,11 @@ export default function Registration() {
                     type="checkbox"
                     checked={form.agree}
                     onChange={(e) => setForm((f) => ({ ...f, agree: e.target.checked }))}
-                    className="mt-0.5 h-4 w-4 accent-[#ff4646]"
+                    className="mt-0.5 h-4 w-4 accent-[#ffd34d]"
                     required
                   />
                   <span className="text-xs tracking-wide text-[#c9cbd8]">
-                    I confirm I am a <b className="text-[#eef0f6]">DEP-CYS</b> student in Year <b className="text-[#ff4646]">{form.year || 'I/II/III'}</b>,
+                    I confirm I am a <b className="text-[#eef0f6]">DEP-CYS</b> student in Year <b className="text-[#ffd34d]">{form.year || 'I/II/III'}</b>,
                     and I agree to the event rules, ethical-hacking constraints and code of conduct.
                   </span>
                 </label>

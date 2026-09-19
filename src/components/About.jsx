@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 
 const PILLARS = [
-  { code: '01', icon: '🔍', title: 'Reverse', desc: 'Decompile, decrypt, deconstruct. Understand what machines really do behind the screen.', grad: 'linear-gradient(135deg, #ff4646 0%, #4f8cff 100%)' },
+  { code: '01', icon: '🔍', title: 'Reverse', desc: 'Decompile, decrypt, deconstruct. Understand what machines really do behind the screen.', grad: 'linear-gradient(135deg, #ffd34d 0%, #4f8cff 100%)' },
   { code: '02', icon: '💥', title: 'Exploit', desc: 'Chain the vulnerabilities you found into real, working attacks against our live targets.', grad: 'linear-gradient(135deg, #ffc53d 0%, #ff7a70 100%)' },
   { code: '03', icon: '🛡️', title: 'Defend', desc: 'Flip perspectives — patch, harden and defend a live infrastructure from a team of attackers.', grad: 'linear-gradient(135deg, #ffc53d 0%, #ff7a70 100%)' },
 ];
 
 const ELIGIBLE = [
-  { year: 'I', label: 'First Year', note: 'Fresh recruits. Bring curiosity.', grad: 'linear-gradient(135deg, #ff4646 0%, #4f8cff 100%)' },
+  { year: 'I', label: 'First Year', note: 'Fresh recruits. Bring curiosity.', grad: 'linear-gradient(135deg, #ffd34d 0%, #4f8cff 100%)' },
   { year: 'II', label: 'Second Year', note: 'Sharpening. Bring skills.', grad: 'linear-gradient(135deg, #4f8cff 0%, #ffc53d 100%)' },
   { year: 'III', label: 'Third Year', note: 'The vanguard. Bring dominance.', grad: 'linear-gradient(135deg, #ffc53d 0%, #ff7a70 100%)' },
 ];

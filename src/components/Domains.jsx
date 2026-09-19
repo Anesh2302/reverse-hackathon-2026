@@ -51,7 +51,7 @@ export default function Domains() {
                 <span className="absolute left-6 top-1/2 -translate-y-1/2 text-5xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   {d.icon}
                 </span>
-                <span className="absolute right-5 top-5 font-display text-[64px] font-black leading-none text-[#eef0f6]/10 transition-colors group-hover:text-[#ff4646]/25">
+                <span className="absolute right-5 top-5 font-display text-[64px] font-black leading-none text-[#eef0f6]/10 transition-colors group-hover:text-[#ffd34d]/25">
                   {PADS(i)}
                 </span>
                 <span className="absolute bottom-3.5 right-5 font-mono text-[9px] tracking-[0.3em] text-[#eef0f6]/60">{PADS(i)} // 15</span>
@@ -60,7 +60,7 @@ export default function Domains() {
               {/* body */}
               <div className="flex flex-1 flex-col p-6 pt-4">
                 <div className="mb-2 flex items-center justify-between gap-3">
-                  <h3 className="font-display text-lg font-bold tracking-wide text-[#eef0f6] transition-colors group-hover:text-[#ff4646]">
+                  <h3 className="font-display text-lg font-bold tracking-wide text-[#eef0f6] transition-colors group-hover:text-[#ffd34d]">
                     {d.title}
                   </h3>
                   <span className="shrink-0 rounded-full border border-[#4a4e60] bg-[#2a2412] px-2.5 py-1 font-mono text-[9px] tracking-wider text-[#c9cbd8]">
@@ -78,14 +78,14 @@ export default function Domains() {
                           href={s.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/site flex items-center justify-between gap-2 font-mono text-xs text-[#4f8cff] hover:text-[#ff4646] transition-colors"
+                          className="group/site flex items-center justify-between gap-2 font-mono text-xs text-[#4f8cff] hover:text-[#ffd34d] transition-colors"
                         >
                           <span className="flex items-center gap-2">
-                            <span className="text-[#ff4646]">▸</span>
+                            <span className="text-[#ffd34d]">▸</span>
                             {s.name}
                             <span className="hidden sm:inline font-mono text-[9px] tracking-wider text-[#989bb0]">{s.tag}</span>
                           </span>
-                          <span className="opacity-0 group-hover/site:opacity-100 transition-opacity text-[#ff4646]">↗</span>
+                          <span className="opacity-0 group-hover/site:opacity-100 transition-opacity text-[#ffd34d]">↗</span>
                         </a>
                       </li>
                     ))}

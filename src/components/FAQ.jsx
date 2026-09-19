@@ -62,18 +62,18 @@ export default function FAQ() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
                 className="comic-card group overflow-hidden rounded-md transition-colors duration-300"
-                style={isOpen ? { borderColor: '#ff4646' } : undefined}
+                style={isOpen ? { borderColor: '#ffd34d' } : undefined}
               >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-[#ff4646]">0{i + 1}</span>
+                    <span className="font-mono text-xs text-[#ffd34d]">0{i + 1}</span>
                     <span className="font-mono text-sm tracking-wide text-[#eef0f6]">{f.q}</span>
                   </span>
                   <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#ff4646]/60 text-[#ff4646]' : 'border-[#4a4e60] text-[#c9cbd8] group-hover:border-[#ff4646]/40 group-hover:text-[#ff4646]'}`}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#ffd34d]/60 text-[#ffd34d]' : 'border-[#4a4e60] text-[#c9cbd8] group-hover:border-[#ffd34d]/40 group-hover:text-[#ffd34d]'}`}
                   >
                     +
                   </span>

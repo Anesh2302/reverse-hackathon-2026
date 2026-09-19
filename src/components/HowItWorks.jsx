@@ -5,7 +5,7 @@ const STEPS = [
     n: '01',
     title: 'Pick Your Battlefield',
     desc: 'Choose one of the 15 cyber domains that fits your rank. Every domain links to live training platforms so you can sharpen first.',
-    grad: 'linear-gradient(135deg, #ff4646 0%, #4f8cff 100%)',
+    grad: 'linear-gradient(135deg, #ffd34d 0%, #4f8cff 100%)',
     icon: '⌖',
   },
   {
@@ -87,7 +87,7 @@ export default function HowItWorks() {
               <p className="text-sm leading-relaxed text-[#c9cbd8]">{s.desc}</p>
 
               {i < STEPS.length - 1 && (
-                <span className="absolute right-2 top-1/2 hidden lg:block -translate-y-1/2 text-[#ff4646]/60 text-2xl">▸</span>
+                <span className="absolute right-2 top-1/2 hidden lg:block -translate-y-1/2 text-[#ffd34d]/60 text-2xl">▸</span>
               )}
             </motion.div>
           ))}
