@@ -117,3 +117,18 @@ export async function downloadRegistrationsCsv() {
   a.remove();
   URL.revokeObjectURL(url);
 }
+
+// --- Chat bot (public reg-helper + admin inbox) ---
+export async function sendChat(text, source) {
+  return handle(
+    await fetch(`${API_BASE}/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, source: source || 'site' }),
+    })
+  );
+}
+
+export async function fetchChats() {
+  return handle(await fetch(`${API_BASE}/admin/chats`));
+}

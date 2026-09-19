@@ -13,6 +13,7 @@ import FAQ from './components/FAQ';
 import FinalCta from './components/FinalCta';
 import Footer from './components/Footer';
 import Admin from './components/Admin';
+import ChatBot from './components/ChatBot';
 
 function useHashRoute() {
   const [hash, setHash] = useState(window.location.hash);
@@ -49,6 +50,7 @@ export default function App() {
         <FinalCta />
       </main>
       <Footer />
+      <ChatBot />
     </div>
   );
 }

@@ -354,6 +354,40 @@ app.get('/api/admin/uploads/:uploadId', requireAdmin, (_req, res) => {
   return res.send(data);
 });
 
+// --- Public chat: log an unanswered reg-helper question to the inbox ---
+app.post('/api/chat', (req, res) => {
+  try {
+    const text = String(req.body?.text || '').trim().slice(0, 500);
+    const source = String(req.body?.source || 'site').trim().slice(0, 20);
+    if (!text) return res.status(400).json({ error: 'Message is required.' });
+    const chats = readStore('chats', []);
+    chats.push({
+      id: randomHex(8),
+      text,
+      source,
+      at: new Date().toISOString(),
+      answered: false,
+    });
+    writeStore('chats', chats);
+    return res.status(201).json({ ok: true, id: chats[chats.length - 1].id });
+  } catch (err) {
+    console.error('[chat]', err);
+    return res.status(500).json({ error: 'Failed to save message.' });
+  }
+});
+
+// --- Admin: chat inbox (unanswered reg-helper questions) ---
+app.get('/api/admin/chats', requireAdmin, (_req, res) => {
+  try {
+    const chats = readStore('chats', []);
+    const answered = chats.map((c) => ({ ...c, answered: false }));
+    return res.json(answered.reverse().slice(0, 100));
+  } catch (err) {
+    console.error('[chats]', err);
+    return res.status(500).json({ error: 'Failed to load chats.' });
+  }
+});
+
 // --- Serve built frontend when present (production mode) ---
 const dist = path.join(__dirname, '..', 'dist');
 if (fsExists(dist)) {
