@@ -10,10 +10,16 @@
   --red: #ff4646;
   --blue: #4f8cff;
   --yellow: #ffc53d;
+  --yellow-deep: #ffd34d;
+  --green: #52e0a4;
   --danger: #ff4d4d;
   --muted: #8d90a3;
   --muted-2: #989bb0;
   --line: #3a3d4d;
+  --grad-pop: linear-gradient(90deg, var(--red) 0%, var(--yellow) 50%, var(--blue) 100%);
+  --glow-red: 0 0 26px rgba(255, 70, 70, 0.3);
+  --glow-blue: 0 0 26px rgba(79, 140, 255, 0.3);
+  --glow-green: 0 0 26px rgba(82, 224, 164, 0.4);
   --font-display: 'Bangers', system-ui, sans-serif;
   --font-mono: 'Share Tech Mono', monospace;
   --font-body: 'Archivo', system-ui, sans-serif;
@@ -23,16 +29,27 @@
 
 html { scroll-behavior: smooth; }
 
+section[id], div[id] { scroll-margin-top: 84px; }
+
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
 }
+::selection {
+  background: var(--red);
+  color: #fffdf6;
+}
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
 
-::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--red), var(--blue)); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--red), var(--blue)); border: 2px solid var(--bg-deep); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--yellow), var(--red)); }
 
 .font-display { font-family: var(--font-display); letter-spacing: 0.03em; font-weight: 400; }
 .font-display.font-bold, .font-display.font-black { font-weight: 400; }
@@ -40,7 +57,15 @@ body {
 
 /* Comic three-way gradient for title pops */
 .text-gradient {
-  background: linear-gradient(90deg, var(--red) 0%, var(--yellow) 50%, var(--blue) 100%);
+  background: var(--grad-pop);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Faster neon pop for short words */
+.text-gradient-hot {
+  background: linear-gradient(90deg, var(--red) 0%, var(--yellow) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -51,6 +76,18 @@ body {
   background-image:
     radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1.6px);
   background-size: 12px 12px;
+}
+
+/* Fine diagonal screen texture for hero/CTA panels */
+.paper-texture {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.025) 0px,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 6px
+    );
 }
 
 .halftone-red {
@@ -107,7 +144,7 @@ body {
   .glass-card:hover {
     transform: translate(-1px, -1px);
     border-color: var(--blue);
-    box-shadow: 7px 7px 0 0 rgba(0, 0, 0, 0.6), 0 0 26px rgba(79, 140, 255, 0.28);
+    box-shadow: 7px 7px 0 0 rgba(0, 0, 0, 0.6), var(--glow-blue);
   }
 
   /* Filled chip */
@@ -143,7 +180,7 @@ body {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #17181f;
-    background: linear-gradient(135deg, #ffd34d 0%, #ffc53d 100%);
+    background: linear-gradient(135deg, var(--yellow-deep) 0%, var(--yellow) 100%);
     border: 2px solid var(--ink-line);
     box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 197, 61, 0.25);
     padding: 12px 30px;
@@ -172,7 +209,7 @@ body {
     cursor: pointer;
     transition: all 0.15s ease;
   }
-  .btn-ghost:hover { color: var(--red); border-color: var(--red); box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.55), 0 0 26px rgba(255, 70, 70, 0.3); transform: translate(-1px, -1px); }
+  .btn-ghost:hover { color: var(--red); border-color: var(--red); box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.55), var(--glow-red); transform: translate(-1px, -1px); }
   .btn-ghost:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.6); }
 
   /* Shield emblem */
@@ -254,6 +291,19 @@ body {
 .cursor-blink { animation: blink 1s step-end infinite; }
 
 .pulse-ring { animation: burst-pulse 1.6s ease-in-out infinite; }
+
+.ticking { animation: tick-pulse 1s ease-in-out infinite; }
+@keyframes tick-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes float-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  33% { transform: translate3d(14px, -10px, 0); }
+  66% { transform: translate3d(-10px, 8px, 0); }
+}
+.float-drift { animation: float-drift 10s ease-in-out infinite; }
 
 .scanline::after {
   content: '';

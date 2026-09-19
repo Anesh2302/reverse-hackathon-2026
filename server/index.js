@@ -201,7 +201,7 @@ app.get('/api/admin/export', requireAdmin, async (_req, res) => {
     const rows = regs.map((r) => {
       const s = (scores && scores[r.registrationId]) || {};
       const total = Math.round(((Number(s.communication) || 0) + (Number(s.liveShow) || 0) + (Number(s.domains) || 0)) * 2) / 2;
-      return [r.registrationId || r.id, r.mode, r.name, r.email, r.phone, r.year, r.rollNo, r.domain, r.teamName, r.submissionUrl, r.submittedAt || r.submittedAt, s.communication ?? '', s.liveShow ?? '', s.domains ?? '', total, s.judged || ''].map(esc).join(',');
+      return [r.registrationId || r.id, r.mode, r.name, r.email, r.phone, r.year, r.rollNo, r.domain, r.teamName, r.submissionUrl, r.submittedAt, s.communication ?? '', s.liveShow ?? '', s.domains ?? '', total, s.judged || ''].map(esc).join(',');
     });
     const csv = '\uFEFF' + [head].concat(rows).join('\r\n');
     res.setHeader('Content-Type', 'text/csv; charset=utf-8');

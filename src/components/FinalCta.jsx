@@ -17,6 +17,9 @@ export default function FinalCta() {
             className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full blur-3xl"
             style={{ background: 'rgba(255,70,70,0.18)' }}
           />
+          <span className="font-display absolute left-8 top-6 select-none text-3xl rotate-[-10deg] text-[#ffc53d]/25 burst-pulse">BAM!</span>
+          <span className="font-display absolute right-10 bottom-8 select-none text-4xl rotate-[8deg] text-[#4f8cff]/25 burst-pulse">ZAP!</span>
+          <div className="pointer-events-none absolute inset-0 paper-texture" />
           <div className="relative z-10">
             <div className="comic-chip bg-[#ffd34d] px-3 py-1 text-[10px] text-[#17181f] mb-5">&lt;DEPLOY_READY /&gt;</div>
             <h2 className="font-display text-3xl md:text-6xl font-black text-[#eef0f6] neon-text">

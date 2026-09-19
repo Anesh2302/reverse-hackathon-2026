@@ -12,9 +12,23 @@ const LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('');
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const ids = LINKS.map((l) => l.href.slice(1));
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const doc = document.documentElement;
+      setProgress(Math.min(1, window.scrollY / Math.max(1, doc.scrollHeight - window.innerHeight)));
+      const probes = ids.map((id) => {
+        const el = document.getElementById(id);
+        return { id, top: el ? el.getBoundingClientRect().top : 1e9 };
+      });
+      const visible = probes.filter((p) => p.top <= 170);
+      setActive(window.scrollY < 220 ? '' : visible.length ? visible[visible.length - 1].id : active);
+    };
+    onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -25,9 +39,10 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        scrolled ? 'bg-[#101116] border-b-[3px] border-[#4a4e60]' : 'bg-transparent border-b-[3px] border-transparent'
+        scrolled ? 'bg-[#101116]/90 border-b-[3px] border-[#4a4e60] backdrop-blur-md' : 'bg-transparent border-b-[3px] border-transparent'
       }`}
     >
+      <div className="absolute bottom-[-3px] left-0 h-[3px] bg-gradient-to-r from-[#ff4646] via-[#ffc53d] to-[#4f8cff] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
         <a href="#top" className="flex items-center gap-3 group">
           <div className="relative h-11 w-11 shrink-0">
@@ -47,7 +62,11 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="comic-chip bg-[#1c1d27] px-3 py-2 text-[10px] text-[#c9cbd8] hover:bg-[#ffd34d] hover:text-[#17181f] transition-colors [box-shadow:2px_2px_0_0_rgba(0,0,0,0.7)]"
+              className={`comic-chip px-3 py-2 text-[10px] transition-colors [box-shadow:2px_2px_0_0_rgba(0,0,0,0.7)] ${
+                active === l.href.slice(1)
+                  ? 'bg-[#ffd34d] text-[#17181f]'
+                  : 'bg-[#1c1d27] text-[#c9cbd8] hover:bg-[#ffd34d] hover:text-[#17181f]'
+              }`}
             >
               <span className="text-[#ff4646]">{l.code}</span>
               {l.label}

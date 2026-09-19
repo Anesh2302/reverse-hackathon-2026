@@ -43,6 +43,7 @@ export default function Domains() {
                   className="absolute inset-0 opacity-[0.12] transition-opacity duration-300 group-hover:opacity-30"
                   style={{ backgroundImage: `linear-gradient(135deg, ${d.color} 0%, transparent 70%)` }}
                 />
+                <div className="pointer-events-none absolute inset-0 -translate-x-[130%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[130%]" />
                 <div
                   className="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full opacity-30 blur-3xl transition-opacity group-hover:opacity-70"
                   style={{ background: d.color }}
@@ -53,7 +54,7 @@ export default function Domains() {
                 <span className="absolute right-5 top-5 font-display text-[64px] font-black leading-none text-[#eef0f6]/10 transition-colors group-hover:text-[#ff4646]/25">
                   {PADS(i)}
                 </span>
-                <span className="absolute bottom-3.5 right-5 font-mono text-[9px] tracking-[0.3em] text-[#eef0f6]/60">0{i + 1} // 15</span>
+                <span className="absolute bottom-3.5 right-5 font-mono text-[9px] tracking-[0.3em] text-[#eef0f6]/60">{PADS(i)} // 15</span>
               </div>
 
               {/* body */}

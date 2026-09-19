@@ -1,11 +1,24 @@
 ﻿import { useEffect, useState } from 'react';
-import { adminLogin, adminLogout, adminMe, fetchRegistrations, saveScore, timerAction, uploadUrl } from '../utils/api';
+import {
+  adminLogin,
+  adminLogout,
+  adminMe,
+  fetchRegistrations,
+  fetchScores,
+  fetchTimer,
+  fetchChats,
+  saveScore,
+  timerAction,
+  uploadUrl,
+  downloadRegistrationsCsv,
+} from '../utils/api';
 const inputClass = 'field';
 const TABS = [
   { id: 'overview', label: 'OVERVIEW' },
   { id: 'teams', label: 'TEAMS' },
   { id: 'scores', label: 'SCORES /30' },
   { id: 'timer', label: 'LIVE 5:00' },
+  { id: 'inbox', label: 'INBOX' },
   { id: 'security', label: 'SECURITY' },
 ];
 export default function Admin() {
@@ -16,6 +29,7 @@ export default function Admin() {
   const [rows, setRows] = useState(null);
   const [scores, setScores] = useState({});
   const [timers, setTimers] = useState({});
+  const [chats, setChats] = useState([]);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,7 +38,10 @@ export default function Admin() {
     (async () => {
       try {
         const me = await adminMe();
-        if (me?.admin?.email) setSession(me.admin);
+        if (me?.admin?.email) {
+          setSession(me.admin);
+          loadAll();
+        }
       } catch {
         /* not logged in */
       }
@@ -37,6 +54,7 @@ export default function Admin() {
     try {
       const data = await adminLogin(loginEmail, loginPassword);
       setSession(data.admin);
+      loadAll();
     } catch (err) {
       setError(err.message);
     } finally {
@@ -53,19 +71,38 @@ export default function Admin() {
     setRows(null);
     setScores({});
     setTimers({});
+    setChats([]);
     setTab('overview');
   };
   const loadAll = async () => {
     setError('');
     setLoading(true);
-    try {
-      const regs = await fetchRegistrations();
-      setRows(regs);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    const [regs, scoreRows, timerRows, chatRows] = await Promise.allSettled([
+      fetchRegistrations(),
+      fetchScores(),
+      fetchTimer(),
+      fetchChats(),
+    ]);
+    if (regs.status === 'fulfilled') setRows(regs.value);
+    if (regs.status === 'rejected') setError(regs.reason?.message || 'Failed to load registrations.');
+    if (scoreRows.status === 'fulfilled') {
+      const map = {};
+      for (const s of scoreRows.value) {
+        map[s.registrationId] = {
+          communication: s.communication ?? 0,
+          liveShow: s.liveShow ?? 0,
+          domains: s.domains ?? 0,
+        };
+      }
+      setScores(map);
     }
+    if (timerRows.status === 'fulfilled') {
+      const map = {};
+      for (const t of timerRows.value) map[t.registrationId] = t;
+      setTimers(map);
+    }
+    if (chatRows.status === 'fulfilled') setChats(chatRows.value);
+    setLoading(false);
   };
   // --- scores: 10+10+10 = 30 ---
   const updateScoreLocal = (registrationId, key) => (e) => {
@@ -88,6 +125,16 @@ export default function Admin() {
     const s = scores[registrationId] || {};
     return Math.round(((s.communication ?? 0) + (s.liveShow ?? 0) + (s.domains ?? 0)) * 2) / 2;
   };
+  const exportCsv = async () => {
+    setError('');
+    setNotice('');
+    try {
+      await downloadRegistrationsCsv();
+      setNotice('CSV exported — check your downloads.');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
   // --- 5:00 live-show clock (server-authoritative) ---
   const timer = (registrationId) => timers[registrationId] || { status: 'idle', remainingMs: 5 * 60 * 1000 };
   const clockLabel = (t) => {
@@ -108,7 +155,6 @@ export default function Admin() {
   // Auto-tick running clocks every second
   useEffect(() => {
     const id = setInterval(() => {
-      if (!timers || Object.keys(timers).length === 0) return;
       setTimers((prev) => {
         const next = {};
         for (const [rid, t] of Object.entries(prev)) {
@@ -124,7 +170,7 @@ export default function Admin() {
       });
     }, 1000);
     return () => clearInterval(id);
-  }, [timers?.status]);
+  }, []);
   const openFile = (uploadId) => {
     window.open(uploadUrl(uploadId), '_blank');
   };
@@ -174,6 +220,9 @@ export default function Admin() {
             <p className="mt-1 font-mono text-xs text-[#8d90a3]">{session.name} · {session.email}</p>
           </div>
           <div className="flex items-center gap-3">
+            <button onClick={exportCsv} className="btn-ghost text-xs px-5 py-2.5" title="Download full CSV (registrations + scores)">
+              EXPORT CSV ⬇
+            </button>
             <button onClick={loadAll} disabled={loading} className="btn-ghost text-xs px-5 py-2.5 disabled:opacity-50">
               {loading ? 'SYNCING…' : 'REFRESH'}
             </button>
@@ -350,6 +399,33 @@ export default function Admin() {
                 </div>
               );
             })}
+          </div>
+        )}
+        {/* INBOX — unanswered reg-helper questions */}
+        {tab === 'inbox' && (
+          <div className="glass rounded-xl overflow-hidden max-w-3xl">
+            <div className="px-5 py-4 font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] border-b border-[#4a4e60]">
+              REG-HELPER INBOX · QUESTIONS THE BOT COULDN'T AUTO-ANSWER
+            </div>
+            {chats.length === 0 ? (
+              <div className="px-5 py-10 text-center font-mono text-sm text-[#989bb0]">No unanswered questions yet.</div>
+            ) : (
+              <ul className="divide-y divide-[#383b4a]">
+                {chats.map((c) => (
+                  <li key={c.id} className="px-5 py-4 flex items-start justify-between gap-4">
+                    <div>
+                      <div className="font-mono text-xs text-[#eef0f6] leading-relaxed">{c.text}</div>
+                      <div className="mt-2 font-mono text-[10px] tracking-[0.2em] text-[#8d90a3]">
+                        {String(c.source || 'site').toUpperCase()} · {new Date(c.at).toLocaleString()}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="px-5 py-3 border-t border-[#4a4e60] font-mono text-[10px] text-[#8d90a3]">
+              Call organizer <span className="text-[#52e0a4]">+91 73396 14244</span> to answer these live.
+            </div>
           </div>
         )}
         {/* SECURITY */}

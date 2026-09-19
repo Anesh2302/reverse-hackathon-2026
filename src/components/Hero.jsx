@@ -47,6 +47,9 @@ export default function Hero() {
       {/* Comic paper backdrop */}
       <div className="pointer-events-none absolute inset-0 bg-[#101116]">
         <div className="absolute inset-0 grid-overlay opacity-60" />
+        <div className="absolute inset-0 paper-texture opacity-60" />
+        <div className="float-drift absolute -top-32 left-[8%] h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(255,70,70,0.18) 0%, transparent 70%)' }} />
+        <div className="float-drift absolute -bottom-40 right-[4%] h-[460px] w-[460px] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(79,140,255,0.18) 0%, transparent 70%)', animationDelay: '2.5s' }} />
         <div className="absolute -top-24 -left-24 h-96 w-96 burst rotate-[-8deg] opacity-90" style={{ background: 'rgba(255,70,70,0.10)' }} />
         <div className="absolute bottom-[-140px] right-[-100px] h-[420px] w-[420px] burst rotate-[10deg] opacity-90" style={{ background: 'rgba(79,140,255,0.10)' }} />
         <div className="absolute inset-y-0 -left-32 w-64 speedlines opacity-30" />
@@ -123,17 +126,21 @@ export default function Hero() {
             transition={{ delay: 1.3 }}
             className="mt-9"
           >
-            <div className="mb-3 font-mono text-[11px] tracking-[0.4em] text-[#eef0f6] [text-shadow:1px_1px_0_#ffc53d]">T-MINUS UNTIL DEPLOYMENT</div>
+            <div className="mb-4 inline-flex items-center gap-2">
+              <span className="comic-chip bg-[#ff4646] px-3 py-1 text-[10px] text-[#fffdf6]">T-MINUS</span>
+              <span className="font-mono text-[11px] tracking-[0.4em] text-[#eef0f6] [text-shadow:1px_1px_0_#ffc53d]">UNTIL DEPLOYMENT</span>
+            </div>
             <div className="flex items-center justify-center gap-2.5 lg:justify-start sm:gap-3">
               {units.map((u) => (
                 <div key={u.label} className="flex flex-col items-center gap-1.5">
                   <div
-                    className="relative w-16 sm:w-20 rounded-sm border-[3px] border-[#4a4e60] px-2 py-3 sm:py-4"
+                    className="relative w-16 sm:w-20 overflow-hidden rounded-sm border-[3px] border-[#4a4e60] px-2 py-3 sm:py-4"
                     style={{ background: u.accent === '#ffc53d' ? '#ffd34d' : u.accent, boxShadow: '4px 4px 0 0 rgba(0,0,0,0.7)', transform: u.accent === '#ffc53d' ? 'rotate(0.5deg)' : 'rotate(-0.5deg)' }}
                   >
                     <span className="font-display text-2xl sm:text-3xl text-[#fffdf6] [text-shadow:2px_2px_0_rgba(0,0,0,0.7)]">
                       {PAD(t[u.key])}
                     </span>
+                    <span className="pointer-events-none absolute inset-0 scanline" />
                   </div>
                   <span className="font-mono text-[9px] tracking-[0.25em] text-[#8d90a3] sm:text-[10px]">{u.label}</span>
                 </div>
