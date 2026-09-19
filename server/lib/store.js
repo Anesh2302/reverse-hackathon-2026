@@ -48,7 +48,10 @@ function randomBytesHex(bytes) {
 }
 
 // --- encrypted-at-rest generic JSON helpers ---
+const STORE_CACHE = new Map(); // in-memory mirror — read-only FS (Vercel) stays alive in-session
+
 export function readStore(name, fallback = []) {
+  if (STORE_CACHE.has(name)) return STORE_CACHE.get(name);
   const file = path.join(DATA_DIR, `${name}.json`);
   if (!fsExists(file)) return fallback;
   try {
@@ -62,11 +65,18 @@ export function readStore(name, fallback = []) {
   }
 }
 
+const STORE_CACHE = new Map(); // in-memory mirror for read-only (Vercel) FS — keeps timer/scores/uploads alive in-session
+
 export function writeStore(name, data) {
+  STORE_CACHE.set(name, data);
   const file = path.join(DATA_DIR, `${name}.json`);
-  fs.mkdirSync(path.dirname(file), { recursive: true });
-  const encrypted = aesEncrypt(JSON.stringify(data), storeKey());
-  fs.writeFileSync(file, encrypted, { mode: 0o600 });
+  try {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const encrypted = aesEncrypt(JSON.stringify(data), storeKey());
+    fs.writeFileSync(file, encrypted, { mode: 0o600 });
+  } catch (err) {
+    console.error(`[store] writeStore ${name} fs failed (${err.code}), kept in-memory`);
+  }
 }
 
 // --- small file uploads (2MB cap) as encrypted at-rest blobs ---
