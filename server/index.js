@@ -188,6 +188,32 @@ app.get('/api/registrations', requireAdmin, async (_req, res) => {
   }
 });
 
+// --- Admin: export registrations + their scores as CSV (HMAC session) ---
+app.get('/api/admin/export', requireAdmin, async (_req, res) => {
+  try {
+    const regs = await getRegistrations();
+    const scores = readStore('scores', {});
+    const esc = (v) => {
+      const s = String(v ?? '');
+      return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+    };
+    const head = ['RegistrationID','Mode','Name','Email','Phone','Year','RollNo','Domain','TeamName','SubmissionURL','SubmittedAt','Communication /10','LiveShow /10','Domains /10','Total /30','Judged'].join(',');
+    const rows = regs.map((r) => {
+      const s = (scores && scores[r.registrationId]) || {};
+      const total = Math.round(((Number(s.communication) || 0) + (Number(s.liveShow) || 0) + (Number(s.domains) || 0)) * 2) / 2;
+      return [r.registrationId || r.id, r.mode, r.name, r.email, r.phone, r.year, r.rollNo, r.domain, r.teamName, r.submissionUrl, r.submittedAt || r.submittedAt, s.communication ?? '', s.liveShow ?? '', s.domains ?? '', total, s.judged || ''].map(esc).join(',');
+    });
+    const csv = '\uFEFF' + [head].concat(rows).join('\r\n');
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="registrations-' + new Date().toISOString().slice(0, 10) + '.csv"');
+    return res.send(csv);
+  } catch (err) {
+    console.error('[export]', err);
+    return res.status(500).json({ error: 'Failed to export.' });
+  }
+});
+
+
 // --- Admin: 30-mark score sheet (Communication 10 · Live Show 10 · Domains 10) ---
 app.get('/api/admin/scores', requireAdmin, async (_req, res) => {
   try {

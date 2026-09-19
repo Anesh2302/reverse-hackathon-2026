@@ -99,3 +99,21 @@ export async function timerAction(registrationId, action) {
 export async function uploadUrl(uploadId) {
   return `${API_BASE}/admin/uploads/${encodeURIComponent(uploadId)}`;
 }
+
+
+export async function downloadRegistrationsCsv() {
+  const res = await fetch(`${API_BASE}/admin/export`, { credentials: 'include' });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw Error((body && body.error) || `Export failed (${res.status}).`);
+  }
+  const blob = await res.blob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `registrations-${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}

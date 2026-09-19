@@ -40,8 +40,13 @@ function readJsonFile() {
 }
 
 function writeJsonFile(rows) {
-  fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });
-  fs.writeFileSync(DATA_FILE, JSON.stringify(rows, null, 2));
+  try {
+    fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });
+    fs.writeFileSync(DATA_FILE, JSON.stringify(rows, null, 2));
+  } catch {
+    // Read-only serverless FS (Vercel) — keep registration in-memory for
+    // this runtime. Set MONGODB_URI for durable persistence.
+  }
 }
 
 function makeRegistrationId(mode) {

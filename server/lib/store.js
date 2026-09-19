@@ -29,9 +29,14 @@ export function storeKey() {
     return cachedKey;
   }
   const key = `gen_${randomBytesHex(32)}`;
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  fs.writeFileSync(KEY_FILE, key, { mode: 0o600 });
   cachedKey = key;
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+    fs.writeFileSync(KEY_FILE, key, { mode: 0o600 });
+  } catch {
+    // Read-only serverless FS (Vercel/AWS) — hold key in-memory for this
+    // runtime. Set STORE_KEY/SESSION_SECRET env for stability across cold starts.
+  }
   return cachedKey;
 }
 
@@ -66,16 +71,24 @@ export function writeStore(name, data) {
 
 // --- small file uploads (2MB cap) as encrypted at-rest blobs ---
 const UPLOAD_DIR = path.join(DATA_DIR, 'uploads');
+const UPLOAD_CACHE = new Map(); // in-memory mirror for read-only (Vercel/E) FS
 
 export function saveUpload(id, base64Data, mimetype, originalName) {
-  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
   const meta = aesEncrypt(JSON.stringify({ mimetype, name: originalName }), storeKey());
   const blob = aesEncrypt(base64Data, storeKey());
-  fs.writeFileSync(path.join(UPLOAD_DIR, `${id}.meta`), meta, { mode: 0o600 });
-  fs.writeFileSync(path.join(UPLOAD_DIR, `${id}.bin`), blob, { mode: 0o600 });
+  UPLOAD_CACHE.set(id, { meta: { mimetype, name: originalName }, data: base64Data });
+  try {
+    fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+    fs.writeFileSync(path.join(UPLOAD_DIR, `${id}.meta`), meta, { mode: 0o600 });
+    fs.writeFileSync(path.join(UPLOAD_DIR, `${id}.bin`), blob, { mode: 0o600 });
+  } catch (err) {
+    console.error(`[store] upload fs write failed (${err.code}), kept in-memory`, id);
+  }
 }
 
 export function getUpload(id) {
+  const cached = UPLOAD_CACHE.get(id);
+  if (cached) return cached;
   const metaPath = path.join(UPLOAD_DIR, `${id}.meta`);
   const binPath = path.join(UPLOAD_DIR, `${id}.bin`);
   if (!fsExists(metaPath) || !fsExists(binPath)) return null;

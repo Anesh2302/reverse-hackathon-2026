@@ -1,0 +1,14 @@
+HTTP/1.1 400 Bad Request
+Access-Control-Allow-Origin: *
+Cache-Control: public, max-age=0, must-revalidate
+Content-Length: 138
+Content-Security-Policy: default-src 'none'
+Content-Type: text/html; charset=utf-8
+Date: Fri, 18 Sep 2026 14:45:20 GMT
+Server: Vercel
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Powered-By: Express
+X-Vercel-Cache: MISS
+X-Vercel-Id: bom1::iad1::xws92-1789742720655-9d7a436c54cf
+
