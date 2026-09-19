@@ -1,19 +1,19 @@
 const BRANDS = [
-  'TryHackMe',
-  'Hack The Box',
-  'PortSwigger',
-  'picoCTF',
-  'pwn.college',
-  'CryptoHack',
-  'CyberChef',
-  'Crackmes',
-  'Ghidra',
-  'Wireshark',
-  'LetsDefend',
-  'OSINT Framework',
-  'CloudGoat',
-  'OverTheWire',
-  'Exploit Education',
+  { name: 'TryHackMe', ms: '08ms', node: '11' },
+  { name: 'HackTheBox', ms: '10ms', node: '03' },
+  { name: 'PortSwigger', ms: '12ms', node: '07' },
+  { name: 'picoCTF', ms: '14ms', node: '09' },
+  { name: 'pwn.college', ms: '09ms', node: '02' },
+  { name: 'CryptoHack', ms: '11ms', node: '14' },
+  { name: 'CyberChef', ms: '07ms', node: '05' },
+  { name: 'Crackmes', ms: '13ms', node: '01' },
+  { name: 'Ghidra', ms: '08ms', node: '12' },
+  { name: 'Wireshark', ms: '12ms', node: '06' },
+  { name: 'LetsDefend', ms: '15ms', node: '08' },
+  { name: 'OSINT Framework', ms: '10ms', node: '13' },
+  { name: 'CloudGoat', ms: '16ms', node: '04' },
+  { name: 'OverTheWire', ms: '09ms', node: '10' },
+  { name: 'Exploit Education', ms: '13ms', node: '15' },
 ];
 
 export default function Marquee() {
@@ -25,9 +25,11 @@ export default function Marquee() {
           {[...Array(3)].map((_, dup) => (
             <span key={dup} className="flex shrink-0 items-center" aria-hidden={dup > 0}>
               {BRANDS.map((b, i) => (
-                <span key={b} className="mx-7 flex items-center gap-7 text-[#8d90a3]">
+                <span key={b.name} className="mx-7 flex items-center gap-7 text-[#8d90a3]">
                   <span className="text-[#ffc53d]">{21 + Math.floor(i / 3)}:{String((i * 13) % 60).padStart(2, '0')}</span>
-                  <span>b_{b.toLowerCase().replace(/[^a-z0-9]+/g, '_')}</span>
+                  <span className="text-[#52e0a4]">▲</span>
+                  <span>edge:{String(b.node).padStart(2, '0')} · {b.name.toLowerCase().replace(/[^a-z0-9]+/g, '_')}</span>
+                  <span className="text-[#4f8cff]">{b.ms} </span>
                   <span className="text-[#ffd34d]">·</span>
                 </span>
               ))}

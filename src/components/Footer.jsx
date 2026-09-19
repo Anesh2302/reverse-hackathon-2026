@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="mb-2 font-display text-3xl font-black">
           <span className="text-[#eef0f6]">REVERSE</span> <span className="text-gradient">HACKATHON</span>
         </div>
-        <div className="font-mono text-xs tracking-[0.3em] text-[#ffd34d] mb-6">{EVENT.dateLabel} · {EVENT.venue}</div>
+        <div className="font-mono text-xs tracking-[0.3em] text-[#ffd34d] mb-6">{EVENT.dateLabel} · {EVENT.venue} · LEDGER CLOSED 07:00</div>
 
         <div className="mb-8 flex justify-center gap-4">
           {SOCIALS.map((s) => (
@@ -30,7 +30,7 @@ export default function Footer() {
         </p>
 
         <div className="font-mono text-[10px] tracking-[0.2em] text-[#989bb0]">
-          © {new Date().getFullYear()} REVERSE HACKATHON · DEP-CYS — FOR I · II · III ONLY · <a href="#/admin" className="hover:text-[#ffd34d]">admin</a>
+          © {new Date().getFullYear()} REVERSE HACKATHON · DEP-CYS — CLEARANCE I · II · III ONLY · <a href="#/admin" className="hover:text-[#ffd34d]">admin</a>
         </div>
       </div>
     </footer>

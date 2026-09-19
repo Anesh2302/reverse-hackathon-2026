@@ -31,9 +31,9 @@ export default function About() {
               <span className="text-gradient">THAT FLIPS THE SCRIPT</span>
             </h2>
           </div>
-          <p className="text-base md:text-lg text-[#c9cbd8] md:pb-1.5 md:text-right">
-            Most hackathons make you build apps. This one makes you break them — then rebuild them stronger.
-            For 3 hours you'll live on the front line of cybersecurity.
+          <p className="font-mono text-sm md:text-base text-[#989bb0] md:pb-1.5 md:text-right">
+            most runtimes ship apps. this one ships <span className="text-[#ffd34d]">cracked targets</span> — 3-hour sprint,
+            5-minute showcase, then you rebuild them stronger.
           </p>
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function About() {
         >
           <div className="grid lg:grid-cols-[auto_1fr] items-stretch">
             <div className="relative flex flex-col justify-center gap-3 border-b border-[#3a3d4d] p-7 lg:border-b-0 lg:border-r">
-              <div className="font-mono text-xs tracking-[0.4em] text-[#4f8cff]">// ELIGIBILITY CHECK</div>
+              <div className="font-mono text-xs tracking-[0.4em] text-[#4f8cff]">// ACCESS CONTROL</div>
               <h3 className="font-display text-2xl font-bold text-[#eef0f6] leading-snug">
                 STRICTLY FOR<br />
                 <span className="text-gradient">DEP-CYS</span>
