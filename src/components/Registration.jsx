@@ -80,7 +80,7 @@ export default function Registration() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-12"
         >
           <div>
-            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;ENLIST.NOW /&gt;</div>
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;DEPLOY.STAND /&gt;</div>
             <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
               REGISTER YOUR <span className="text-gradient">STAND</span>
             </h2>
@@ -108,7 +108,7 @@ export default function Registration() {
                 </div>
                 <div className="font-mono text-xs tracking-[0.4em] text-[#ffd34d] mb-2">// SIGNAL RECEIVED</div>
                 <h3 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6] mb-2">REGISTRATION CONFIRMED</h3>
-                <p className="text-[#c9cbd8]">You're locked in, soldier.</p>
+                <p className="text-[#c9cbd8]">Stand signed. Deploy at the gate.</p>
                 <div className="mx-auto mt-6 inline-block glass rounded-lg px-8 py-4">
                   <div className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] mb-1">YOUR REGISTRATION ID</div>
                   <div className="font-display text-xl md:text-2xl font-bold text-[#ffd34d] neon-text tracking-[0.2em]">
@@ -116,7 +116,7 @@ export default function Registration() {
                   </div>
                 </div>
                 <p className="mt-5 font-mono text-xs text-[#989bb0]">
-                  Save this ID — you'll verify with it at the check-in gate.
+                  Save this ID — your signed proof for the check-in gate.
                 </p>
                 <button onClick={reset} className="btn-ghost mt-8 text-xs">Register Another</button>
               </motion.div>

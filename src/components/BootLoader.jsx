@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const LINES = [
-  '[ok]  raising the signal — REVERSE HACKATHON 2026',
-  '[ok]  mustering troops :: DEP-CYS :: YEARS I II III',
-  '[ok]  arming 15 battlegrounds ... done',
-  '[ok]  briefing 3-hour sprint :: 5-min showcase/pod',
-  '[>]   assembly complete — welcome, soldier',
+  '[ok]  deploying runtime — REVERSE HACKATHON 2026 · v2026.0',
+  '[ok]  edge online :: 15 domains :: DEP-CYS :: YEARS I II III',
+  '[ok]  consensus layer up ······ flags signed',
+  '[ok]  enclaves sealed :: solo/duo pods :: ledger ready',
+  '[>]   chamber opens on the countdown — deploy your stand',
 ];
 
 export default function BootLoader({ onDone }) {
@@ -54,7 +54,7 @@ export default function BootLoader({ onDone }) {
           <h1 className="mt-6 font-display text-4xl md:text-6xl leading-none text-[#ffd34d] [text-shadow:0_0_30px_rgba(255,211,77,0.4)]">
             REVERSE<span className="text-[#4f8cff]">HACK</span><span className="text-[#ffc53d] cursor-blink">!</span>
           </h1>
-          <p className="mt-2 font-mono text-[11px] tracking-[0.4em] text-[#8d90a3]">DEP-CYS · 2026 · LIGHTS OUT</p>
+          <p className="mt-2 font-mono text-[11px] tracking-[0.4em] text-[#8d90a3]">DEP-CYS · NIGHT OPS · v2026.0</p>
         </div>
 
         <div className="comic-card rounded-sm p-6 md:p-8">

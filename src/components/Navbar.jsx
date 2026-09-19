@@ -43,6 +43,18 @@ export default function Navbar() {
       }`}
     >
       <div className="absolute bottom-[-3px] left-0 h-[3px] bg-gradient-to-r from-[#ffd34d] via-[#ff8a3d] to-[#ffd34d] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
+      <div className="border-b border-[#17181d]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-1.5 md:px-8">
+          <div className="font-mono text-[9px] tracking-[0.3em] text-[#5c6073]">
+            <span className="text-[#ffc53d]">⚙</span> DEP-CYS // NIGHT OPERATIONS — <span className="text-[#8d90a3]">v2026.0</span>
+          </div>
+          <div className="hidden md:flex items-center gap-4 font-mono text-[9px] tracking-[0.3em] text-[#5c6073]">
+            <span>[<span className="text-[#ffd34d]">3H</span> WINDOW]</span>
+            <span>[<span className="text-[#ffd34d]">15</span> PoPs]</span>
+            <span>[LEDGER <span className="text-[#52e0a4]">SIGNED</span>]</span>
+          </div>
+        </div>
+      </div>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
         <a href="#top" className="flex items-center gap-3 group">
           <div className="dc-bullet h-10 w-16 shrink-0 text-2xl transition-transform duration-300 group-hover:-rotate-6">DC</div>
@@ -50,7 +62,7 @@ export default function Navbar() {
             <div className="font-display text-2xl leading-none tracking-wide text-[#ffd34d] [text-shadow:2px_2px_0_rgba(0,0,0,0.7)]">
               REVERSE<span className="text-[#4f8cff]">HACK</span>
             </div>
-            <div className="font-mono text-[10px] tracking-[0.35em] text-[#8d90a3]">DEP-CYS · 2026</div>
+            <div className="font-mono text-[10px] tracking-[0.35em] text-[#8d90a3]">DEP-CYS / NIGHT OPS</div>
           </div>
         </a>
 
@@ -74,7 +86,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <a href="#register" className="btn-neon text-base px-6 py-2.5 flex items-center gap-2">
             <span className="inline-block h-2 w-2 border border-current bg-[#ffd34d]" />
-            Register
+            Deploy
           </a>
         </div>
 
@@ -90,11 +102,11 @@ export default function Navbar() {
         <div className="lg:hidden border-b border-[#26272e] bg-[#0b0b0d] px-6 py-6 flex flex-col gap-3">
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="comic-chip bg-[#1c1d27] px-4 py-2.5 text-xs text-[#c9cbd8]">
-              <span className="mr-2 text-[#ff4646]">{l.code}</span>
+              <span className="mr-2 text-[#ffd34d]">{l.code}</span>
               {l.label}
             </a>
           ))}
-          <a href="#register" onClick={() => setOpen(false)} className="btn-neon text-center text-base px-6 py-3">Register</a>
+          <a href="#register" onClick={() => setOpen(false)} className="btn-neon text-center text-base px-6 py-3">Deploy Stand</a>
         </div>
       )}
     </motion.header>

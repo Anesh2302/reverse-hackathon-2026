@@ -19,22 +19,22 @@ export default function FinalCta() {
           />
           <div className="pointer-events-none absolute inset-0 paper-texture" />
           <div className="relative z-10">
-            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;HANDOFF_READY /&gt;</div>
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;ACCESS.GATE /&gt;</div>
             <h2 className="font-display text-2xl md:text-5xl font-bold text-[#eef0f6]">
-              HAND THE NIGHT OVER.<br className="hidden md:block" />{' '}
-              <span className="text-gradient">KEEP THE MORNING.</span>
+              PUT YOUR HARDEST<br className="hidden md:block" />{' '}
+              EXPLOIT ON THE <span className="text-gradient">WIRE.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-mono text-sm text-[#989bb0]">
-              {EVENT.dateLabel} · {EVENT.venue} · LOGS SHUT AT 07:00
+              {EVENT.dateLabel} · {EVENT.venue} · LEDGER CLOSED AT 07:00
             </p>
             <p className="mx-auto mt-4 max-w-xl text-[#c9cbd8]">
-              One standing order — register a stand. A shadow night runs in the background while you sharpen:
-              3 hours, 15 domains, a 5-minute showcase per pod. Slots are capped at 300 and it's exclusively
-              DEP-CYS I, II &amp; III. If the morning report isn't worth reading, cancel before the second night.
+              Tell us which domain you want to burn fastest — we map the right cluster architecture for your pod.
+              Slots are capped at 300 and it's exclusively DEP-CYS I, II &amp; III. Deploy now, sign at the gate,
+              sharpen the toolchain before the chamber opens.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#register" className="btn-neon pulse-ring text-center text-sm px-12">Hand It One Job</a>
-              <a href="#domains" className="btn-ghost text-center text-sm px-12">Scope the Night</a>
+              <a href="#register" className="btn-neon pulse-ring text-center text-sm px-12">Deploy Your Stand</a>
+              <a href="#domains" className="btn-ghost text-center text-sm px-12">Scope the Domains</a>
             </div>
           </div>
         </motion.div>

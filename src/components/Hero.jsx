@@ -27,12 +27,11 @@ const units = [
   { key: 's', label: 'SEC', accent: '#ffc53d' },
 ];
 
-// Live task pills — the queue assembling itself
-const PILLS = [
-  { tag: 'DONE', title: 'stand #042 booked', color: '#52e0a4' },
-  { tag: 'DONE', title: 'hub: PADS uplink verified', color: '#52e0a4' },
-  { tag: 'WORKING', title: 'scanning 15 domains', color: '#ffc53d' },
-  { tag: 'QUEUED', title: 'doors at 21:00 — lights out', color: '#4f8cff' },
+const STATUSES = [
+  ['hub', 'operational', '#52e0a4'],
+  ['PADS matrix', 'validating', '#ffc53d'],
+  ['flag enclave', 'signed', '#4f8cff'],
+  ['queue', 'spooling', '#ff8a3d'],
 ];
 
 const HERO_DOMAINS = DOMAINS.slice(0, 5);
@@ -77,51 +76,50 @@ export default function Hero() {
   const { n, prev } = useStands();
   const climbing = useClimb(n);
   const isNew = prev !== null && n > prev;
+  const [status, setStatus] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setStatus((s) => (s + 1) % STATUSES.length), 2200);
+    return () => clearInterval(id);
+  }, []);
+
+  const [label, color] = STATUSES[status];
 
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0b0b0d]">
-      {/* Night console backdrop */}
+      {/* Runtime backdrop */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 grid-overlay opacity-40" />
-        <div className="float-drift absolute -top-32 left-[8%] h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(255,197,61,0.10) 0%, transparent 70%)' }} />
-        <div className="float-drift absolute -bottom-40 right-[4%] h-[460px] w-[460px] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(79,140,255,0.08) 0%, transparent 70%)', animationDelay: '2.5s' }} />
-        <div className="absolute inset-y-0 -left-32 w-64 opacity-20" style={{ background: 'repeating-linear-gradient(90deg, transparent 0 26px, rgba(255,211,77,0.10) 26px 28px)' }} />
-        <div className="absolute right-0 top-0 h-40 w-40 opacity-[0.07] font-mono text-[10px] leading-4 text-[#ffd34d] overflow-hidden select-none">
-          {'DD:TRACE[0]'.repeat(60)}
-        </div>
+        <div className="absolute inset-0 grid-overlay opacity-25" />
+        <div className="float-drift absolute -top-32 left-[8%] h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(255,197,61,0.08) 0%, transparent 70%)' }} />
+        <div className="float-drift absolute -bottom-40 right-[4%] h-[460px] w-[460px] rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(79,140,255,0.07) 0%, transparent 70%)', animationDelay: '2.5s' }} />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 gap-12 px-5 pt-32 pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center md:px-8">
-        {/* Left — the night shift */}
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 gap-12 px-5 pt-32 pb-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center md:px-8">
+        {/* Left — the case */}
         <div className="text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="mb-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+            className="mb-6 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start"
           >
-            <span className="comic-chip border border-[#ffc53d]/60 bg-[#ffd34d] px-4 py-1.5 text-[10px] text-[#0b0b0d]">
-              <span className="h-1.5 w-1.5 animate-pulse bg-[#0b0b0d]" />
-              DEP-CYS · NIGHT SHIFT
+            <span className="comic-chip border border-[#ffc53d]/50 px-3 py-1 text-[10px] text-[#fffdf6]">⌖ REVERSE HACKATHON 2026</span>
+            <span className="comic-chip border border-[#26272e] px-3 py-1 text-[10px] text-[#8d90a3]">ROLLOUT v2026.0</span>
+            <span className="comic-chip border border-[#26272e] px-3 py-1 text-[10px] text-[#52e0a4]">
+              <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#52e0a4]" />HUB ONLINE
             </span>
-            <span className="comic-chip border border-[#3a3d4d] px-4 py-1.5 text-[10px] text-[#4f8cff]">YEARS I · II · III</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85, duration: 0.7 }}
-            className="font-display relative z-10 leading-[1.1]"
+            className="relative z-10"
           >
-            <span className="mb-4 block font-mono text-[11px] md:text-sm tracking-[0.4em] text-[#989bb0]">
-              ══ {EVENT.dateLabel} · LIGHTS OUT {EVENT.lightsOut || '21:00'} ══
+            <span className="block font-display text-[clamp(1.7rem,6.5vw,4rem)] leading-none text-[#eef0f6]">
+              REVERSE<sup className="align-top text-[0.35em] text-[#ffc53d]">®</sup>
             </span>
-            <span className="block text-[clamp(1.9rem,7vw,5.5rem)] text-[#ffd34d] [text-shadow:0_0_30px_rgba(255,211,77,0.35)]">
-              REVERSE
-            </span>
-            <span className="block text-[clamp(1.9rem,7vw,5.5rem)] text-[#eef0f6]">
-              HACKATHON
-              <span className="ml-3 align-baseline text-[#ffc53d]">2K26</span>
+            <span className="mt-2 block font-serif italic text-[clamp(1.6rem,5vw,3.4rem)] leading-none text-[#ffd34d] [text-shadow:0_0_40px_rgba(255,211,77,0.35)]">
+              with <em className="not-italic font-bold">proof</em>.
             </span>
           </motion.h1>
 
@@ -131,52 +129,68 @@ export default function Hero() {
             transition={{ delay: 1.15, duration: 0.9 }}
             className="mx-auto mt-7 max-w-xl text-base md:text-lg text-[#c9cbd8] font-medium lg:mx-0"
           >
-            <span className="font-mono text-[13px] text-[#ffd34d]">&gt; {EVENT.tagline}</span>
-            <br className="hidden sm:block" />
-            <span className="mt-1 inline-block">{EVENT.description}</span>
+            A deterministic way to spend one night: 15 signed domains, live targets, and a leaderboard that trusts
+            <span className="text-[#ffd34d]"> signatures, not stories</span>. Deploy your pod, verify every flag, wake up on the board.
           </motion.p>
 
-          {/* Live counter — the night clock */}
+          {/* Live status tape */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
-            className="mt-8 inline-flex items-center gap-4 border border-[#26272e] bg-[#0e0e11]/80 px-5 py-3"
+            transition={{ delay: 1.25 }}
+            className="mt-6 flex max-w-xl items-center justify-between gap-4 border border-[#26272e] bg-[#0d0e11] px-4 py-2.5 mx-auto lg:mx-0"
           >
-            <div className="font-display text-3xl md:text-4xl text-[#ffd34d] [text-shadow:0_0_20px_rgba(255,211,77,0.4)]">
-              {String(climbing).padStart(2, '0')}
+            <div className="flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] text-[#8d90a3]">
+              <span className="h-1.5 w-1.5 animate-pulse" style={{ background: color }} />
+              <span className="text-[#eef0f6]">{label}</span>
+              <span style={{ color }}>{color}</span>
             </div>
-            <div className="text-left">
-              <div className="font-mono text-[11px] tracking-[0.25em] text-[#eef0f6]">STANDS BOOKED</div>
-              <div className="font-mono text-[10px] tracking-[0.15em] text-[#8d90a3]">
-                {isNew ? <span className="text-[#52e0a4]">+1 · QUEUE MOVING</span> : 'QUEUE SELF-ASSEMBLING'}
-              </div>
+            <div className="hidden sm:flex items-center gap-1.5 font-mono text-[10px] text-[#5c6073]">
+              {['hub', 'PADS', 'flags', 'queue'].map((k, i) => (
+                <span key={k} className={`px-1.5 py-0.5 border ${i === status ? 'border-[#ffc53d]/60 text-[#ffd34d]' : 'border-[#26272e]'}`}>{k}</span>
+              ))}
             </div>
           </motion.div>
 
-          {/* Countdown — runs on your own clock */}
+          {/* Live counter */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.3 }}
+            className="mt-6 inline-flex items-baseline gap-3"
+          >
+            <span className="font-display text-4xl md:text-5xl text-[#ffd34d] [text-shadow:0_0_24px_rgba(255,211,77,0.35)]">
+              {String(climbing).padStart(2, '0')}
+            </span>
+            <span className="font-mono text-[11px] tracking-[0.25em] text-[#989bb0]">
+              PODS DEPLOYED
+              <span className="block text-[#8d90a3]">{isNew ? <span className="text-[#52e0a4]">+1 · VERIFIED</span> : 'EVERY SIGNATURE CRYPTO-SIGNED'}</span>
+            </span>
+          </motion.div>
+
+          {/* Countdown — the runtime window */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3 }}
-            className="mt-9"
+            transition={{ delay: 1.35 }}
+            className="mt-8"
           >
-            <div className="mb-4 inline-flex items-center gap-2">
-              <span className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d]">T-MINUS</span>
-              <span className="font-mono text-[11px] tracking-[0.4em] text-[#989bb0]">UNTIL DOORS</span>
+            <div className="mb-3 flex items-center gap-2">
+              <span className="comic-chip border border-[#ffc53d]/50 px-3 py-1 text-[10px] text-[#ffd34d]">T-MINUS</span>
+              <span className="font-mono text-[11px] tracking-[0.4em] text-[#8d90a3]">UNTIL CHAMBER OPENS</span>
             </div>
             <div className="flex items-center justify-center gap-2.5 lg:justify-start sm:gap-3">
               {units.map((u) => (
                 <div key={u.label} className="flex flex-col items-center gap-1.5">
                   <div
                     className="relative w-16 sm:w-20 border border-[#2b2d36] bg-[#0d0e12] px-2 py-3 sm:py-4"
-                    style={{ boxShadow: 'inset 0 0 22px rgba(0,0,0,0.8)', color: u.accent }}
+                    style={{ boxShadow: 'inset 0 0 22px rgba(0,0,0,0.8)' }}
                   >
-                    <span className="font-display text-xl sm:text-2xl md:text-3xl text-[#eef0f6]">
+                    <span className="font-mono text-xl sm:text-2xl md:text-3xl text-[#eef0f6]">
                       {PAD(t[u.key])}
                     </span>
                     <span className="pointer-events-none absolute inset-0 scanline" />
-                    <span className="absolute right-1.5 top-1 text-[8px] leading-none text-[#ffd34d]">▮</span>
+                    <span className="absolute right-1.5 top-1 text-[8px] leading-none" style={{ color: u.accent }}>▮</span>
                   </div>
                   <span className="font-mono text-[9px] tracking-[0.25em] text-[#8d90a3] sm:text-[10px]">{u.label}</span>
                 </div>
@@ -187,97 +201,117 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.45 }}
-            className="mt-9 flex flex-col items-center gap-4 sm:flex-row lg:justify-start sm:justify-center"
+            transition={{ delay: 1.5 }}
+            className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start sm:justify-center"
           >
-            <a href="#register" className="btn-neon pulse-ring w-full sm:w-auto">// Join the Night</a>
-            <a href="#domains" className="btn-ghost w-full sm:w-auto">Scope the Night</a>
+            <a href="#register" className="btn-neon pulse-ring w-full sm:w-auto">Deploy Your Stand</a>
+            <a href="#domains" className="btn-ghost w-full sm:w-auto">Explore the Runtime</a>
           </motion.div>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-2 font-mono text-[10px] tracking-[0.2em] text-[#989bb0] lg:justify-start">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 font-mono text-[10px] tracking-[0.2em] text-[#989bb0] lg:justify-start">
             <span className="comic-chip border border-[#2b2d36] bg-[#0e0e11] px-3 py-1 text-[#eef0f6]"><span className="text-[#ffd34d]">■</span>{EVENT.duration}</span>
             <span className="comic-chip border border-[#2b2d36] bg-[#0e0e11] px-3 py-1 text-[#eef0f6]"><span className="text-[#ffc53d]">◉</span>{EVENT.demoTime}</span>
             <span className="comic-chip border border-[#2b2d36] bg-[#0e0e11] px-3 py-1 text-[#eef0f6]"><span className="text-[#ffc53d]">◈</span>{EVENT.teamSize}</span>
           </div>
         </div>
 
-        {/* Right — the hub */}
+        {/* Right — node telemetry */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.9 }}
           className="relative hidden lg:block"
         >
-          <div className="relative mx-auto flex h-[520px] w-full max-w-md flex-col items-center justify-center">
-            {/* DC signal disc */}
-            <div className="relative flex h-72 w-72 items-center justify-center">
-              <div
-                className="absolute inset-0 rounded-full opacity-20"
-                style={{ background: 'radial-gradient(circle, rgba(255,211,77,0.4) 0%, rgba(255,211,77,0.04) 55%, transparent 72%)' }}
-              />
-              <div
-                className="absolute inset-3 float-y rounded-full border-[4px] border-[#0b0c10] bg-[#ffc53d]"
-                style={{ '--tilt': '-3deg', animationDuration: '16s', boxShadow: '0 0 0 2px rgba(255,197,61,0.35), 0 0 70px rgba(255,197,61,0.4), inset 0 -10px 20px rgba(0,0,0,0.3)' }}
-              />
-              <div
-                className="absolute inset-8 float-y rounded-full border-[4px] border-[#0b0c10] bg-[#0d0e13]"
-                style={{ '--tilt': '3deg', animationDelay: '1.1s', boxShadow: '0 0 0 2px rgba(255,197,61,0.12), inset 0 0 40px rgba(255,197,61,0.2)' }}
-              />
-              <div className="relative flex flex-col items-center justify-center">
-                <div className="dc-bullet h-20 w-36 text-5xl">DC</div>
-                <span className="mt-5 font-mono text-[10px] tracking-[0.5em] text-[#ffd34d]">REVERSE HACKATHON</span>
+          <div className="relative mx-auto w-full max-w-md">
+            <div className="relative border border-[#26272e] bg-[#0d0e11]/80 p-6" style={{ boxShadow: '0 0 60px rgba(0,0,0,0.6)' }}>
+              {/* corner ticks */}
+              <span className="absolute left-0 top-0 h-3 w-3 border-l-2 border-t-2 border-[#ffc53d]" />
+              <span className="absolute right-0 top-0 h-3 w-3 border-r-2 border-t-2 border-[#ffc53d]" />
+              <span className="absolute bottom-0 left-0 h-3 w-3 border-b-2 border-l-2 border-[#ffc53d]" />
+              <span className="absolute bottom-0 right-0 h-3 w-3 border-b-2 border-r-2 border-[#ffc53d]" />
+
+              {/* node header */}
+              <div className="mb-6 flex items-center justify-between">
+                <div className="font-mono text-[11px] tracking-[0.25em] text-[#8d90a3]">NODE·07 <span className="text-[#ffc53d]">/</span> REV-KN</div>
+                <div className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-[#52e0a4]">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#52e0a4]" />OPERATIONAL
+                </div>
+              </div>
+
+              {/* the disc */}
+              <div className="relative mx-auto flex h-60 w-60 items-center justify-center">
+                <div
+                  className="absolute inset-0 rounded-full opacity-20"
+                  style={{ background: 'radial-gradient(circle, rgba(255,211,77,0.5) 0%, transparent 70%)' }}
+                />
+                <div className="dc-bullet h-24 w-44 text-6xl">DC</div>
+                <span className="absolute -bottom-1 font-mono text-[9px] tracking-[0.5em] text-[#ffd34d]">NIGHT OPERATIONS DIVISION</span>
+              </div>
+
+              {/* metrics */}
+              <div className="mt-6 grid grid-cols-3 gap-3">
+                {[
+                  ['COUNTDOWN', '21:00', 'LIGHTS OUT'],
+                  ['DOMAINS', '15', 'SIGNED'],
+                  ['RUNTIME', '3H', `${n || 0} PODS`],
+                ].map(([k, v, s]) => (
+                  <div key={k} className="border border-[#26272e] bg-[#0a0a0c] px-2 py-3 text-center">
+                    <div className="font-mono text-[8px] tracking-[0.25em] text-[#5c6073]">{k}</div>
+                    <div className="mt-1 font-display text-xl text-[#ffd34d]">{v}</div>
+                    <div className="font-mono text-[8px] tracking-[0.2em] text-[#52e0a4]">{s}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* agent pills */}
+              <div className="mt-4 space-y-2">
+                <div className="flex items-center justify-between border border-[#26272e] px-3 py-2 font-mono text-[10px] tracking-[0.15em]">
+                  <span className="text-[#c9cbd8]">rev0 agent · check-in</span>
+                  <span className="text-[#ffc53d]">{PAD(t.h)}:{PAD(t.m)}</span>
+                </div>
+                <div className="flex items-center justify-between border border-[#26272e] px-3 py-2 font-mono text-[10px] tracking-[0.15em]">
+                  <span className="text-[#c9cbd8]">Synthesis matrix</span>
+                  <span className="text-[#ff8a3d]">validating</span>
+                </div>
+                <div className="flex items-center justify-between border border-[#26272e] px-3 py-2 font-mono text-[10px] tracking-[0.15em]">
+                  <span className="text-[#c9cbd8]">Flag enclave</span>
+                  <span className="text-[#4f8cff]">signed</span>
+                </div>
               </div>
             </div>
 
-            {/* Task pills — the live queue */}
-            <div className="absolute inset-0 flex flex-col justify-center gap-2">
-              {PILLS.map((p, i) => (
-                <motion.div
-                  key={p.title}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -18 : 18 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.4 + i * 0.18 }}
-                  className="flex w-fit items-center gap-3 border border-[#26272e] bg-[#0e0e11]/90 px-4 py-2"
-                  style={{ alignSelf: i % 2 === 0 ? 'flex-start' : 'flex-end' }}
-                >
-                  <span className="font-mono text-[9px] tracking-[0.2em] text-[#0b0b0d]" style={{ background: p.color, padding: '2px 6px' }}>
-                    {p.tag}
-                  </span>
-                  <span className="font-mono text-[11px] tracking-[0.08em] text-[#c9cbd8]">{p.title}</span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* floating mono badges */}
-            <div className="comic-card absolute left-0 top-4 flex items-center gap-3 px-4 py-2.5 float-y" style={{ '--tilt': '0deg' }}>
-              <span className="font-mono text-[9px] tracking-[0.3em] text-[#8d90a3]">RUNTIME</span>
-              <span className="font-display text-2xl text-[#ffd34d]">3 HRS</span>
-            </div>
-            <div className="comic-card absolute right-0 bottom-16 flex items-center gap-3 px-4 py-2.5 float-y" style={{ '--tilt': '0deg', animationDelay: '1.2s' }}>
-              <span className="font-mono text-[9px] tracking-[0.3em] text-[#8d90a3]">FORMAT</span>
-              <span className="font-display text-xl text-[#4f8cff]">SOLO·DUO</span>
-            </div>
-            <div className="comic-card absolute left-4 bottom-4 flex items-center gap-2.5 border-l-2 px-4 py-2.5">
-              <span className="h-1.5 w-1.5 animate-pulse bg-[#52e0a4]" />
-              <span className="font-mono text-xs tracking-[0.12em] text-[#eef0f6]">5-MIN SHOWCASE / POD</span>
+            {/* status footer chips */}
+            <div className="mt-3 grid grid-cols-2 gap-3 px-1">
+              <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.15em] text-[#8d90a3]">
+                <span className="text-[#5c6073]">EDGE</span><span className="text-[#eef0f6]">III NODES</span>
+              </div>
+              <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.15em] text-[#8d90a3]">
+                <span className="text-[#5c6073]">UPTIME</span><span className="text-[#eef0f6]">100%</span>
+              </div>
+              <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.15em] text-[#8d90a3]">
+                <span className="text-[#5c6073]">MODE</span><span className="text-[#eef0f6]">SOLO·DUO</span>
+              </div>
+              <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.15em] text-[#8d90a3]">
+                <span className="text-[#5c6073]">LEDGER</span><span className="text-[#eef0f6]">1 CHAIN</span>
+              </div>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Domain ticker row — the log */}
+      {/* Domain ticker — the edge */}
       <div className="relative z-10 border-y border-[#26272e] bg-[#0d0e11] py-3 overflow-hidden">
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-5">
-          <span className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[9px] text-[#ffd34d]">LOG · FEED</span>
+          <span className="comic-chip border border-[#ffc53d]/50 px-3 py-1 text-[9px] text-[#ffd34d]">EDGE · 15 PoPs</span>
           {HERO_DOMAINS.map((d, i) => (
             <span key={d.id} className="flex items-center gap-2 font-mono text-xs text-[#989bb0]">
-              <span className="text-[#ffc53d]">{PAD(21 + i)}</span>
-              <span className="text-[#8d90a3]">·</span>
+              <span className="text-[#ffc53d]">N{i + 1}</span>
+              <span className="text-[#5c6073]">·</span>
               <span>{d.icon}</span>
-              <span>{d.title} uplink</span>
+              <span>{d.title}</span>
             </span>
           ))}
-          <a href="#domains" className="font-mono text-xs text-[#ffd34d] hover:text-[#fffdf6] transition-colors">+10 MORE →</a>
+          <a href="#domains" className="font-mono text-xs text-[#ffd34d] hover:text-[#fffdf6] transition-colors">+10 PoPs →</a>
         </div>
       </div>
     </section>

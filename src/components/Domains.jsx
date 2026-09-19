@@ -16,14 +16,14 @@ export default function Domains() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-16 md:mb-20"
         >
           <div>
-            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;CATALOG.CY /&gt;</div>
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;EDGE.CATALOG /&gt;</div>
             <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
               <span className="text-gradient">15 DOMAINS</span> OF CYBER
             </h2>
           </div>
-          <p className="text-base md:text-lg text-[#c9cbd8] md:text-right md:pb-1.5">
-            Pick your battleground when you register. Each domain links to the live platforms
-            where the pros train — start sharpening before Oct 8.
+          <p className="font-mono text-sm md:text-base text-[#989bb0] md:text-right md:pb-1.5">
+            pick a workload at deploy time. every domain routes to the live platform where the pros train —
+            start sharpening before the chamber opens.
           </p>
         </motion.div>
 

@@ -1,43 +1,47 @@
 import { motion } from 'framer-motion';
 
-const STEPS = [
+const FEATURES = [
   {
     n: '01',
-    time: '21:00',
-    status: 'QUEUED',
-    color: '#4f8cff',
-    title: 'Pick Your Battlefield',
-    desc: 'Choose one of the 15 cyber domains that fits your rank. Every domain links to live training platforms so you can sharpen first.',
-    icon: '⌖',
+    tag: 'CONSENSUS',
+    title: 'Every flag, one defensible answer.',
+    desc: 'No single view is trusted alone. Judges challenge, refine and cryptographically sign every flag before your pod advances.',
+    accent: '#ffd34d',
+    icon: '⚖',
   },
   {
     n: '02',
-    time: '21:12',
-    status: 'AUTO',
-    color: '#ffc53d',
-    title: 'Enlist Solo or as a Duo',
-    desc: 'Fly solo, or pair up with one partner. Lock your registration ID with your roll number and year (I/II/III) — it is your key at check-in.',
-    icon: '⚡',
+    tag: 'EDGE',
+    title: 'Fast where the targets are.',
+    desc: 'Workloads route automatically to the nearest healthy domain bus — reversing, forensics, web, pwn — no hand-offs, no lag.',
+    accent: '#4f8cff',
+    icon: '◎',
   },
   {
     n: '03',
-    time: '23:57',
-    status: 'RUNS UNATTENDED',
-    color: '#52e0a4',
-    title: 'Hunt, Reverse & Exploit',
-    desc: 'On event day you get 3 hours flat to attack live targets, reverse binaries, and burn CTF flags in your chosen domain.',
-    icon: '⛨',
+    tag: 'DEVELOPER FIRST',
+    title: 'Three lines from intent to runtime.',
+    desc: 'Pick a domain, pick a pod, deploy. The gate signs you in and the chamber opens on the countdown.',
+    accent: '#52e0a4',
+    icon: '⧉',
+    code: true,
   },
   {
     n: '04',
-    time: '04:30',
-    status: 'NEEDS YOU',
-    color: '#ff8a3d',
-    title: 'Showcase — 5 Minutes',
-    desc: 'Every solo or pod explains what they did in a 5-minute live showcase to the judges. Fastest runs and cleanest exploits top the leaderboard.',
-    icon: '♛',
+    tag: 'ENCLAVES',
+    title: 'Your panel never leaves the hub.',
+    desc: 'Roll number and registration ID are hardware-isolated. Zero retention between scores — per-pod proof, nothing else.',
+    accent: '#ff8a3d',
+    icon: '⬢',
   },
 ];
+
+const SNIPPET = `const pod = await Revhack.deploy({
+  domain: "reversing",
+  pod:    "solo"   // or "duo"
+})
+pod.id  // REV26-0A1F
+pod.note // "signed at the gate"`;
 
 export default function HowItWorks() {
   return (
@@ -52,51 +56,50 @@ export default function HowItWorks() {
           className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end mb-16 md:mb-20"
         >
           <div>
-            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;QUEUE.SELF-ASSEMBLIES /&gt;</div>
-            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6]">
-              THE QUEUE <span className="text-gradient">ASSEMBLES</span> ITSELF
+            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-5">&lt;RUNTIME.CORE /&gt;</div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-[#eef0f6] leading-tight">
+              BUILT FOR THE GAP BETWEEN <span className="text-gradient">DEMO AND PRODUCTION.</span>
             </h2>
           </div>
-          <p className="font-mono text-sm md:text-base text-[#989bb0] md:text-right md:pb-1.5">
-            nothing here is a summary. four jobs are queued overnight, each attributed to a shift you signed up for.
+          <p className="font-mono text-sm md:text-base text-[#989bb0] md:pb-1.5 md:text-right">
+            from intention to a signed leaderboard entry in three lines. no crafts, no stories — a runtime.
           </p>
         </motion.div>
 
-        {/* Night timeline */}
-        <div className="relative">
-          <div className="pointer-events-none absolute left-[18px] top-2 bottom-2 w-px bg-[#26272e] md:left-1/2" />
-          {STEPS.map((s, i) => (
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+          {FEATURES.map((f, i) => (
             <motion.div
-              key={s.n}
-              initial={{ opacity: 0, y: 20 }}
+              key={f.n}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="relative mb-8 md:mb-10"
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="relative border border-[#26272e] bg-[#0d0e11] p-7"
+              style={{ boxShadow: 'inset 0 0 40px rgba(0,0,0,0.6)' }}
             >
-              <div
-                className="absolute left-[18px] top-2 h-3 w-3 -translate-x-1/2 border"
-                style={{ background: s.color, borderColor: '#0b0b0d', boxShadow: `0 0 14px ${s.color}` }}
-              />
-              <div className={`flex md:items-center gap-5 pl-10 ${i % 2 === 1 ? 'md:justify-end md:pl-0' : ''}`}>
-                <div
-                  className={`glass-card relative w-full overflow-hidden px-5 py-5 ${i % 2 === 1 ? 'md:max-w-[46%] md:text-right' : 'md:max-w-[46%]'}`}
-                  style={{ borderLeft: `2px solid ${s.color}` }}
-                >
-                  <div className="mb-3 flex flex-wrap items-center gap-3 md:justify-start">
-                    <span className="font-mono text-sm text-[#ffd34d] tracking-[0.2em]">{s.time}</span>
-                    <span className="font-mono text-[9px] tracking-[0.22em] px-2 py-0.5" style={{ background: s.color, color: '#0b0b0d' }}>
-                      {s.status}
-                    </span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] text-[#8d90a3]">run #{s.n}</span>
-                  </div>
-                  <div className="mb-2 flex items-center gap-3">
-                    <span className="text-xl" style={{ color: s.color }}>{s.icon}</span>
-                    <h3 className="font-display text-base md:text-lg font-bold tracking-wide text-[#eef0f6]">{s.title}</h3>
-                  </div>
-                  <p className="text-sm leading-relaxed text-[#c9cbd8]">{s.desc}</p>
-                </div>
+              <span className="absolute left-0 top-0 h-full w-[2px]" style={{ background: f.accent, boxShadow: `0 0 14px ${f.accent}` }} />
+              <div className="mb-6 flex items-center justify-between">
+                <span className="font-mono text-xs tracking-[0.3em]" style={{ color: f.accent }}>
+                  {f.n} <span className="text-[#5c6073]">/</span> {f.tag}
+                </span>
+                <span className="text-xl" style={{ color: f.accent }}>{f.icon}</span>
               </div>
+              <h3 className="mb-3 font-display text-lg md:text-xl font-bold text-[#eef0f6] leading-snug">{f.title}</h3>
+
+              {f.code ? (
+                <pre className="mt-4 overflow-x-auto border border-[#26272e] bg-[#08080a] p-4 font-mono text-[12px] leading-6 text-[#c9cbd8]">
+                  <code>
+                    {SNIPPET.split('\n').map((ln, j) => (
+                      <span key={j} className="block whitespace-pre">
+                        <span className="select-none text-[#5c6073]">{String(i + 1).padStart(2, '0')}</span>{' '}
+                        <span className={ln.includes('//') ? 'text-[#5c6073]' : ln.startsWith('  pod') ? 'text-[#52e0a4]' : ''}>{ln}</span>
+                      </span>
+                    ))}
+                  </code>
+                </pre>
+              ) : (
+                <p className="text-sm leading-relaxed text-[#c9cbd8]">{f.desc}</p>
+              )}
             </motion.div>
           ))}
         </div>
@@ -106,12 +109,12 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
-          className="mt-12 border border-[#26272e] bg-[#0d0e11] px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="mt-10 border border-[#26272e] bg-[#0d0e11] px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
           <div className="font-mono text-xs tracking-[0.18em] text-[#989bb0]">
-            <span className="text-[#52e0a4]">07:00</span>&nbsp;· NIGHT OVER — LOGS FILED, LEADERBOARD COLD, DEP-CYS TAKES THE MORNING.
+            <span className="text-[#52e0a4]">07:00</span>&nbsp;· NIGHT OVER — LEDGER CLOSED, BOARD VERIFIED, DEP-CYS TAKES THE MORNING.
           </div>
-          <a href="#register" className="btn-neon text-xs px-5 py-2.5 shrink-0">Join the Night</a>
+          <a href="#register" className="btn-neon text-xs px-5 py-2.5 shrink-0">Deploy Your Stand</a>
         </motion.div>
       </div>
     </section>
