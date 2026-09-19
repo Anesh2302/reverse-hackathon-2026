@@ -48,8 +48,6 @@ function randomBytesHex(bytes) {
 }
 
 // --- encrypted-at-rest generic JSON helpers ---
-const STORE_CACHE = new Map(); // in-memory mirror — read-only FS (Vercel) stays alive in-session
-
 export function readStore(name, fallback = []) {
   if (STORE_CACHE.has(name)) return STORE_CACHE.get(name);
   const file = path.join(DATA_DIR, `${name}.json`);
