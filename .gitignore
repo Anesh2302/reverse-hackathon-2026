@@ -9,3 +9,8 @@ server/logs
 .DS_Store
 .vercel
 .env*
+
+# local curl smoke artifacts (never commit)
+ck.txt
+cookies.txt
+hdr.txt
