@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const LINES = [
-  '[ok]  raising the shield — REVERSE HACKATHON 2026',
+  '[ok]  raising the signal — REVERSE HACKATHON 2026',
   '[ok]  mustering troops :: DEP-CYS :: YEARS I II III',
   '[ok]  arming 15 battlegrounds ... done',
   '[ok]  briefing 3-hour sprint :: 5-min showcase/pod',
@@ -45,7 +45,7 @@ export default function BootLoader({ onDone }) {
         <div className="mb-8 text-center">
           <div className="relative inline-block">
             <span className="burst block h-36 w-36 mx-auto bg-[#ffd34d] border-[3px] border-[#4a4e60] flex items-center justify-center [box-shadow:6px_6px_0_0_rgba(0,0,0,0.7)]" style={{ animation: 'burst-pulse 1.2s ease-in-out infinite' }}>
-              <span className="font-display text-5xl text-[#ff4646] [text-shadow:3px_3px_0_rgba(0,0,0,0.7)]">✭</span>
+              <span className="font-display text-5xl text-[#17181f] [text-shadow:2px_2px_0_rgba(255,255,255,0.25)]">⚡</span>
             </span>
             <span className="font-display absolute -right-16 top-0 text-3xl rotate-12 text-[#4f8cff] wiggle">✦</span>
           </div>

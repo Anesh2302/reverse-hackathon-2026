@@ -173,13 +173,27 @@ export default function Hero() {
           className="relative hidden lg:block"
         >
           <div className="relative mx-auto w-full max-w-md">
-            {/* Shield */}
+            {/* DC signal disc */}
             <div className="relative mx-auto flex h-80 w-80 items-center justify-center">
-              <div className="shield float-y absolute inset-4 opacity-90" style={{ '--tilt': '0deg', animationDuration: '14s' }} />
-              <div className="shield float-y absolute inset-14 opacity-95" style={{ '--tilt': '0deg' }} />
+              <div
+                className="absolute inset-0 rounded-full opacity-25"
+                style={{ background: 'radial-gradient(circle, rgba(255,211,77,0.4) 0%, rgba(255,211,77,0.06) 55%, transparent 72%)' }}
+              />
+              <div className="emblem-dc float-y absolute inset-6" style={{ '--tilt': '0deg', animationDuration: '16s' }} />
+              <div
+                className="absolute inset-16 float-y"
+                style={{
+                  '--tilt': '0deg',
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle at 32% 28%, #262933 0%, #14161d 55%, #0b0c10 100%)',
+                  border: '4px solid #0b0c10',
+                  boxShadow: '0 0 0 3px #ff4646, 0 0 0 8px rgba(255,70,70,0.12), 0 0 46px rgba(255,70,70,0.4), inset 0 0 26px rgba(255,70,70,0.12)',
+                  animationDelay: '1.2s',
+                }}
+              />
               <div className="burst-pulse absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-display text-6xl text-[#fffdf6] [text-shadow:3px_3px_0_rgba(0,0,0,0.7)]">✭</span>
-                <span className="mt-2 font-mono text-[10px] tracking-[0.45em] text-[#fffdf6] [text-shadow:1px_1px_0_rgba(0,0,0,0.7)]">REVERSE</span>
+                <span className="font-display text-7xl text-[#ffd34d] [text-shadow:3px_3px_0_rgba(0,0,0,0.9)]">⚡</span>
+                <span className="mt-3 font-mono text-[10px] tracking-[0.5em] text-[#ffd34d] [text-shadow:1px_1px_0_rgba(0,0,0,0.9)]">REVERSE</span>
               </div>
             </div>
 

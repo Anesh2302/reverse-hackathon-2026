@@ -45,9 +45,8 @@ export default function Navbar() {
       <div className="absolute bottom-[-3px] left-0 h-[3px] bg-gradient-to-r from-[#ff4646] via-[#ffc53d] to-[#4f8cff] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
         <a href="#top" className="flex items-center gap-3 group">
-          <div className="relative h-11 w-11 shrink-0">
-            <div className="shield absolute inset-0 transition-transform duration-300 group-hover:rotate-12" />
-            <span className="font-display absolute inset-0 flex items-center justify-center text-lg text-[#fffdf6] [text-shadow:1px_1px_0_rgba(0,0,0,0.7)]">✭</span>
+          <div className="emblem-dc h-11 w-11 shrink-0 transition-transform duration-300 group-hover:rotate-12">
+            <span className="font-display text-xl leading-none text-[#ffd34d] [text-shadow:1px_1px_0_rgba(0,0,0,0.9)]">⚡</span>
           </div>
           <div className="hidden sm:block">
             <div className="font-display text-2xl leading-none tracking-wide text-[#ff4646] [text-shadow:2px_2px_0_rgba(0,0,0,0.7)]">
