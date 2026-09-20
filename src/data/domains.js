@@ -31,7 +31,7 @@ export const DOMAINS = [
     icon: '🔍',
     title: 'Penetration Testing',
     desc: 'Plan, scope, attack and report. Master the pentest lifecycle across web, network and wireless with structured methodology.',
-    color: '#01338E',
+    color: '#F2B705',
     sites: [
       { name: 'PortSwigger Academy', url: 'https://portswigger.net/web-security', tag: 'Web pentest' },
       { name: 'PentesterLab', url: 'https://pentesterlab.com', tag: 'Pro labs' },
@@ -79,7 +79,7 @@ export const DOMAINS = [
     icon: '🔐',
     title: 'Cryptography',
     desc: 'Crack ciphers, analyse protocols and exploit weak implementations. From classical ciphers to modern asymmetric crypto.',
-    color: '#36405A',
+    color: '#D9261E',
     sites: [
       { name: 'CryptoHack', url: 'https://cryptohack.org', tag: 'Crypto challenges' },
       { name: 'CyberChef', url: 'https://gchq.github.io/CyberChef', tag: 'GCHQ swiss knife' },
@@ -151,7 +151,7 @@ export const DOMAINS = [
     icon: '☁️',
     title: 'Cloud Security',
     desc: 'Hardening AWS, Azure and GCP. Misconfigured buckets, IAM privilege escalation and serverless attack paths.',
-    color: '#01338E',
+    color: '#F2B705',
     sites: [
       { name: 'flAWS.cloud', url: 'http://flaws.cloud', tag: 'AWS challenge' },
       { name: 'CloudGoat', url: 'https://github.com/RhinoSecurityLabs/cloudgoat', tag: 'AWS vulnerable lab' },
@@ -187,7 +187,7 @@ export const DOMAINS = [
     icon: '⚛️',
     title: 'Quantum & Next-Gen Crypto',
     desc: 'Post-quantum cryptography, lattice problems and the coming migration. Be ready for the cryptopocalypse.',
-    color: '#36405A',
+    color: '#D9261E',
     sites: [
       { name: 'CRQC Archive', url: 'https://quantumcomputing.stackexchange.com', tag: 'Quantum Q&A' },
       { name: 'NIST PQC', url: 'https://csrc.nist.gov/projects/post-quantum-cryptography', tag: 'Post-quantum standards' },
@@ -228,8 +228,8 @@ export const FACTIONS = [
     name: 'BASTION',
     codename: 'DEFENCE · LOCKDOWN',
     hero: 'Shield bearer',
-    color: '#01338E',
-    accent: '#36405A',
+    color: '#F2B705',
+    accent: '#E8A507',
     ink: '#050B1F',
     blurb: 'Stand the line. Forensics, sandboxing and incident response — the wall every flag has to break before it becomes truth.',
     tagline: 'I CAN DO THIS ALL NIGHT',

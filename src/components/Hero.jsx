@@ -29,9 +29,9 @@ const units = [
 ];
 
 const STATUSES = [
-  ['hub', 'operational', '#36405A'],
+  ['hub', 'operational', '#E8A507'],
   ['PADS matrix', 'validating', '#C75C35'],
-  ['flag enclave', 'signed', '#36405A'],
+  ['flag enclave', 'signed', '#E8A507'],
   ['queue', 'spooling', '#8A4A28'],
 ];
 
@@ -134,8 +134,8 @@ export default function Hero() {
           >
             <span className="border border-[#111E34] bg-[#0A0203] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#7A686B]"><span className="text-[#1A0A0A]">[00]</span> // REVERSE HACKATHON 2026</span>
             <span className="border border-[#111E34] bg-[#0A0203] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#7A686B]"><span className="text-[#1A0A0A]">[01]</span> // {faction.name} · FACTION {PAD(fi + 1)}/03</span>
-            <span className="border border-[#36405A]/40 bg-[#0A0203] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#1C0A0A]">
-              <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse bg-[#36405A]" />[02] // HUB ONLINE
+            <span className="border border-[#E8A507]/40 bg-[#0A0203] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#1C0A0A]">
+              <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse bg-[#E8A507]" />[02] // HUB ONLINE
             </span>
           </motion.div>
 

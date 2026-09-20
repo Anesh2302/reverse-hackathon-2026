@@ -3,8 +3,8 @@ import { motion, useInView } from 'framer-motion';
 
 const STATS = [
   { value: 15, suffix: '', label: 'SIGNED DOMAINS', note: 'one workload per battlefield', accent: '#C75C35' },
-  { value: 3, suffix: 'H', label: 'RUN WINDOW', note: 'nonstop sprint, verified end-to-end', accent: '#36405A' },
-  { value: 2, suffix: '', label: 'POD TEAM', note: 'solo or a duo on the wire', accent: '#36405A' },
+  { value: 3, suffix: 'H', label: 'RUN WINDOW', note: 'nonstop sprint, verified end-to-end', accent: '#F2B705' },
+  { value: 2, suffix: '', label: 'POD TEAM', note: 'solo or a duo on the wire', accent: '#F2B705' },
   { value: 5, suffix: ' MIN', label: 'SHOWCASE', note: 'present the exploit, not the story', accent: '#8A4A28' },
 ];
 

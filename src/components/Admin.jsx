@@ -257,10 +257,10 @@ export default function Admin() {
         {tab === 'overview' && (
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
-              { label: 'REGISTRATIONS', value: rows?.length ?? '—', accent: '#01338E' },
+              { label: 'REGISTRATIONS', value: rows?.length ?? '—', accent: '#F2B705' },
               { label: 'SOLO', value: rows?.filter((r) => r.mode === 'solo').length ?? '—', accent: '#C75C35' },
               { label: 'TEAMS', value: rows?.filter((r) => r.mode === 'team').length ?? '—', accent: '#C75C35' },
-              { label: 'SCORED', value: Object.keys(scores).length, accent: '#36405A' },
+              { label: 'SCORED', value: Object.keys(scores).length, accent: '#D9261E' },
             ].map((c) => (
               <div key={c.label} className="glass rounded-xl p-6" style={{ borderTop: `3px solid ${c.accent}` }}>
                 <div className="font-mono text-[10px] tracking-[0.3em] text-[#B4C0D8]">{c.label}</div>

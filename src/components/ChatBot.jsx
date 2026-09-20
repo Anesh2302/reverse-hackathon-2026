@@ -94,8 +94,8 @@ export default function ChatBot() {
   return (
     <div className="fixed bottom-5 right-5 z-[80] flex flex-col items-end gap-3">
       {open && (
-        <div className="flex h-[28rem] w-[min(92vw,21rem)] flex-col overflow-hidden rounded-2xl border border-[#36405A] bg-[#080808]/95 text-[#1A0A0A] shadow-2xl backdrop-blur">
-          <div className="flex items-center justify-between border-b border-[#36405A] bg-[#0A0203] px-4 py-3">
+        <div className="flex h-[28rem] w-[min(92vw,21rem)] flex-col overflow-hidden rounded-2xl border border-[#472020] bg-[#080808]/95 text-[#1A0A0A] shadow-2xl backdrop-blur">
+          <div className="flex items-center justify-between border-b border-[#472020] bg-[#0A0203] px-4 py-3">
             <div className="flex items-center gap-2">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-[#D9261E] font-display text-sm text-white">R</span>
               <div>
@@ -113,13 +113,13 @@ export default function ChatBot() {
             ))}
             {busy && <p className="font-mono text-xs text-[#B4C0D8]">typing…</p>}
           </div>
-          <form onSubmit={send} className="flex items-center gap-2 border-t border-[#36405A] p-3">
+          <form onSubmit={send} className="flex items-center gap-2 border-t border-[#472020] p-3">
             <input
               value={msg}
               onChange={(e) => setMsg(e.target.value)}
               placeholder="Ask about registration, teams, timer…"
               aria-label="Message the REVERSEHACKATHLON reg-helper bot"
-              className="min-w-0 flex-1 rounded-lg border border-[#36405A] bg-[#000000] px-3 py-2 font-mono text-xs text-[#1A0A0A] placeholder:text-[#2A0A0A] focus:outline-none"
+              className="min-w-0 flex-1 rounded-lg border border-[#472020] bg-[#000000] px-3 py-2 font-mono text-xs text-[#1A0A0A] placeholder:text-[#2A0A0A] focus:outline-none"
             />
             <button type="submit" disabled={busy || !msg.trim()} className="rounded-lg bg-[#D9261E] px-3 py-2 font-mono text-xs text-white disabled:opacity-40">SEND</button>
           </form>

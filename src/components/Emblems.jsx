@@ -65,7 +65,7 @@ export function ReactorEmblem({ color = '#C75C35', accent = '#C75C35', ink = '#1
   );
 }
 
-export function ShieldEmblem({ color = '#01338E', accent = '#36405A', ink = '#050B1F', className = '' }) {
+export function ShieldEmblem({ color = '#F2B705', accent = '#D9261E', ink = '#120203', className = '' }) {
   return (
     <svg viewBox="0 0 120 120" className={className} aria-hidden="true">
       {/* offset back-shield for motion */}

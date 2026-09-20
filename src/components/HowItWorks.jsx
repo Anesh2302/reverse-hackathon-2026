@@ -14,7 +14,7 @@ const FEATURES = [
     tag: 'EDGE',
     title: 'Fast where the targets are.',
     desc: 'Workloads route automatically to the nearest healthy domain bus — reversing, forensics, web, pwn — no hand-offs, no lag.',
-    accent: '#36405A',
+    accent: '#D9261E',
     icon: '◎',
   },
   {
@@ -22,7 +22,7 @@ const FEATURES = [
     tag: 'DEVELOPER FIRST',
     title: 'Three lines from intent to runtime.',
     desc: 'Pick a domain, pick a pod, deploy. The gate signs you in and the chamber opens on the countdown.',
-    accent: '#36405A',
+    accent: '#D9261E',
     icon: '⧉',
     code: true,
   },
