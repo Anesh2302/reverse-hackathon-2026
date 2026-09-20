@@ -4,7 +4,6 @@ export const EVENT = {
   year: '2026',
   date: '2026-10-08T09:00:00+05:30',
   dateLabel: 'OCT 8, 2026',
-  venue: 'University Campus',
   eligibility: 'Year I / II / III only',
   duration: '3 hours',
   demoTime: '5 min showcase',
@@ -20,7 +19,7 @@ export const DOMAINS = [
     icon: '🛡️',
     title: 'Ethical Hacking',
     desc: 'Think like the attacker. Recon, exploit, and responsibly break into intentionally vulnerable targets to expose weaknesses before real criminals do.',
-    color: '#ff4646',
+    color: '#C75C35',
     sites: [
       { name: 'TryHackMe', url: 'https://tryhackme.com', tag: 'Hands-on labs' },
       { name: 'Hack The Box', url: 'https://www.hackthebox.com', tag: 'Real-world boxes' },
@@ -32,7 +31,7 @@ export const DOMAINS = [
     icon: '🔍',
     title: 'Penetration Testing',
     desc: 'Plan, scope, attack and report. Master the pentest lifecycle across web, network and wireless with structured methodology.',
-    color: '#4f8cff',
+    color: '#01338E',
     sites: [
       { name: 'PortSwigger Academy', url: 'https://portswigger.net/web-security', tag: 'Web pentest' },
       { name: 'PentesterLab', url: 'https://pentesterlab.com', tag: 'Pro labs' },
@@ -44,7 +43,7 @@ export const DOMAINS = [
     icon: '🏴',
     title: 'CTF & Capture The Flag',
     desc: 'Compete in jeopardy-style and attack-defence CTFs. Grab flags, earn points, and climb leaderboards around the globe.',
-    color: '#ffc53d',
+    color: '#C75C35',
     sites: [
       { name: 'picoCTF', url: 'https://picoctf.org', tag: 'Beginner friendly' },
       { name: 'CTFtime', url: 'https://ctftime.org', tag: 'Upcoming CTFs' },
@@ -56,7 +55,7 @@ export const DOMAINS = [
     icon: '🕵️',
     title: 'Digital Forensics',
     desc: 'Acquire, preserve and analyse digital evidence. Recover deleted files, carve artifacts and reconstruct incidents from disk and memory.',
-    color: '#ffc53d',
+    color: '#465066',
     sites: [
       { name: 'CyberDefenders', url: 'https://cyberdefenders.org', tag: 'Forensics blue team' },
       { name: 'Autopsy', url: 'https://www.autopsy.com', tag: 'Open-source forensic tool' },
@@ -68,7 +67,7 @@ export const DOMAINS = [
     icon: '🔧',
     title: 'Reverse Engineering',
     desc: 'Dismantle binaries to understand their logic. Break encryption, crack keygens, and unravel malware — the heart of this hackathon.',
-    color: '#ff7a70',
+    color: '#8A4A28',
     sites: [
       { name: 'Ghidra', url: 'https://ghidra-sre.org', tag: 'NSA reverse suite' },
       { name: 'Crackmes.one', url: 'https://crackmes.one', tag: 'Practice binaries' },
@@ -80,7 +79,7 @@ export const DOMAINS = [
     icon: '🔐',
     title: 'Cryptography',
     desc: 'Crack ciphers, analyse protocols and exploit weak implementations. From classical ciphers to modern asymmetric crypto.',
-    color: '#00e5ff',
+    color: '#36405A',
     sites: [
       { name: 'CryptoHack', url: 'https://cryptohack.org', tag: 'Crypto challenges' },
       { name: 'CyberChef', url: 'https://gchq.github.io/CyberChef', tag: 'GCHQ swiss knife' },
@@ -92,7 +91,7 @@ export const DOMAINS = [
     icon: '🌐',
     title: 'Web Application Security',
     desc: 'Hunt vulnerabilities in modern web apps — SQLi, XSS, SSRF, IDOR and more. Understand how the browser betrays the server.',
-    color: '#ff4646',
+    color: '#F25A1E',
     sites: [
       { name: 'OWASP Juice Shop', url: 'https://owasp.org/www-project-juice-shop/', tag: 'Vulnerable web app' },
       { name: 'PortSwigger', url: 'https://portswigger.net/web-security', tag: 'Web security academy' },
@@ -104,7 +103,7 @@ export const DOMAINS = [
     icon: '🌍',
     title: 'Network Security',
     desc: 'Sniff traffic, map segments, detect intrusions. Defend networks from interception, poisoning and lateral movement.',
-    color: '#5eead4',
+    color: '#7A686B',
     sites: [
       { name: 'Wireshark', url: 'https://www.wireshark.org', tag: 'Packet analysis' },
       { name: 'TryHackMe Network', url: 'https://tryhackme.com/r/room/introtonetworking', tag: 'Networking labs' },
@@ -116,7 +115,7 @@ export const DOMAINS = [
     icon: '🧬',
     title: 'Malware Analysis',
     desc: 'Deconstruct malicious samples in sandboxes. Trip through packing, obfuscation and the dark alleys of malicious code.',
-    color: '#ff8c42',
+    color: '#6A7690',
     sites: [
       { name: 'ANY.RUN', url: 'https://any.run', tag: 'Cloud sandbox' },
       { name: 'Malware-Traffic-Analysis', url: 'https://www.malware-traffic-analysis.net', tag: 'pcap + malware' },
@@ -128,7 +127,7 @@ export const DOMAINS = [
     icon: '💥',
     title: 'Binary Exploitation / Pwn',
     desc: 'Stack overflows, ROP chains, shellcoding and heap exploitation. Turn memory corruption into a shell.',
-    color: '#f43f5e',
+    color: '#5E3A22',
     sites: [
       { name: 'pwn.college', url: 'https://pwn.college', tag: 'Full pwn curriculum' },
       { name: 'Exploit Education', url: 'https://exploit.education', tag: 'Phoenix/Protostar' },
@@ -140,7 +139,7 @@ export const DOMAINS = [
     icon: '🕸️',
     title: 'OSINT & Social Engineering',
     desc: 'Connect the digital breadcrumbs. Research, correlate and reconstruct identities and infrastructure from open sources.',
-    color: '#22d3ee',
+    color: '#E3B9B5',
     sites: [
       { name: 'OSINT Framework', url: 'https://osintframework.com', tag: 'Mega resource map' },
       { name: 'SpiderFoot', url: 'https://www.spiderfoot.net', tag: 'Automated recon' },
@@ -152,7 +151,7 @@ export const DOMAINS = [
     icon: '☁️',
     title: 'Cloud Security',
     desc: 'Hardening AWS, Azure and GCP. Misconfigured buckets, IAM privilege escalation and serverless attack paths.',
-    color: '#93c5fd',
+    color: '#01338E',
     sites: [
       { name: 'flAWS.cloud', url: 'http://flaws.cloud', tag: 'AWS challenge' },
       { name: 'CloudGoat', url: 'https://github.com/RhinoSecurityLabs/cloudgoat', tag: 'AWS vulnerable lab' },
@@ -164,7 +163,7 @@ export const DOMAINS = [
     icon: '🚨',
     title: 'Incident Response',
     desc: 'Detect, contain and recover. Work SOC investigation playbooks and turn an alert into an airtight timeline.',
-    color: '#fb7185',
+    color: '#D3A5A0',
     sites: [
       { name: 'LetsDefend', url: 'https://letsdefend.io', tag: 'SOC simulation' },
       { name: 'BlueTeamLabs', url: 'https://blueteamlabs.online', tag: 'BTLO challenges' },
@@ -176,7 +175,7 @@ export const DOMAINS = [
     icon: '🎯',
     title: 'Zero-Day Hunting',
     desc: 'Discover vulnerabilities nobody has patched. Fuzzing, source auditing and bug-bounty-grade research discipline.',
-    color: '#c084fc',
+    color: '#EAF1FB',
     sites: [
       { name: 'Google Project Zero', url: 'https://googleprojectzero.blogspot.com', tag: 'Research write-ups' },
       { name: 'FuzzBench', url: 'https://google.github.io/fuzzbench/', tag: 'Fuzzing harnesses' },
@@ -188,7 +187,7 @@ export const DOMAINS = [
     icon: '⚛️',
     title: 'Quantum & Next-Gen Crypto',
     desc: 'Post-quantum cryptography, lattice problems and the coming migration. Be ready for the cryptopocalypse.',
-    color: '#7dd3fc',
+    color: '#36405A',
     sites: [
       { name: 'CRQC Archive', url: 'https://quantumcomputing.stackexchange.com', tag: 'Quantum Q&A' },
       { name: 'NIST PQC', url: 'https://csrc.nist.gov/projects/post-quantum-cryptography', tag: 'Post-quantum standards' },
@@ -196,6 +195,51 @@ export const DOMAINS = [
     ],
   },
 ];
+
+// The three superhero archetypes taken from the "Website Animation Concept".
+// Each faction owns 5 of the 15 domains, so the takeover characters map 1:1 to the runtime.
+export const FACTIONS = [
+  {
+    id: 'arachnid',
+    name: 'ARACHNID',
+    codename: 'WEB · OPS',
+    hero: 'Web-slinger',
+    color: '#5E3A22',
+    accent: '#8A4A28',
+    ink: '#101A30',
+    blurb: 'Offense from the shadows. Spider-sense recon, exploit-first strikes and webs cast across the surface layer.',
+    tagline: 'WITH GREAT POWER COMES GREAT PARSE',
+    domains: ['ethical-hacking', 'web-security', 'penetration-testing', 'osint', 'binary-exploitation'],
+  },
+  {
+    id: 'reactor',
+    name: 'REACTOR',
+    codename: 'RE · CRYPTO',
+    hero: 'Armored engineer',
+    color: '#C75C35',
+    accent: '#C75C35',
+    ink: '#101A30',
+    blurb: 'Forge the unbreakable, then break it. Armor-plated binaries and city-scale cryptanalysis run on a heartbeat of raw compute.',
+    tagline: 'I AM THE RUNTIME',
+    domains: ['reversing', 'cryptography', 'ctf', 'quantum-crypto', 'zero-day-hunting'],
+  },
+  {
+    id: 'bastion',
+    name: 'BASTION',
+    codename: 'DEFENCE · LOCKDOWN',
+    hero: 'Shield bearer',
+    color: '#01338E',
+    accent: '#36405A',
+    ink: '#050B1F',
+    blurb: 'Stand the line. Forensics, sandboxing and incident response — the wall every flag has to break before it becomes truth.',
+    tagline: 'I CAN DO THIS ALL NIGHT',
+    domains: ['digital-forensics', 'network-security', 'malware-analysis', 'incident-response', 'cloud-security'],
+  },
+];
+
+export function factionOf(domainId) {
+  return FACTIONS.find((f) => f.domains.includes(domainId)) || null;
+}
 
 export const DOMAIN_PHASES = {
   'ethical-hacking': 'OFFENSIVE',

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#05070f"/>
-  <ellipse cx="32" cy="33" rx="21" ry="13" fill="#ffc53d"/>
-  <ellipse cx="32" cy="33" rx="18" ry="11" fill="#ffd34d"/>
-  <ellipse cx="32" cy="33" rx="14" ry="8.5" fill="#fffdf6" stroke="#0b0c10" stroke-width="2.5"/>
-  <text x="32" y="38.5" font-family="Impact, Arial Black, sans-serif" font-size="14" fill="#0b0c10" text-anchor="middle" font-weight="900">DC</text>
+  <rect width="64" height="64" rx="12" fill="#000000"/>
+  <ellipse cx="32" cy="33" rx="21" ry="13" fill="#5E3A22"/>
+  <ellipse cx="32" cy="33" rx="18" ry="11" fill="#8A4A28"/>
+  <ellipse cx="32" cy="33" rx="14" ry="8.5" fill="#EAF1FB" stroke="#C75C35" stroke-width="2.5"/>
+  <text x="32" y="38.5" font-family="Impact, Arial Black, sans-serif" font-size="14" fill="#000000" text-anchor="middle" font-weight="900">RH</text>
 </svg>

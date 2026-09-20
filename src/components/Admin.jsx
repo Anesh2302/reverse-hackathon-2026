@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   adminLogin,
   adminLogout,
@@ -182,27 +182,27 @@ export default function Admin() {
       <div className="min-h-screen flex items-center justify-center px-5">
         <div className="w-full max-w-sm">
           {error && (
-            <div className="mb-5 border border-[#ff4646]/50 bg-[#ff4646]/10 px-4 py-3 font-mono text-xs text-[#ff4646]">
+            <div className="mb-5 border border-[#B01713]/50 bg-[#D9261E]/10 px-4 py-3 font-mono text-xs text-[#1A0A0A]">
               ✕ {error}
             </div>
           )}
           <form onSubmit={doLogin} className="glass rounded-2xl p-8 space-y-5">
             <div>
-              <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-4">&lt;ADMIN.GATE /&gt;</div>
-              <h2 className="font-display text-2xl font-bold text-[#eef0f6]">ADMIN <span className="text-gradient">GATE</span></h2>
+              <div className="comic-chip border border-[#B01713]/60 px-3 py-1 text-[10px] text-[#1A0A0A] mb-4">&lt;ADMIN.GATE /&gt;</div>
+              <h2 className="font-display text-2xl font-bold text-[#1A0A0A]">ADMIN <span className="text-gradient">GATE</span></h2>
             </div>
             <div>
-              <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">EMAIL</label>
+              <label className="font-mono text-[10px] tracking-[0.3em] text-[#B4C0D8] block mb-1.5">EMAIL</label>
               <input className={inputClass} type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} placeholder="you@college.edu" required />
             </div>
             <div>
-              <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">PASSWORD</label>
+              <label className="font-mono text-[10px] tracking-[0.3em] text-[#B4C0D8] block mb-1.5">PASSWORD</label>
               <input className={inputClass} type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} placeholder="••••••••" required />
             </div>
             <button type="submit" disabled={loading} className="btn-neon w-full text-xs py-3.5 disabled:opacity-50">
               {loading ? 'AUTHENTICATING…' : 'ENTER //'}
             </button>
-            <p className="font-mono text-[10px] text-[#8d90a3] text-center">
+            <p className="font-mono text-[10px] text-[#B4C0D8] text-center">
               Sessions expire automatically after 12 hours.
             </p>
           </form>
@@ -211,15 +211,15 @@ export default function Admin() {
     );
   }
   return (
-    <div className="min-h-screen bg-[#0b0b0d] px-5 py-20">
+    <div className="min-h-screen bg-[#000000] px-5 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <div className="comic-chip border border-[#ffc53d]/60 px-3 py-1 text-[10px] text-[#ffd34d] mb-4">&lt;ADMIN.CONSOLE /&gt;</div>
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-[#eef0f6]">
+            <div className="comic-chip border border-[#B01713]/60 px-3 py-1 text-[10px] text-[#1A0A0A] mb-4">&lt;ADMIN.CONSOLE /&gt;</div>
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1A0A0A]">
               JUDGE'S <span className="text-gradient">CONSOLE</span>
             </h1>
-            <p className="mt-1 font-mono text-xs text-[#8d90a3]">{session.name} · {session.email}</p>
+            <p className="mt-1 font-mono text-xs text-[#B4C0D8]">{session.name} · {session.email}</p>
           </div>
           <div className="flex items-center gap-3">
             <button onClick={exportCsv} className="btn-ghost text-xs px-5 py-2.5" title="Download full CSV (registrations + scores)">
@@ -228,7 +228,7 @@ export default function Admin() {
             <button onClick={loadAll} disabled={loading} className="btn-ghost text-xs px-5 py-2.5 disabled:opacity-50">
               {loading ? 'SYNCING…' : 'REFRESH'}
             </button>
-            <button onClick={doLogout} className="font-mono text-xs text-[#8d90a3] hover:text-[#ff4646] transition-colors px-2">
+            <button onClick={doLogout} className="font-mono text-xs text-[#B4C0D8] hover:text-[#1A0A0A] transition-colors px-2">
               LOG OUT
             </button>
           </div>
@@ -240,7 +240,7 @@ export default function Admin() {
               key={t.id}
               onClick={() => setTab(t.id)}
               className={`font-mono text-[11px] tracking-[0.25em] px-5 py-2.5 transition-all ${
-                tab === t.id ? 'bg-[#ff4646] text-[#fffdf6] [box-shadow:3px_3px_0_0_rgba(0,0,0,0.6)]' : 'text-[#8d90a3] hover:text-[#eef0f6]'
+                tab === t.id ? 'bg-[#D9261E] text-[#1A0A0A] [box-shadow:3px_3px_0_0_rgba(0,0,0,0.6)]' : 'text-[#B4C0D8] hover:text-[#1A0A0A]'
               }`}
             >
               {t.label}
@@ -248,22 +248,22 @@ export default function Admin() {
           ))}
         </div>
         {error && (
-          <div className="mb-6 border border-[#ff4646]/50 bg-[#ff4646]/10 px-4 py-3 font-mono text-xs text-[#ff4646]">✕ {error}</div>
+          <div className="mb-6 border border-[#B01713]/50 bg-[#D9261E]/10 px-4 py-3 font-mono text-xs text-[#1A0A0A]">✕ {error}</div>
         )}
         {notice && (
-          <div className="mb-6 border border-[#4f8cff]/40 bg-[#4f8cff]/10 px-4 py-3 font-mono text-xs text-[#7fb0ff]">✓ {notice}</div>
+          <div className="mb-6 border border-[#C98905]/40 bg-[#D9A006]/10 px-4 py-3 font-mono text-xs text-[#1C0A0A]">✓ {notice}</div>
         )}
         {/* OVERVIEW */}
         {tab === 'overview' && (
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
-              { label: 'REGISTRATIONS', value: rows?.length ?? '—', accent: '#4f8cff' },
-              { label: 'SOLO', value: rows?.filter((r) => r.mode === 'solo').length ?? '—', accent: '#ffd34d' },
-              { label: 'TEAMS', value: rows?.filter((r) => r.mode === 'team').length ?? '—', accent: '#ff4646' },
-              { label: 'SCORED', value: Object.keys(scores).length, accent: '#52e0a4' },
+              { label: 'REGISTRATIONS', value: rows?.length ?? '—', accent: '#01338E' },
+              { label: 'SOLO', value: rows?.filter((r) => r.mode === 'solo').length ?? '—', accent: '#C75C35' },
+              { label: 'TEAMS', value: rows?.filter((r) => r.mode === 'team').length ?? '—', accent: '#C75C35' },
+              { label: 'SCORED', value: Object.keys(scores).length, accent: '#36405A' },
             ].map((c) => (
               <div key={c.label} className="glass rounded-xl p-6" style={{ borderTop: `3px solid ${c.accent}` }}>
-                <div className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3]">{c.label}</div>
+                <div className="font-mono text-[10px] tracking-[0.3em] text-[#B4C0D8]">{c.label}</div>
                 <div className="mt-2 font-display text-4xl font-bold" style={{ color: c.accent }}>{c.value}</div>
               </div>
             ))}
@@ -274,7 +274,7 @@ export default function Admin() {
           <div className="glass rounded-xl overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse min-w-[900px]">
               <thead>
-                <tr className="font-mono text-[10px] tracking-[0.25em] text-[#8d90a3] border-b border-[#4a4e60]">
+                <tr className="font-mono text-[10px] tracking-[0.25em] text-[#B4C0D8] border-b border-[#465066]">
                   <th className="px-4 py-3">ID</th>
                   <th className="px-4 py-3">MODE</th>
                   <th className="px-4 py-3">NAME</th>
@@ -285,32 +285,32 @@ export default function Admin() {
               </thead>
               <tbody>
                 {(rows || []).map((r) => (
-                  <tr key={r.registrationId || r.id} className="border-b border-[#383b4a] hover:bg-[#ff4646]/5 transition-colors align-top">
-                    <td className="px-4 py-3 font-mono text-xs text-[#ff4646]">{r.registrationId}</td>
+                  <tr key={r.registrationId || r.id} className="border-b border-[#465066] hover:bg-[#D9261E]/5 transition-colors align-top">
+                    <td className="px-4 py-3 font-mono text-xs text-[#1A0A0A]">{r.registrationId}</td>
                     <td className="px-4 py-3 font-mono text-xs">
-                      <span className={`px-2 py-1 rounded ${r.mode === 'team' ? 'bg-[#ffc53d]/15 text-[#b97506]' : 'bg-[#ff4646]/10 text-[#ff4646]'}`}>
+                      <span className={`px-2 py-1 rounded ${r.mode === 'team' ? 'bg-[#D9261E]/15 text-[#1A0A0A]' : 'bg-[#D9261E]/10 text-[#1A0A0A]'}`}>
                         {String(r.mode || '').toUpperCase()}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-[#eef0f6]">
+                    <td className="px-4 py-3 text-[#1A0A0A]">
                       {r.name}
                       {r.mode === 'team' && r.teamName && (
-                        <div className="text-[10px] text-[#8d90a3] font-mono">{r.teamName}</div>
+                        <div className="text-[10px] text-[#B4C0D8] font-mono">{r.teamName}</div>
                       )}
                     </td>
-                    <td className="px-4 py-3 text-[#ff4646]">{r.year}</td>
-                    <td className="px-4 py-3 text-xs text-[#4f8cff]">{r.domain}</td>
+                    <td className="px-4 py-3 text-[#1A0A0A]">{r.year}</td>
+                    <td className="px-4 py-3 text-xs text-[#1A0A0A]">{r.domain}</td>
                     <td className="px-4 py-3">
                       {r.submissionUrl ? (
-                        <a href={r.submissionUrl} target="_blank" rel="noreferrer" className="font-mono text-xs text-[#52e0a4] hover:underline">
+                        <a href={r.submissionUrl} target="_blank" rel="noreferrer" className="font-mono text-xs text-[#1C0A0A] hover:underline">
                           OPEN ↗
                         </a>
                       ) : r.uploadId ? (
-                        <button onClick={() => openFile(r.uploadId)} className="font-mono text-xs text-[#ffd34d] hover:underline">
+                        <button onClick={() => openFile(r.uploadId)} className="font-mono text-xs text-[#1A0A0A] hover:underline">
                           DOWNLOAD ⬇
                         </button>
                       ) : (
-                        <span className="font-mono text-[10px] text-[#8d90a3]">—</span>
+                        <span className="font-mono text-[10px] text-[#B4C0D8]">—</span>
                       )}
                     </td>
                   </tr>
@@ -318,19 +318,19 @@ export default function Admin() {
               </tbody>
             </table>
             {(rows || []).length === 0 && (
-              <div className="px-5 py-10 text-center font-mono text-sm text-[#989bb0]">No registrations yet.</div>
+              <div className="px-5 py-10 text-center font-mono text-sm text-[#2A0A0A]">No registrations yet.</div>
             )}
           </div>
         )}
         {/* SCORES /30 */}
         {tab === 'scores' && (
           <div className="glass rounded-xl overflow-x-auto">
-            <div className="px-5 py-4 font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] border-b border-[#4a4e60]">
+            <div className="px-5 py-4 font-mono text-[10px] tracking-[0.3em] text-[#B4C0D8] border-b border-[#465066]">
               SCORE SHEET · 30 MARKS = COMMUNICATION 10 · LIVE SHOW 10 · DOMAINS 10
             </div>
             <table className="w-full text-left text-sm border-collapse min-w-[820px]">
               <thead>
-                <tr className="font-mono text-[10px] tracking-[0.25em] text-[#8d90a3] border-b border-[#4a4e60]">
+                <tr className="font-mono text-[10px] tracking-[0.25em] text-[#B4C0D8] border-b border-[#465066]">
                   <th className="px-4 py-3">TEAM</th>
                   <th className="px-4 py-3">COMMUNICATION /10</th>
                   <th className="px-4 py-3">LIVE SHOW /10</th>
@@ -341,10 +341,10 @@ export default function Admin() {
               </thead>
               <tbody>
                 {(rows || []).map((r) => (
-                  <tr key={r.registrationId || r.id} className="border-b border-[#383b4a] align-top">
-                    <td className="px-4 py-3 text-[#eef0f6]">
+                  <tr key={r.registrationId || r.id} className="border-b border-[#465066] align-top">
+                    <td className="px-4 py-3 text-[#1A0A0A]">
                       {r.name}
-                      <div className="font-mono text-[10px] text-[#8d90a3]">{r.registrationId}</div>
+                      <div className="font-mono text-[10px] text-[#B4C0D8]">{r.registrationId}</div>
                     </td>
                     {['communication', 'liveShow', 'domains'].map((k) => (
                       <td key={k} className="px-4 py-3">
@@ -360,7 +360,7 @@ export default function Admin() {
                         />
                       </td>
                     ))}
-                    <td className="px-4 py-3 font-display text-xl font-bold text-[#ffd34d]">
+                    <td className="px-4 py-3 font-display text-xl font-bold text-[#1A0A0A]">
                       {scoreTotal(r.registrationId)}/30
                     </td>
                     <td className="px-4 py-3">
@@ -382,14 +382,14 @@ export default function Admin() {
               return (
                 <div key={r.registrationId} className="glass rounded-xl p-5">
                   <div className="flex items-center justify-between mb-3">
-                    <div className="font-mono text-[10px] tracking-[0.25em] text-[#8d90a3]">{r.name}</div>
-                    <div className="font-mono text-[9px] text-[#4a4e60]">{r.registrationId}</div>
+                    <div className="font-mono text-[10px] tracking-[0.25em] text-[#B4C0D8]">{r.name}</div>
+                    <div className="font-mono text-[9px] text-[#2A0A0A]">{r.registrationId}</div>
                   </div>
                   <div
                     className={`font-display text-5xl font-black text-center tracking-wider tabular-nums ${
-                      t.status === 'running' ? 'text-[#52e0a4] ticking' : t.remainingMs <= 5 * 1000 ? 'text-[#ff4646]' : 'text-[#eef0f6]'
+                      t.status === 'running' ? 'text-[#1C0A0A] ticking' : t.remainingMs <= 5 * 1000 ? 'text-[#1A0A0A]' : 'text-[#1A0A0A]'
                     }`}
-                    style={{ textShadow: t.status === 'running' ? '0 0 18px rgba(82,224,164,0.5)' : 'none' }}
+                    style={{ textShadow: t.status === 'running' ? '0 0 18px rgba(67,92,130,0.5)' : 'none' }}
                   >
                     {clockLabel(t)}
                   </div>
@@ -406,18 +406,18 @@ export default function Admin() {
         {/* INBOX — unanswered reg-helper questions */}
         {tab === 'inbox' && (
           <div className="glass rounded-xl overflow-hidden max-w-3xl">
-            <div className="px-5 py-4 font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] border-b border-[#4a4e60]">
+            <div className="px-5 py-4 font-mono text-[10px] tracking-[0.3em] text-[#B4C0D8] border-b border-[#465066]">
               REG-HELPER INBOX · QUESTIONS THE BOT COULDN'T AUTO-ANSWER
             </div>
             {chats.length === 0 ? (
-              <div className="px-5 py-10 text-center font-mono text-sm text-[#989bb0]">No unanswered questions yet.</div>
+              <div className="px-5 py-10 text-center font-mono text-sm text-[#2A0A0A]">No unanswered questions yet.</div>
             ) : (
-              <ul className="divide-y divide-[#383b4a]">
+              <ul className="divide-y divide-[#465066]">
                 {chats.map((c) => (
                   <li key={c.id} className="px-5 py-4 flex items-start justify-between gap-4">
                     <div>
-                      <div className="font-mono text-xs text-[#eef0f6] leading-relaxed">{c.text}</div>
-                      <div className="mt-2 font-mono text-[10px] tracking-[0.2em] text-[#8d90a3]">
+                      <div className="font-mono text-xs text-[#1A0A0A] leading-relaxed">{c.text}</div>
+                      <div className="mt-2 font-mono text-[10px] tracking-[0.2em] text-[#B4C0D8]">
                         {String(c.source || 'site').toUpperCase()} · {new Date(c.at).toLocaleString()}
                       </div>
                     </div>
@@ -425,28 +425,28 @@ export default function Admin() {
                 ))}
               </ul>
             )}
-            <div className="px-5 py-3 border-t border-[#4a4e60] font-mono text-[10px] text-[#8d90a3]">
-              Call organizer <span className="text-[#52e0a4]">+91 73396 14244</span> to answer these live.
+            <div className="px-5 py-3 border-t border-[#465066] font-mono text-[10px] text-[#B4C0D8]">
+              Call organizer <span className="text-[#1C0A0A]">+91 73396 14244</span> to answer these live.
             </div>
           </div>
         )}
         {/* SECURITY */}
         {tab === 'security' && (
           <div className="glass rounded-xl p-6 max-w-xl">
-            <div className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] mb-1">AT-REST &amp; SESSION</div>
-            <h3 className="font-display text-xl font-bold text-[#eef0f6] mb-3">SECURITY</h3>
-            <ul className="space-y-3 font-mono text-xs text-[#c9cbd8]">
-              <li><span className="text-[#52e0a4]">✓</span> Passwords — scrypt (N=16384) hashed, never stored raw.</li>
-              <li><span className="text-[#52e0a4]">✓</span> Admin login — HttpOnly session cookie, HMAC-signed, 12h expiry.</li>
-              <li><span className="text-[#52e0a4]">✓</span> Registrations, scores, timer, uploads — AES-256-GCM encrypted at rest.</li>
-              <li><span className="text-[#52e0a4]">✓</span> Score sheet — 30 marks (Communication/Live Show/Domains).</li>
-              <li><span className="text-[#52e0a4]">✓</span> Live clock — server-authoritative 5:00 per team.</li>
-              <li><span className="text-[#52e0a4]">✓</span> Uploads — optional ≤2MB, base64, encrypted, admin-download only.</li>
+            <div className="font-mono text-[10px] tracking-[0.3em] text-[#B4C0D8] mb-1">AT-REST &amp; SESSION</div>
+            <h3 className="font-display text-xl font-bold text-[#1A0A0A] mb-3">SECURITY</h3>
+            <ul className="space-y-3 font-mono text-xs text-[#D3A5A0]">
+              <li><span className="text-[#1C0A0A]">✓</span> Passwords — scrypt (N=16384) hashed, never stored raw.</li>
+              <li><span className="text-[#1C0A0A]">✓</span> Admin login — HttpOnly session cookie, HMAC-signed, 12h expiry.</li>
+              <li><span className="text-[#1C0A0A]">✓</span> Registrations, scores, timer, uploads — AES-256-GCM encrypted at rest.</li>
+              <li><span className="text-[#1C0A0A]">✓</span> Score sheet — 30 marks (Communication/Live Show/Domains).</li>
+              <li><span className="text-[#1C0A0A]">✓</span> Live clock — server-authoritative 5:00 per team.</li>
+              <li><span className="text-[#1C0A0A]">✓</span> Uploads — optional ≤2MB, base64, encrypted, admin-download only.</li>
             </ul>
-            <p className="mt-6 font-mono text-[11px] text-[#8d90a3]">
+            <p className="mt-6 font-mono text-[11px] text-[#B4C0D8]">
               Run this app on your own server for full at-rest residency. On Vercel, set{' '}
-              <span className="text-[#4f8cff]">SESSION_SECRET</span>, <span className="text-[#4f8cff]">STORE_KEY</span> and{' '}
-              <span className="text-[#4f8cff]">MONGODB_URI</span> env vars.
+              <span className="text-[#1A0A0A]">SESSION_SECRET</span>, <span className="text-[#1A0A0A]">STORE_KEY</span> and{' '}
+              <span className="text-[#1A0A0A]">MONGODB_URI</span> env vars.
             </p>
           </div>
         )}

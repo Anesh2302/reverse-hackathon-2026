@@ -34,7 +34,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#0b0b0d] text-[#eef0f6]">
+    <div className="relative min-h-screen bg-[#000000] text-[#1A0A0A]">
       <AnimatePresence>{booting && <BootLoader key="boot" onDone={() => setBooting(false)} />}</AnimatePresence>
 
       <Navbar />
