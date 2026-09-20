@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const FAQS = [
   {
     q: 'Who can register?',
-    a: "Only DEP-CYS students in Year I, Year II and Year III. If you are from another department or year, this arena isn't open to you — yet.",
+    a: "REVERSE HACKATHON 2026 is open to students in Year I, Year II and Year III. If you are outside these years, this arena isn't open to you — yet.",
   },
   {
     q: 'Can I participate solo or do I need a team?',
@@ -24,11 +24,11 @@ const FAQS = [
   },
   {
     q: 'What happens after I register?',
-    a: "You'll receive a registration ID immediately. Save it — you'll verify with it at check-in. Keep an eye on the DEP-CYS notice boards and your email for the arena guide.",
+    a: "You'll receive a registration ID immediately. Save it — you'll verify with it at check-in. Keep an eye on the event notice boards and your email for the arena guide.",
   },
   {
     q: 'Is there a registration fee?',
-    a: 'Registration is free for DEP-CYS students. Just show up, sign in and dominate.',
+    a: 'Registration is free for all students. Just show up, sign in and dominate.',
   },
 ];
 

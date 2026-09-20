@@ -30,7 +30,7 @@ export default function FinalCta() {
             </p>
             <p className="mx-auto mt-4 max-w-xl text-[#6E6E6E]">
               Tell us which domain you want to burn fastest — we map the right cluster architecture for your pod.
-              Slots are capped at 300 and it's exclusively DEP-CYS I, II &amp; III. Deploy now, sign at the gate,
+              Slots are capped at 300 and it's open exclusively to Year I, II &amp; III. Deploy now, sign at the gate,
               sharpen the toolchain before the chamber opens.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

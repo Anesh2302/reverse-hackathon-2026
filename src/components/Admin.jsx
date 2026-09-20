@@ -193,7 +193,7 @@ export default function Admin() {
             </div>
             <div>
               <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">EMAIL</label>
-              <input className={inputClass} type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} placeholder="you@depcys.edu" required />
+              <input className={inputClass} type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} placeholder="you@college.edu" required />
             </div>
             <div>
               <label className="font-mono text-[10px] tracking-[0.3em] text-[#8d90a3] block mb-1.5">PASSWORD</label>

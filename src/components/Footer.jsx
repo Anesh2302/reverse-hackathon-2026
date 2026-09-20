@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
 
         <p className="text-sm text-[#6E6E6E] max-w-xl mx-auto mb-6">
-          Organized by the Cybersecurity department (DEP-CYS). For event updates, notices and
+          Organized for the REVERSE HACKATHON 2026 student community. For event updates, notices and
           registrations, reach the organizing committee.
         </p>
 

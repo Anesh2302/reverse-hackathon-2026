@@ -112,7 +112,7 @@ export default function HowItWorks() {
           className="mt-10 rounded-none border border-[#262626] bg-[#161616] px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_6px_18px_rgba(0,0,0,0.45)]"
         >
           <div className="font-mono text-xs tracking-[0.18em] text-[#6E6E6E]">
-            <span className="text-[#FFD600]">07:00</span>&nbsp;· NIGHT OVER — LEDGER CLOSED, BOARD VERIFIED, DEP-CYS TAKES THE MORNING.
+            <span className="text-[#FFD600]">07:00</span>&nbsp;· LEDGER CLOSED, BOARD VERIFIED, FLAGS SEALED.
           </div>
           <a href="#register" className="inline-flex items-center justify-center rounded-none bg-[#FFD600] px-5 py-2.5 font-mono text-xs font-bold tracking-wide uppercase text-[#0F0F0F] transition-colors hover:bg-[#FFC200] shrink-0">Deploy Your Stand</a>
         </motion.div>

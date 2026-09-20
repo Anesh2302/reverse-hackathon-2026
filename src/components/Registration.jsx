@@ -87,7 +87,7 @@ export default function Registration() {
             </h2>
           </div>
           <p className="text-base md:text-lg text-[#6E6E6E] md:text-right md:pb-1.5">
-            DEP-CYS Year I, II &amp; III only. Go solo or pair up with one partner — your registration
+            Open to students in Year I, II &amp; III only. Go solo or pair up with one partner — your registration
             ID is your key to the arena.
           </p>
         </motion.div>
@@ -161,7 +161,7 @@ export default function Registration() {
                   </div>
                   <div>
                     <label className="font-mono text-[10px] tracking-[0.3em] text-[#6E6E6E] block mb-1.5">EMAIL</label>
-                    <input className={inputClass} type="email" value={form.email} onChange={set('email')} placeholder="you@depcys.edu" required />
+                    <input className={inputClass} type="email" value={form.email} onChange={set('email')} placeholder="you@college.edu" required />
                   </div>
                   <div>
                     <label className="font-mono text-[10px] tracking-[0.3em] text-[#6E6E6E] block mb-1.5">PHONE</label>
@@ -248,7 +248,7 @@ export default function Registration() {
                     required
                   />
                   <span className="text-xs tracking-wide text-[#6E6E6E]">
-                    I confirm I am a <b className="text-[#F5F5F0]">DEP-CYS</b> student in Year <b className="text-[#FFD600]">{form.year || 'I/II/III'}</b>,
+                    I confirm I am a student in Year <b className="text-[#FFD600]">{form.year || 'I/II/III'}</b>,
                     and I agree to the event rules, ethical-hacking constraints and code of conduct.
                   </span>
                 </label>
@@ -268,7 +268,7 @@ export default function Registration() {
                 </button>
 
                 <div className="text-center font-mono text-[10px] tracking-[0.3em] text-[#555555]">
-                  SLOTS ARE LIMITED TO DEP-CYS I · II · III — FIRST COME, FIRST SERVED
+                  SLOTS ARE LIMITED TO YEAR I · II · III — FIRST COME, FIRST SERVED
                 </div>
               </motion.form>
             )}

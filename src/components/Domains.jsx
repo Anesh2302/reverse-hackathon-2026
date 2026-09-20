@@ -36,7 +36,7 @@ export default function Domains() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-none border border-[#262626] bg-[#111111] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.3em] text-[#FFD600] shadow-sm mb-5">[06] // DOMAINS</div>
             <h2 className="font-display text-2xl md:text-4xl font-bold uppercase text-[#F5F5F0] leading-tight">
-              <span className="text-[#FFD600]">15 DOMAINS</span> OF CYBER
+              <span className="text-[#FFD600]">15 DOMAINS</span> · ONE RUNTIME
             </h2>
           </div>
           <p className="font-mono text-sm md:text-base text-[#6E6E6E] md:text-right md:pb-1.5">

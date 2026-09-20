@@ -90,10 +90,10 @@ export default function About() {
               <div className="font-mono text-xs tracking-[0.4em] text-[#6E6E6E]">// ACCESS CONTROL</div>
               <h3 className="font-display text-2xl font-bold uppercase text-[#F5F5F0] leading-snug">
                 STRICTLY FOR<br />
-                <span className="text-[#FFD600]">DEP-CYS</span>
+                <span className="text-[#FFD600]">REVERSE HACKATHON</span>
               </h3>
               <p className="text-sm text-[#6E6E6E]">
-                Reserved for Cybersecurity students. All three years — your time to prove yourselves.
+                Open to all students. All three years — your time to prove yourselves.
               </p>
             </div>
 

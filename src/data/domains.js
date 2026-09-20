@@ -4,14 +4,14 @@ export const EVENT = {
   year: '2026',
   date: '2026-10-08T09:00:00+05:30',
   dateLabel: 'OCT 8, 2026',
-  venue: 'DEP-CYS Campus',
-  eligibility: 'DEP-CYS · Year I / II / III only',
+  venue: 'University Campus',
+  eligibility: 'Year I / II / III only',
   duration: '3 hours',
   demoTime: '5 min showcase',
   teamSize: 'Solo or team of 2',
   tagline: 'Reverse. Exploit. Defend.',
   description:
-    'A 3-hour sprint across 15 domains of cybersecurity. Flip the script — reverse the binary, burn the CTF, defend the target. Every pod closes with a 5-minute live showcase of what they did.',
+    'A 3-hour sprint across 15 domains. Flip the script — reverse the binary, burn the CTF, defend the target. Every pod closes with a 5-minute live showcase of what they did.',
 };
 
 export const DOMAINS = [
