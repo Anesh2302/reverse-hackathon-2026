@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="border-b border-[#262626]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-1.5 md:px-8">
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#6E6E6E]">
-            <span className="text-[#FFD600]">▣ [01] //</span> DEP-CYS — NIGHT OPERATIONS <span className="text-[#555555]">v2026.0</span>
+            <span className="text-[#FFD600]">▣ [01] //</span> REVERSE HACKATHON 2026 <span className="text-[#555555]">v2026.0</span>
           </div>
           <div className="hidden md:flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.3em] text-[#6E6E6E]">
             <span>[<span className="text-[#FFD600]">3H</span> WINDOW]</span>
@@ -62,7 +62,7 @@ export default function Navbar() {
             <div className="font-display text-2xl uppercase leading-none tracking-wide text-[#F5F5F0] [text-shadow:0_0_40px_rgba(255,214,0,0.14)]">
               REVERSE<span className="text-[#FFD600]">HACK</span>
             </div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#6E6E6E]">DEP-CYS / NIGHT OPS</div>
+            <div className="font-mono text-[10px] tracking-[0.25em] text-[#6E6E6E]">REVERSE HACKATHON</div>
           </div>
         </a>
 

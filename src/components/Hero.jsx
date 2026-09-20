@@ -103,7 +103,7 @@ export default function Hero() {
             className="mb-6 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start"
           >
             <span className="border border-[#262626] bg-[#111111] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#6E6E6E]"><span className="text-[#FFD600]">[00]</span> // REVERSE HACKATHON 2026</span>
-            <span className="border border-[#262626] bg-[#111111] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#6E6E6E]"><span className="text-[#FFD600]">[01]</span> // DEP-CYS · v2026.0</span>
+            <span className="border border-[#262626] bg-[#111111] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#6E6E6E]"><span className="text-[#FFD600]">[01]</span> // REVERSE HACKATHON · v2026.0</span>
             <span className="border border-[#22c55e]/40 bg-[#111111] px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-[#22c55e]">
               <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse bg-[#22c55e]" />[02] // HUB ONLINE
             </span>
@@ -177,7 +177,7 @@ export default function Hero() {
           >
             <div className="mb-3 flex items-center justify-center gap-2.5 lg:justify-start">
               <span className="border border-[#FFD600] bg-[#FFD600] px-3 py-1 font-mono text-[10px] tracking-[0.25em] text-[#0F0F0F]">T-MINUS</span>
-              <span className="font-mono text-[11px] tracking-[0.4em] text-[#6E6E6E]">UNTIL NIGHT OPS</span>
+              <span className="font-mono text-[11px] tracking-[0.3em] text-[#6E6E6E]">UNTIL REGISTRATION CLOSES</span>
             </div>
             <div className="flex items-center justify-center gap-2.5 lg:justify-start sm:gap-3">
               {units.map((u) => (
@@ -235,7 +235,7 @@ export default function Hero() {
               <div className="relative mx-auto flex h-60 w-60 items-center justify-center">
                 <div className="absolute inset-0 rounded-none opacity-20" style={{ background: 'radial-gradient(circle, rgba(255,107,53,0.14) 0%, transparent 70%)' }} />
                 <div className="dc-bullet h-24 w-44 text-6xl">DC</div>
-                <span className="absolute -bottom-1 font-mono text-[9px] tracking-[0.5em] text-[#FF6B35]">NIGHT OPS DIVISION</span>
+                <span className="absolute -bottom-1 font-mono text-[9px] tracking-[0.3em] text-[#FF6B35]">REVERSE HACKATHON</span>
               </div>
 
               <div className="mt-6 grid grid-cols-3 gap-3">

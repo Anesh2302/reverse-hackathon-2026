@@ -29,8 +29,12 @@ export default function Footer() {
           registrations, reach the organizing committee.
         </p>
 
+        <p className="text-sm text-[#6E6E6E] max-w-xl mx-auto mb-6">
+          Inspired by the <a href="https://v0.app/templates/stack-attack-market-clash-wi1zVbwl7kq" target="_blank" rel="noreferrer" className="text-[#6E6E6E] hover:text-[#FFD600] underline">Stack Attack: Market Clash</a> design template from v0.app.
+        </p>
+
         <div className="font-mono text-[10px] tracking-[0.2em] text-[#555555]">
-          © {new Date().getFullYear()} REVERSE HACKATHON · DEP-CYS — CLEARANCE I · II · III ONLY · <a href="#/admin" className="hover:text-[#FFD600]">admin</a>
+          © {new Date().getFullYear()} REVERSE HACKATHON 2026 · <a href="#/admin" className="hover:text-[#FFD600]">admin</a>
         </div>
       </div>
     </footer>

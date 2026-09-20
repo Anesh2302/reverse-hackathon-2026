@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const LINES = [
-  '[ok]  deploying runtime — REVERSE HACKATHON 2026 · v2026.0',
-  '[ok]  edge online :: 15 domains :: DEP-CYS :: YEARS I II III',
-  '[ok]  consensus layer up ······ flags signed',
-  '[ok]  enclaves sealed :: solo/duo pods :: ledger ready',
+  '[ok]   deploying runtime — REVERSE HACKATHON 2026 · v2026.0',
+  '[ok]   edge online :: 15 domains :: years I II III :: ledger signed',
+  '[ok]   consensus layer up ······ flags signed',
+  '[ok]   enclaves sealed :: solo/duo pods :: ledger ready',
   '[>]   chamber opens on the countdown — deploy your stand',
 ];
 
@@ -54,7 +54,7 @@ export default function BootLoader({ onDone }) {
           <h1 className="mt-6 font-display text-4xl md:text-6xl uppercase leading-none text-[#F5F5F0] [text-shadow:0_0_30px_rgba(255,214,0,0.12)]">
             REVERSE<span className="text-[#FFD600]">HACK</span><span className="text-[#FF6B35] cursor-blink">!</span>
           </h1>
-          <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.4em] text-[#6E6E6E]">DEP-CYS · NIGHT OPS · v2026.0</p>
+          <p className="mt-2 font-mono text-[11px] tracking-[0.3em] text-[#6E6E6E]">REVERSE HACKATHON 2026 · v2026.0</p>
         </div>
 
         <div className="border border-[#262626] bg-[#111111] p-6 md:p-8">
