@@ -138,7 +138,9 @@ export default function Admin() {
   // --- 5:00 live-show clock (server-authoritative) ---
   const timer = (registrationId) => timers[registrationId] || { status: 'idle', remainingMs: 5 * 60 * 1000 };
   const clockLabel = (t) => {
-    const ms = t.status === 'running' ? (t.remainingMs ?? 0) : t.remainingMs ?? 5 * 60 * 1000;
+    const ms = t.status === 'running'
+      ? Math.max(0, (t.remainingMs ?? 0) - (Date.now() - (t.startedAt || Date.now())))
+      : (t.remainingMs ?? 5 * 60 * 1000);
     const m = String(Math.floor(ms / 60000)).padStart(2, '0');
     const s = String(Math.floor((ms % 60000) / 1000)).padStart(2, '0');
     return `${m}:${s}`;
@@ -164,7 +166,7 @@ export default function Admin() {
           }
           const elapsed = Date.now() - (t.startedAt || Date.now());
           const remaining = Math.max(0, (t.remainingMs ?? 0) - elapsed);
-          next[rid] = { ...t, remainingMs: remaining, status: remaining <= 0 ? 'paused' : t.status };
+          next[rid] = remaining <= 0 ? { ...t, status: 'paused', remainingMs: 0, startedAt: null } : t;
         }
         return next;
       });
