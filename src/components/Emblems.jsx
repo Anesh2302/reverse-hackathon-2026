@@ -1,7 +1,7 @@
 // Original vector emblems for the three takeover characters.
 // Swap any emblem for a real <img> by replacing the SVG branch — everything
 // else (faction colours, animation, sizing) stays wired to the same props.
-export function SpiderEmblem({ color = '#C75C35', accent = '#8A4A28', ink = '#101A30', className = '' }) {
+export function SpiderEmblem({ color = '#DA2B36', accent = '#1A56DB', ink = '#0E2448', className = '' }) {
   return (
     <svg viewBox="0 0 120 120" className={className} aria-hidden="true">
       {/* web threads */}
@@ -32,7 +32,7 @@ export function SpiderEmblem({ color = '#C75C35', accent = '#8A4A28', ink = '#10
   );
 }
 
-export function ReactorEmblem({ color = '#C75C35', accent = '#C75C35', ink = '#101A30', className = '' }) {
+export function ReactorEmblem({ color = '#DA2B36', accent = '#DA2B36', ink = '#0E2448', className = '' }) {
   return (
     <svg viewBox="0 0 120 120" className={className} aria-hidden="true">
       {/* energy arcs */}
@@ -65,7 +65,7 @@ export function ReactorEmblem({ color = '#C75C35', accent = '#C75C35', ink = '#1
   );
 }
 
-export function ShieldEmblem({ color = '#F2B705', accent = '#D9261E', ink = '#120203', className = '' }) {
+export function ShieldEmblem({ color = '#EEC470', accent = '#DA2B36', ink = '#0E2448', className = '' }) {
   return (
     <svg viewBox="0 0 120 120" className={className} aria-hidden="true">
       {/* offset back-shield for motion */}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Reveal from './Reveal';
 
 const FAQS = [
   {
@@ -36,7 +37,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="faq" className="relative py-24 md:py-32 px-5 bg-[#060606]">
+    <section id="faq" className="relative py-24 md:py-32 px-5 glass-section">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -45,9 +46,9 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-none border border-[#111E34] bg-[#0A0203] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.3em] text-[#1A0A0A] shadow-sm mb-5">[08] // FAQ</div>
-          <h2 className="font-display text-2xl md:text-4xl font-bold uppercase text-[#1A0A0A] leading-tight">
-            FREQUENTLY <span className="text-[#1A0A0A]">ASKED</span>
+          <div className="inline-flex items-center gap-2 rounded-none border border-[#1A3A6E] bg-[#0E2448] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.3em] text-[#DFECF4] shadow-sm mb-5">[08] // FAQ</div>
+          <h2 className="font-display text-2xl md:text-4xl font-bold uppercase text-[#DFECF4] leading-tight">
+            FREQUENTLY <span className="text-[#DFECF4]">ASKED</span>
           </h2>
         </motion.div>
 
@@ -55,30 +56,30 @@ export default function FAQ() {
           {FAQS.map((f, i) => {
             const isOpen = open === i;
             return (
+              <Reveal key={i} delay={i * 0.08}>
               <motion.div
-                key={i}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="group relative overflow-hidden rounded-none border border-[#111E34] bg-[#0A1220] shadow-[0_8px_24px_rgba(0,0,0,0.45)] transition-colors duration-300"
-                style={isOpen ? { borderColor: '#C75C35' } : undefined}
+                className="group relative overflow-hidden rounded-lg glass-card transition-colors duration-300"
+                style={isOpen ? { borderColor: '#DA2B36' } : undefined}
               >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-[#1A0A0A]">0{i + 1}</span>
-                    <span className="font-mono text-sm tracking-wide text-[#1A0A0A]">{f.q}</span>
+                    <span className="font-mono text-xs text-[#DFECF4]">0{i + 1}</span>
+                    <span className="font-mono text-sm tracking-wide text-[#DFECF4]">{f.q}</span>
                   </span>
                   <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-none border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#B01713] text-[#1A0A0A]' : 'border-[#111E34] text-[#7A686B] group-hover:border-[#B01713]/50 group-hover:text-[#1A0A0A]'}`}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-none border text-xs transition-all duration-300 ${isOpen ? 'rotate-45 border-[#DA2B36] text-[#DFECF4]' : 'border-[#1A3A6E] text-[#8CA7CC] group-hover:border-[#DA2B36]/50 group-hover:text-[#DFECF4]'}`}
                   >
                     +
                   </span>
                 </button>
-                <span className="absolute left-0 top-0 h-[2px] w-full bg-[#D9261E] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="absolute left-0 top-0 h-[2px] w-full bg-[#DA2B36] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
@@ -87,11 +88,12 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="px-5 pb-5 pl-12 text-sm leading-relaxed text-[#7A686B]">{f.a}</p>
+                      <p className="px-5 pb-5 pl-12 text-sm leading-relaxed text-[#8CA7CC]">{f.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </motion.div>
+              </Reveal>
             );
           })}
         </div>

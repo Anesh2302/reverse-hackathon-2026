@@ -14,6 +14,10 @@ import FinalCta from './components/FinalCta';
 import Footer from './components/Footer';
 import Admin from './components/Admin';
 import ChatBot from './components/ChatBot';
+import Particles from './components/Particles';
+import CursorGlow from './components/CursorGlow';
+import Stars from './components/Stars';
+import NightGlow from './components/NightGlow';
 
 function useHashRoute() {
   const [hash, setHash] = useState(window.location.hash);
@@ -34,19 +38,33 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#000000] text-[#1A0A0A]">
+    <div className="relative min-h-screen text-[#DFECF4]">
+      <NightGlow />
+      <Stars />
+      <Particles />
+      <CursorGlow />
+      <div className="noise-overlay" />
+
       <AnimatePresence>{booting && <BootLoader key="boot" onDone={() => setBooting(false)} />}</AnimatePresence>
 
       <Navbar />
-      <main>
+      <main className="relative" style={{ zIndex: 10 }}>
         <Hero />
+        <div className="section-divider" />
         <Marquee />
+        <div className="section-divider" />
         <Stats />
+        <div className="section-divider" />
         <About />
+        <div className="section-divider" />
         <HowItWorks />
+        <div className="section-divider" />
         <Domains />
+        <div className="section-divider" />
         <Registration />
+        <div className="section-divider" />
         <FAQ />
+        <div className="section-divider" />
         <FinalCta />
       </main>
       <Footer />

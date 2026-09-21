@@ -94,41 +94,41 @@ export default function ChatBot() {
   return (
     <div className="fixed bottom-5 right-5 z-[80] flex flex-col items-end gap-3">
       {open && (
-        <div className="flex h-[28rem] w-[min(92vw,21rem)] flex-col overflow-hidden rounded-2xl border border-[#472020] bg-[#080808]/95 text-[#1A0A0A] shadow-2xl backdrop-blur">
-          <div className="flex items-center justify-between border-b border-[#472020] bg-[#0A0203] px-4 py-3">
+        <div className="flex h-[28rem] w-[min(92vw,21rem)] flex-col overflow-hidden rounded-2xl border border-[#1A3A6E] bg-[#061228]/95 text-[#DFECF4] shadow-2xl backdrop-blur-md">
+          <div className="flex items-center justify-between border-b border-[#1A3A6E] bg-[#0E2448] px-4 py-3">
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-[#D9261E] font-display text-sm text-white">R</span>
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-[#DA2B36] font-display text-sm text-white">R</span>
               <div>
                 <p className="font-display text-sm font-bold leading-none">REVERSEBOT</p>
-                <p className="mt-1 font-mono text-[10px] text-[#1C0A0A]">● ONLINE — answers instantly</p>
+                <p className="mt-1 font-mono text-[10px] text-[#DFECF4]">● ONLINE — answers instantly</p>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} aria-label="Close the REVERSEHACKATHLON reg-helper bot" className="text-[#B4C0D8] hover:text-white">✕</button>
+            <button onClick={() => setOpen(false)} aria-label="Close the REVERSEHACKATHLON reg-helper bot" className="text-[#ADC5DE] hover:text-white">✕</button>
           </div>
           <div ref={listRef} className="flex-1 space-y-2 overflow-y-auto px-4 py-3 text-sm">
             {thread.map((m, i) => (
               <div key={i} className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] whitespace-pre-wrap rounded-xl px-3 py-2 ${m.from === 'user' ? 'bg-[#D9261E] text-white' : 'bg-[#111E34] text-[#1A0A0A]'}`}>{m.text}</div>
+                <div className={`max-w-[85%] whitespace-pre-wrap rounded-xl px-3 py-2 ${m.from === 'user' ? 'bg-[#DA2B36] text-white' : 'bg-[#1A3A6E] text-[#DFECF4]'}`}>{m.text}</div>
               </div>
             ))}
-            {busy && <p className="font-mono text-xs text-[#B4C0D8]">typing…</p>}
+            {busy && <p className="font-mono text-xs text-[#ADC5DE]">typing…</p>}
           </div>
-          <form onSubmit={send} className="flex items-center gap-2 border-t border-[#472020] p-3">
+          <form onSubmit={send} className="flex items-center gap-2 border-t border-[#1A3A6E] p-3">
             <input
               value={msg}
               onChange={(e) => setMsg(e.target.value)}
               placeholder="Ask about registration, teams, timer…"
               aria-label="Message the REVERSEHACKATHLON reg-helper bot"
-              className="min-w-0 flex-1 rounded-lg border border-[#472020] bg-[#000000] px-3 py-2 font-mono text-xs text-[#1A0A0A] placeholder:text-[#2A0A0A] focus:outline-none"
+              className="min-w-0 flex-1 rounded-lg border border-[#1A3A6E] bg-[#0B1D3A] px-3 py-2 font-mono text-xs text-[#DFECF4] placeholder:text-[#4A6A94] focus:outline-none"
             />
-            <button type="submit" disabled={busy || !msg.trim()} className="rounded-lg bg-[#D9261E] px-3 py-2 font-mono text-xs text-white disabled:opacity-40">SEND</button>
+            <button type="submit" disabled={busy || !msg.trim()} className="rounded-lg bg-[#DA2B36] px-3 py-2 font-mono text-xs text-white disabled:opacity-40">SEND</button>
           </form>
         </div>
       )}
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? 'Close the REVERSEHACKATHLON helper bot' : 'Open the REVERSEHACKATHLON reg-helper bot'}
-        className="grid h-14 w-14 place-items-center rounded-full border border-[#C98905]/50 bg-[#D9261E] text-2xl text-white shadow-[0_8px_30px_rgba(217,64,21,0.35)] hover:scale-105 transition-transform"
+        className="grid h-14 w-14 place-items-center rounded-full border border-[#C9981E]/50 bg-[#DA2B36] text-2xl text-white shadow-[0_8px_30px_rgba(26,86,219,0.35)] hover:scale-105 transition-transform"
       >
         {open ? '✕' : '💬'}
       </button>

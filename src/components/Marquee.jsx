@@ -18,19 +18,19 @@ const BRANDS = [
 
 export default function Marquee() {
   return (
-    <div className="relative border-y border-[#111E34] bg-[#0A0203] py-4 overflow-hidden">
+    <div className="relative border-y border-[#1A3A6E] bg-[#0E2448] py-4 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-[0.05]" />
       <div className="relative z-10 flex overflow-hidden">
         <div className="marquee-track flex shrink-0 items-center whitespace-nowrap font-mono text-xs uppercase tracking-[0.22em]">
           {[...Array(3)].map((_, dup) => (
             <span key={dup} className="flex shrink-0 items-center" aria-hidden={dup > 0}>
               {BRANDS.map((b, i) => (
-                <span key={b.name} className="mx-7 flex items-center gap-7 text-[#1A0A0A]">
-                  <span className="text-[#1A0A0A]">{21 + Math.floor(i / 3)}:{String((i * 13) % 60).padStart(2, '0')}</span>
-                  <span className="text-[#1C0A0A]">▣</span>
+                <span key={b.name} className="mx-7 flex items-center gap-7 text-[#DFECF4]">
+                  <span className="text-[#DFECF4]">{21 + Math.floor(i / 3)}:{String((i * 13) % 60).padStart(2, '0')}</span>
+                  <span className="text-[#DFECF4]">▣</span>
                   <span>edge:{String(b.node).padStart(2, '0')} · {b.name.toLowerCase().replace(/[^a-z0-9]+/g, '_')}</span>
-                  <span className="text-[#4A3D3F]">{b.ms} </span>
-                  <span className="text-[#1A0A0A]">·</span>
+                  <span className="text-[#5A6A8A]">{b.ms} </span>
+                  <span className="text-[#DFECF4]">·</span>
                 </span>
               ))}
             </span>
