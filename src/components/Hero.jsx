@@ -4,6 +4,8 @@ import { EVENT, DOMAINS, FACTIONS, factionOf } from '../data/domains';
 import { FactionEmblem } from './Emblems';
 import CapShield from './CapShield';
 import TextScramble from './TextScramble';
+import ArtImage from './ArtImage';
+import { ART } from '../data/art';
 
 const PAD = (n) => String(n).padStart(2, '0');
 
@@ -91,6 +93,18 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#061228]">
+      {/* Key art backdrop — hidden until /art/hero-key-16x9.webp exists */}
+      <div className="pointer-events-none absolute inset-0">
+        <ArtImage
+          src={ART.heroKey.src}
+          alt={ART.heroKey.alt}
+          eager
+          opacity={0.45}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061228]/70 via-[#061228]/55 to-[#061228]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061228]/80 via-transparent to-[#061228]/60" />
+      </div>
       {/* Ambient glow orbs */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(26,86,219,0.12)_0%,transparent_70%)] blur-3xl" />

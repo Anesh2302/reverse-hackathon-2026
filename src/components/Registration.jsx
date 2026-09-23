@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DOMAINS } from '../data/domains';
+import { ART } from '../data/art';
+import ArtImage from './ArtImage';
 import { registerParticipant } from '../utils/api';
 import Reveal from './Reveal';
 
@@ -97,6 +99,8 @@ export default function Registration() {
         </Reveal>
 
         <div className="relative overflow-hidden rounded-xl glass-card p-6 md:p-10">
+          <ArtImage src={ART.registerBg.src} alt={ART.registerBg.alt} opacity={0.22} className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061228]/60 via-transparent to-[#061228]/80" />
           <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(circle at 20% 0%, rgba(26,86,219,0.04) 0%, transparent 60%)' }} />
 
           <AnimatePresence mode="wait">

@@ -4,9 +4,12 @@ import { motion } from 'framer-motion';
 const LINKS = [
   { label: 'Stats', href: '#stats', code: '01' },
   { label: 'About', href: '#about', code: '02' },
-  { label: 'How It Works', href: '#how', code: '03' },
-  { label: 'Domains', href: '#domains', code: '04' },
-  { label: 'FAQ', href: '#faq', code: '05' },
+  { label: 'Faceoff', href: '#faceoff', code: '03' },
+  { label: 'Factions', href: '#factions', code: '04' },
+  { label: 'How It Works', href: '#how', code: '05' },
+  { label: 'Domains', href: '#domains', code: '06' },
+  { label: 'Timeline', href: '#timeline', code: '07' },
+  { label: 'FAQ', href: '#faq', code: '08' },
 ];
 
 export default function Navbar() {

@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import Reveal from './Reveal';
 import TiltCard from './TiltCard';
 import { DOMAINS, DOMAIN_PHASES, factionOf } from '../data/domains';
+import { DOMAIN_ART } from '../data/art';
+import ArtImage from './ArtImage';
 import { FactionEmblem } from './Emblems';
 
 const PADS = (i) => String(i + 1).padStart(2, '0');
@@ -59,7 +61,14 @@ export default function Domains() {
             >
               {/* Steam-style cover */}
               <span className="absolute left-0 top-0 z-10 h-full w-[2px] bg-[#DA2B36] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="relative h-28 overflow-hidden border-b border-[#1A3A6E]" style={{ background: `linear-gradient(135deg, ${WARM[d.color]}3d 0%, ${WARM[d.color]}14 55%, transparent 100%)` }}>
+              <div className="relative h-40 overflow-hidden border-b border-[#1A3A6E]" style={{ background: `linear-gradient(135deg, ${WARM[d.color]}3d 0%, ${WARM[d.color]}14 55%, transparent 100%)` }}>
+                <ArtImage
+                  src={DOMAIN_ART[d.id]}
+                  alt={`${d.title} comic art`}
+                  opacity={0.85}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061228] via-transparent to-transparent" />
                 <div
                   className="absolute inset-0 opacity-[0.12] transition-opacity duration-300 group-hover:opacity-30"
                   style={{ backgroundImage: `linear-gradient(135deg, ${WARM[d.color]} 0%, transparent 70%)` }}

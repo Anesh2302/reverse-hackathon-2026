@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import ArtImage from './ArtImage';
+import { ART } from '../data/art';
 
 const PILLARS = [
   { code: '01', icon: '🔍', title: 'Reverse', desc: 'Decompile, decrypt, deconstruct. Understand what machines really do behind the screen.', color: '#DA2B36', glow: '#DA2B3640' },
@@ -16,6 +18,11 @@ const ELIGIBLE = [
 export default function About() {
   return (
     <section id="about" className="relative py-24 md:py-32 px-5 glass-section overflow-hidden">
+      {/* Command-center wide art — hidden until generated */}
+      <div className="pointer-events-none absolute inset-0">
+        <ArtImage src={ART.aboutBg.src} alt={ART.aboutBg.alt} opacity={0.28} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040D1F] via-transparent to-[#040D1F]" />
+      </div>
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(218,43,54,0.06)_0%,transparent_70%)]" />

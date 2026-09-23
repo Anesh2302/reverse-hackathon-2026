@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { EVENT } from '../data/domains';
 import Reveal from './Reveal';
 import CapShield from './CapShield';
+import ArtImage from './ArtImage';
+import { ART } from '../data/art';
 
 export default function FinalCta() {
   return (
@@ -15,6 +17,8 @@ export default function FinalCta() {
       <Reveal>
         <div className="mx-auto max-w-5xl relative z-10">
           <div className="relative overflow-hidden rounded-xl glass-card px-8 py-16 md:py-24 text-center">
+            <ArtImage src={ART.finaleBg.src} alt={ART.finaleBg.alt} opacity={0.35} className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#061228]/70 via-[#061228]/40 to-[#061228]/85" />
             {/* Background shield watermark */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06] pointer-events-none">
               <CapShield size={500} glow={false} interactive={false} />

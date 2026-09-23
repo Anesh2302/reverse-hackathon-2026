@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import ArtImage from './ArtImage';
+import { ART } from '../data/art';
 import {
   adminLogin,
   adminLogout,
@@ -179,8 +181,13 @@ export default function Admin() {
   // --- login screen ---
   if (!session) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-5">
-        <div className="w-full max-w-sm">
+      <div className="relative min-h-screen flex items-center justify-center px-5 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0">
+          <ArtImage src={ART.solarPortrait.src} alt="Identity verification backdrop" opacity={0.14} className="absolute left-0 top-0 h-full w-1/3 object-cover" />
+          <ArtImage src={ART.reactorPortrait.src} alt="" opacity={0.14} className="absolute right-0 top-0 h-full w-1/3 object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1D3A]/60 via-[#0B1D3A]/80 to-[#0B1D3A]" />
+        </div>
+        <div className="relative z-10 w-full max-w-sm">
           {error && (
             <div className="mb-5 border border-[#DA2B36]/50 bg-[#DA2B36]/10 px-4 py-3 font-mono text-xs text-[#DFECF4]">
               ✕ {error}
@@ -211,8 +218,12 @@ export default function Admin() {
     );
   }
   return (
-    <div className="min-h-screen bg-[#0B1D3A] px-5 py-20">
-      <div className="mx-auto max-w-7xl">
+    <div className="relative min-h-screen bg-[#0B1D3A] px-5 py-20 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0">
+        <ArtImage src={ART.dashboardBg.src} alt="Watchtower control backdrop" opacity={0.18} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1D3A]/70 via-[#0B1D3A]/85 to-[#0B1D3A]" />
+      </div>
+      <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <div className="comic-chip border border-[#DA2B36]/60 px-3 py-1 text-[10px] text-[#DFECF4] mb-4">&lt;ADMIN.CONSOLE /&gt;</div>

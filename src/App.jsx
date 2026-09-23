@@ -6,13 +6,17 @@ import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import Stats from './components/Stats';
 import About from './components/About';
+import Faceoff from './components/Faceoff';
+import Factions from './components/Factions';
 import HowItWorks from './components/HowItWorks';
+import EventTimeline from './components/EventTimeline';
 import Domains from './components/Domains';
 import Registration from './components/Registration';
 import FAQ from './components/FAQ';
 import FinalCta from './components/FinalCta';
 import Footer from './components/Footer';
 import Admin from './components/Admin';
+import ErrorState from './components/ErrorState';
 import ChatBot from './components/ChatBot';
 import Particles from './components/Particles';
 import CursorGlow from './components/CursorGlow';
@@ -37,6 +41,10 @@ export default function App() {
     return <Admin />;
   }
 
+  if (hash.startsWith('#/')) {
+    return <ErrorState kind={404} />;
+  }
+
   return (
     <div className="relative min-h-screen text-[#DFECF4]">
       <NightGlow />
@@ -57,7 +65,13 @@ export default function App() {
         <div className="section-divider" />
         <About />
         <div className="section-divider" />
+        <Faceoff />
+        <div className="section-divider" />
+        <Factions />
+        <div className="section-divider" />
         <HowItWorks />
+        <div className="section-divider" />
+        <EventTimeline />
         <div className="section-divider" />
         <Domains />
         <div className="section-divider" />

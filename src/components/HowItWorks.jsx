@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import ArtImage from './ArtImage';
+import { ART } from '../data/art';
 
 const FEATURES = [
   {
@@ -47,6 +49,11 @@ pod.note // "signed at the gate"`;
 export default function HowItWorks() {
   return (
     <section id="how" className="relative py-24 md:py-32 px-5 glass-section overflow-hidden">
+      {/* Training-grounds art — hidden until generated */}
+      <div className="pointer-events-none absolute inset-0">
+        <ArtImage src={ART.trainingBg.src} alt={ART.trainingBg.alt} opacity={0.25} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040D1F] via-transparent to-[#040D1F]" />
+      </div>
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(26,86,219,0.06)_0%,transparent_70%)]" />
